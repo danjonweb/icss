@@ -19,6 +19,116 @@
 		0552C431195DF91A006AE004 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0552C40D195DF91A006AE004 /* Cocoa.framework */; };
 		0552C439195DF91A006AE004 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0552C437195DF91A006AE004 /* InfoPlist.strings */; };
 		0552C43B195DF91A006AE004 /* iCSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C43A195DF91A006AE004 /* iCSSTests.m */; };
+		0552C448195DF966006AE004 /* BorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C446195DF966006AE004 /* BorderViewController.m */; };
+		0552C449195DF966006AE004 /* BorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0552C447195DF966006AE004 /* BorderViewController.xib */; };
+		0552C493195DF98C006AE004 /* borderGroove.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44A195DF98B006AE004 /* borderGroove.pdf */; };
+		0552C494195DF98C006AE004 /* borderOutset.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44B195DF98B006AE004 /* borderOutset.pdf */; };
+		0552C495195DF98C006AE004 /* borderDouble.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44C195DF98B006AE004 /* borderDouble.pdf */; };
+		0552C496195DF98C006AE004 /* borderSolid.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44D195DF98B006AE004 /* borderSolid.pdf */; };
+		0552C497195DF98C006AE004 /* borderInset.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44E195DF98B006AE004 /* borderInset.pdf */; };
+		0552C498195DF98C006AE004 /* borderHidden.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C44F195DF98B006AE004 /* borderHidden.pdf */; };
+		0552C499195DF98C006AE004 /* borderDotted.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C450195DF98B006AE004 /* borderDotted.pdf */; };
+		0552C49A195DF98C006AE004 /* borderDashed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C451195DF98B006AE004 /* borderDashed.pdf */; };
+		0552C49B195DF98C006AE004 /* borderRidge.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C452195DF98B006AE004 /* borderRidge.pdf */; };
+		0552C49C195DF98C006AE004 /* borderNone.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C453195DF98B006AE004 /* borderNone.pdf */; };
+		0552C49D195DF98C006AE004 /* borderAllTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C454195DF98B006AE004 /* borderAllTemplate.pdf */; };
+		0552C49E195DF98C006AE004 /* borderBottomTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C455195DF98B006AE004 /* borderBottomTemplate.pdf */; };
+		0552C49F195DF98C006AE004 /* borderLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C456195DF98B006AE004 /* borderLeftTemplate.pdf */; };
+		0552C4A0195DF98C006AE004 /* borderRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C457195DF98B006AE004 /* borderRightTemplate.pdf */; };
+		0552C4A1195DF98C006AE004 /* borderTopTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C458195DF98B006AE004 /* borderTopTemplate.pdf */; };
+		0552C4A2195DF98C006AE004 /* positionBottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C459195DF98B006AE004 /* positionBottom.pdf */; };
+		0552C4A3195DF98C006AE004 /* positionLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45A195DF98B006AE004 /* positionLeft.pdf */; };
+		0552C4A4195DF98C006AE004 /* positionRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45B195DF98B006AE004 /* positionRight.pdf */; };
+		0552C4A5195DF98C006AE004 /* positionTop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45C195DF98B006AE004 /* positionTop.pdf */; };
+		0552C4A6195DF98C006AE004 /* clearBothTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45D195DF98B006AE004 /* clearBothTemplate.pdf */; };
+		0552C4A7195DF98C006AE004 /* clearLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45E195DF98B006AE004 /* clearLeftTemplate.pdf */; };
+		0552C4A8195DF98C006AE004 /* clearRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C45F195DF98B006AE004 /* clearRightTemplate.pdf */; };
+		0552C4A9195DF98C006AE004 /* floatLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C460195DF98B006AE004 /* floatLeftTemplate.pdf */; };
+		0552C4AA195DF98C006AE004 /* floatRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C461195DF98B006AE004 /* floatRightTemplate.pdf */; };
+		0552C4AB195DF98C006AE004 /* marginAll.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C462195DF98B006AE004 /* marginAll.pdf */; };
+		0552C4AC195DF98C006AE004 /* marginBottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C463195DF98B006AE004 /* marginBottom.pdf */; };
+		0552C4AD195DF98C006AE004 /* marginLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C464195DF98B006AE004 /* marginLeft.pdf */; };
+		0552C4AE195DF98C006AE004 /* marginRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C465195DF98B006AE004 /* marginRight.pdf */; };
+		0552C4AF195DF98C006AE004 /* marginTop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C466195DF98B006AE004 /* marginTop.pdf */; };
+		0552C4B0195DF98C006AE004 /* paddingAll.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C467195DF98B006AE004 /* paddingAll.pdf */; };
+		0552C4B1195DF98C006AE004 /* paddingBottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C468195DF98B006AE004 /* paddingBottom.pdf */; };
+		0552C4B2195DF98C006AE004 /* paddingLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C469195DF98B006AE004 /* paddingLeft.pdf */; };
+		0552C4B3195DF98C006AE004 /* paddingRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46A195DF98B006AE004 /* paddingRight.pdf */; };
+		0552C4B4195DF98C006AE004 /* paddingTop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46B195DF98B006AE004 /* paddingTop.pdf */; };
+		0552C4B5195DF98C006AE004 /* zDownTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46C195DF98B006AE004 /* zDownTemplate.pdf */; };
+		0552C4B6195DF98C006AE004 /* zUpTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46D195DF98B006AE004 /* zUpTemplate.pdf */; };
+		0552C4B7195DF98C006AE004 /* arrowLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46E195DF98B006AE004 /* arrowLeftTemplate.pdf */; };
+		0552C4B8195DF98C006AE004 /* arrowRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C46F195DF98B006AE004 /* arrowRightTemplate.pdf */; };
+		0552C4B9195DF98C006AE004 /* arrowUpTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C470195DF98B006AE004 /* arrowUpTemplate.pdf */; };
+		0552C4BA195DF98C006AE004 /* arrowDownTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C471195DF98B006AE004 /* arrowDownTemplate.pdf */; };
+		0552C4BB195DF98C006AE004 /* arrowLeftBottomTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C472195DF98B006AE004 /* arrowLeftBottomTemplate.pdf */; };
+		0552C4BC195DF98C006AE004 /* arrowRightBottomTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C473195DF98B006AE004 /* arrowRightBottomTemplate.pdf */; };
+		0552C4BD195DF98C006AE004 /* arrowLeftTopTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C474195DF98B006AE004 /* arrowLeftTopTemplate.pdf */; };
+		0552C4BE195DF98C006AE004 /* arrowRightTopTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C475195DF98B006AE004 /* arrowRightTopTemplate.pdf */; };
+		0552C4BF195DF98C006AE004 /* repeatTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C476195DF98B006AE004 /* repeatTemplate.pdf */; };
+		0552C4C0195DF98C006AE004 /* repeatYTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C477195DF98B006AE004 /* repeatYTemplate.pdf */; };
+		0552C4C1195DF98C006AE004 /* repeatXTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C478195DF98B006AE004 /* repeatXTemplate.pdf */; };
+		0552C4C2195DF98C006AE004 /* repeatNoTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */; };
+		0552C4C3195DF98C006AE004 /* attScrollTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */; };
+		0552C4C4195DF98C006AE004 /* attFixedTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */; };
+		0552C4C5195DF98C006AE004 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47C195DF98C006AE004 /* picture.png */; };
+		0552C4C6195DF98C006AE004 /* HideStylesPaneTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */; };
+		0552C4C7195DF98C006AE004 /* ShowStylesPaneTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */; };
+		0552C4C8195DF98C006AE004 /* SmallX.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47F195DF98C006AE004 /* SmallX.png */; };
+		0552C4C9195DF98C006AE004 /* fontTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C480195DF98C006AE004 /* fontTemplate.pdf */; };
+		0552C4CA195DF98C006AE004 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C481195DF98C006AE004 /* comment.png */; };
+		0552C4CB195DF98C006AE004 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C482195DF98C006AE004 /* comment@2x.png */; };
+		0552C4CC195DF98C006AE004 /* media.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C483195DF98C006AE004 /* media.png */; };
+		0552C4CD195DF98C006AE004 /* media@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C484195DF98C006AE004 /* media@2x.png */; };
+		0552C4CE195DF98C006AE004 /* charset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C485195DF98C006AE004 /* charset@2x.png */; };
+		0552C4CF195DF98C006AE004 /* charset.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C486195DF98C006AE004 /* charset.png */; };
+		0552C4D0195DF98C006AE004 /* import.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C487195DF98C006AE004 /* import.png */; };
+		0552C4D1195DF98C006AE004 /* import@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C488195DF98C006AE004 /* import@2x.png */; };
+		0552C4D2195DF98C006AE004 /* alignLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C489195DF98C006AE004 /* alignLeftTemplate.pdf */; };
+		0552C4D3195DF98C006AE004 /* alignCenterTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48A195DF98C006AE004 /* alignCenterTemplate.pdf */; };
+		0552C4D4195DF98C006AE004 /* alignRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48B195DF98C006AE004 /* alignRightTemplate.pdf */; };
+		0552C4D5195DF98C006AE004 /* alignTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48C195DF98C006AE004 /* alignTemplate.pdf */; };
+		0552C4D6195DF98C006AE004 /* gradientLinear.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48D195DF98C006AE004 /* gradientLinear.png */; };
+		0552C4D7195DF98C006AE004 /* gradientLinear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48E195DF98C006AE004 /* gradientLinear@2x.png */; };
+		0552C4D8195DF98C006AE004 /* gradientRadial.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C48F195DF98C006AE004 /* gradientRadial.png */; };
+		0552C4D9195DF98C006AE004 /* gradientRadial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C490195DF98C006AE004 /* gradientRadial@2x.png */; };
+		0552C4DA195DF98C006AE004 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C491195DF98C006AE004 /* image.png */; };
+		0552C4DB195DF98C006AE004 /* image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C492195DF98C006AE004 /* image@2x.png */; };
+		0552C4EC195DF9CF006AE004 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4DD195DF9CF006AE004 /* CustomTextView.m */; };
+		0552C4ED195DF9CF006AE004 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4DF195DF9CF006AE004 /* SplitViewController.m */; };
+		0552C4EE195DF9CF006AE004 /* CSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4E1195DF9CF006AE004 /* CSSParser.m */; };
+		0552C4EF195DF9CF006AE004 /* ColorTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4E3195DF9CF006AE004 /* ColorTextFieldCell.m */; };
+		0552C4F0195DF9CF006AE004 /* ColorTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4E5195DF9CF006AE004 /* ColorTextField.m */; };
+		0552C4F1195DF9CF006AE004 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4E7195DF9CF006AE004 /* ImageAndTextCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C4F2195DF9CF006AE004 /* CustomOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4E9195DF9CF006AE004 /* CustomOutlineView.m */; };
+		0552C4F3195DF9CF006AE004 /* SyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4EB195DF9CF006AE004 /* SyntaxHighlighter.m */; };
+		0552C500195DF9D9006AE004 /* NSImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4F5195DF9D9006AE004 /* NSImage+Tint.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C501195DF9D9006AE004 /* NSColor+HTMLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4F7195DF9D9006AE004 /* NSColor+HTMLColors.m */; };
+		0552C502195DF9D9006AE004 /* NSColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4F9195DF9D9006AE004 /* NSColor+Extensions.m */; };
+		0552C503195DF9D9006AE004 /* NSColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4FB195DF9D9006AE004 /* NSColor+iOS7Colors.m */; };
+		0552C504195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4FD195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m */; };
+		0552C505195DF9D9006AE004 /* NSColor+ChessboardColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C4FF195DF9D9006AE004 /* NSColor+ChessboardColor.m */; };
+		0552C50A195DF9FD006AE004 /* ACTGradientEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C509195DF9FD006AE004 /* ACTGradientEditor.m */; };
+		0552C512195DFA04006AE004 /* TBMDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C50C195DFA04006AE004 /* TBMDetailView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C513195DFA04006AE004 /* TBMInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C50E195DFA04006AE004 /* TBMInspectorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C514195DFA04006AE004 /* TBMShowHideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C511195DFA04006AE004 /* TBMShowHideButton.m */; };
+		0552C517195DFA0D006AE004 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C516195DFA0D006AE004 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C51C195DFA14006AE004 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C519195DFA14006AE004 /* NoodleLineNumberMarker.m */; };
+		0552C51D195DFA14006AE004 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C51B195DFA14006AE004 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0552C51F195DFA91006AE004 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0552C51E195DFA91006AE004 /* libicucore.dylib */; };
+		0552C521195DFA9A006AE004 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0552C520195DFA9A006AE004 /* WebKit.framework */; };
+		0552C525195E5328006AE004 /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 0552C523195E5328006AE004 /* test.css */; };
+		0552C526195E5328006AE004 /* colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0552C524195E5328006AE004 /* colors.plist */; };
+		0552C52B195FC0F5006AE004 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C527195FC0F5006AE004 /* delete@2x.png */; };
+		0552C52C195FC0F5006AE004 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C528195FC0F5006AE004 /* delete.png */; };
+		0552C52D195FC0F5006AE004 /* delete-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C529195FC0F5006AE004 /* delete-pressed.png */; };
+		0552C52E195FC0F5006AE004 /* delete-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C52A195FC0F5006AE004 /* delete-pressed@2x.png */; };
+		0552C532195FC277006AE004 /* PositioningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0552C530195FC277006AE004 /* PositioningViewController.m */; };
+		0552C533195FC277006AE004 /* PositioningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0552C531195FC277006AE004 /* PositioningViewController.xib */; };
+		05973D0D195FD0A7005C3D10 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05973D0B195FD0A7005C3D10 /* DimensionsViewController.m */; };
+		05973D0E195FD0A7005C3D10 /* DimensionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05973D0C195FD0A7005C3D10 /* DimensionsViewController.xib */; };
+		05973D1319607605005C3D10 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05973D1119607605005C3D10 /* BackgroundViewController.m */; };
+		05973D1419607605005C3D10 /* BackgroundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05973D1219607605005C3D10 /* BackgroundViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +162,142 @@
 		0552C436195DF91A006AE004 /* iCSSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iCSSTests-Info.plist"; sourceTree = "<group>"; };
 		0552C438195DF91A006AE004 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0552C43A195DF91A006AE004 /* iCSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCSSTests.m; sourceTree = "<group>"; };
+		0552C445195DF966006AE004 /* BorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderViewController.h; sourceTree = "<group>"; };
+		0552C446195DF966006AE004 /* BorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderViewController.m; sourceTree = "<group>"; };
+		0552C447195DF966006AE004 /* BorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BorderViewController.xib; sourceTree = "<group>"; };
+		0552C44A195DF98B006AE004 /* borderGroove.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderGroove.pdf; sourceTree = "<group>"; };
+		0552C44B195DF98B006AE004 /* borderOutset.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderOutset.pdf; sourceTree = "<group>"; };
+		0552C44C195DF98B006AE004 /* borderDouble.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderDouble.pdf; sourceTree = "<group>"; };
+		0552C44D195DF98B006AE004 /* borderSolid.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderSolid.pdf; sourceTree = "<group>"; };
+		0552C44E195DF98B006AE004 /* borderInset.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderInset.pdf; sourceTree = "<group>"; };
+		0552C44F195DF98B006AE004 /* borderHidden.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderHidden.pdf; sourceTree = "<group>"; };
+		0552C450195DF98B006AE004 /* borderDotted.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderDotted.pdf; sourceTree = "<group>"; };
+		0552C451195DF98B006AE004 /* borderDashed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderDashed.pdf; sourceTree = "<group>"; };
+		0552C452195DF98B006AE004 /* borderRidge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderRidge.pdf; sourceTree = "<group>"; };
+		0552C453195DF98B006AE004 /* borderNone.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderNone.pdf; sourceTree = "<group>"; };
+		0552C454195DF98B006AE004 /* borderAllTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderAllTemplate.pdf; sourceTree = "<group>"; };
+		0552C455195DF98B006AE004 /* borderBottomTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderBottomTemplate.pdf; sourceTree = "<group>"; };
+		0552C456195DF98B006AE004 /* borderLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderLeftTemplate.pdf; sourceTree = "<group>"; };
+		0552C457195DF98B006AE004 /* borderRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderRightTemplate.pdf; sourceTree = "<group>"; };
+		0552C458195DF98B006AE004 /* borderTopTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = borderTopTemplate.pdf; sourceTree = "<group>"; };
+		0552C459195DF98B006AE004 /* positionBottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = positionBottom.pdf; sourceTree = "<group>"; };
+		0552C45A195DF98B006AE004 /* positionLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = positionLeft.pdf; sourceTree = "<group>"; };
+		0552C45B195DF98B006AE004 /* positionRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = positionRight.pdf; sourceTree = "<group>"; };
+		0552C45C195DF98B006AE004 /* positionTop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = positionTop.pdf; sourceTree = "<group>"; };
+		0552C45D195DF98B006AE004 /* clearBothTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = clearBothTemplate.pdf; sourceTree = "<group>"; };
+		0552C45E195DF98B006AE004 /* clearLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = clearLeftTemplate.pdf; sourceTree = "<group>"; };
+		0552C45F195DF98B006AE004 /* clearRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = clearRightTemplate.pdf; sourceTree = "<group>"; };
+		0552C460195DF98B006AE004 /* floatLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = floatLeftTemplate.pdf; sourceTree = "<group>"; };
+		0552C461195DF98B006AE004 /* floatRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = floatRightTemplate.pdf; sourceTree = "<group>"; };
+		0552C462195DF98B006AE004 /* marginAll.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marginAll.pdf; sourceTree = "<group>"; };
+		0552C463195DF98B006AE004 /* marginBottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marginBottom.pdf; sourceTree = "<group>"; };
+		0552C464195DF98B006AE004 /* marginLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marginLeft.pdf; sourceTree = "<group>"; };
+		0552C465195DF98B006AE004 /* marginRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marginRight.pdf; sourceTree = "<group>"; };
+		0552C466195DF98B006AE004 /* marginTop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marginTop.pdf; sourceTree = "<group>"; };
+		0552C467195DF98B006AE004 /* paddingAll.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = paddingAll.pdf; sourceTree = "<group>"; };
+		0552C468195DF98B006AE004 /* paddingBottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = paddingBottom.pdf; sourceTree = "<group>"; };
+		0552C469195DF98B006AE004 /* paddingLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = paddingLeft.pdf; sourceTree = "<group>"; };
+		0552C46A195DF98B006AE004 /* paddingRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = paddingRight.pdf; sourceTree = "<group>"; };
+		0552C46B195DF98B006AE004 /* paddingTop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = paddingTop.pdf; sourceTree = "<group>"; };
+		0552C46C195DF98B006AE004 /* zDownTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zDownTemplate.pdf; sourceTree = "<group>"; };
+		0552C46D195DF98B006AE004 /* zUpTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zUpTemplate.pdf; sourceTree = "<group>"; };
+		0552C46E195DF98B006AE004 /* arrowLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowLeftTemplate.pdf; sourceTree = "<group>"; };
+		0552C46F195DF98B006AE004 /* arrowRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowRightTemplate.pdf; sourceTree = "<group>"; };
+		0552C470195DF98B006AE004 /* arrowUpTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowUpTemplate.pdf; sourceTree = "<group>"; };
+		0552C471195DF98B006AE004 /* arrowDownTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowDownTemplate.pdf; sourceTree = "<group>"; };
+		0552C472195DF98B006AE004 /* arrowLeftBottomTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowLeftBottomTemplate.pdf; sourceTree = "<group>"; };
+		0552C473195DF98B006AE004 /* arrowRightBottomTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowRightBottomTemplate.pdf; sourceTree = "<group>"; };
+		0552C474195DF98B006AE004 /* arrowLeftTopTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowLeftTopTemplate.pdf; sourceTree = "<group>"; };
+		0552C475195DF98B006AE004 /* arrowRightTopTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arrowRightTopTemplate.pdf; sourceTree = "<group>"; };
+		0552C476195DF98B006AE004 /* repeatTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = repeatTemplate.pdf; sourceTree = "<group>"; };
+		0552C477195DF98B006AE004 /* repeatYTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = repeatYTemplate.pdf; sourceTree = "<group>"; };
+		0552C478195DF98B006AE004 /* repeatXTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = repeatXTemplate.pdf; sourceTree = "<group>"; };
+		0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = repeatNoTemplate.pdf; sourceTree = "<group>"; };
+		0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = attScrollTemplate.pdf; sourceTree = "<group>"; };
+		0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = attFixedTemplate.pdf; sourceTree = "<group>"; };
+		0552C47C195DF98C006AE004 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HideStylesPaneTemplate.png; sourceTree = "<group>"; };
+		0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowStylesPaneTemplate.png; sourceTree = "<group>"; };
+		0552C47F195DF98C006AE004 /* SmallX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallX.png; sourceTree = "<group>"; };
+		0552C480195DF98C006AE004 /* fontTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fontTemplate.pdf; sourceTree = "<group>"; };
+		0552C481195DF98C006AE004 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
+		0552C482195DF98C006AE004 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
+		0552C483195DF98C006AE004 /* media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = media.png; sourceTree = "<group>"; };
+		0552C484195DF98C006AE004 /* media@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media@2x.png"; sourceTree = "<group>"; };
+		0552C485195DF98C006AE004 /* charset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "charset@2x.png"; sourceTree = "<group>"; };
+		0552C486195DF98C006AE004 /* charset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charset.png; sourceTree = "<group>"; };
+		0552C487195DF98C006AE004 /* import.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = import.png; sourceTree = "<group>"; };
+		0552C488195DF98C006AE004 /* import@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "import@2x.png"; sourceTree = "<group>"; };
+		0552C489195DF98C006AE004 /* alignLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = alignLeftTemplate.pdf; sourceTree = "<group>"; };
+		0552C48A195DF98C006AE004 /* alignCenterTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = alignCenterTemplate.pdf; sourceTree = "<group>"; };
+		0552C48B195DF98C006AE004 /* alignRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = alignRightTemplate.pdf; sourceTree = "<group>"; };
+		0552C48C195DF98C006AE004 /* alignTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = alignTemplate.pdf; sourceTree = "<group>"; };
+		0552C48D195DF98C006AE004 /* gradientLinear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientLinear.png; sourceTree = "<group>"; };
+		0552C48E195DF98C006AE004 /* gradientLinear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradientLinear@2x.png"; sourceTree = "<group>"; };
+		0552C48F195DF98C006AE004 /* gradientRadial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientRadial.png; sourceTree = "<group>"; };
+		0552C490195DF98C006AE004 /* gradientRadial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradientRadial@2x.png"; sourceTree = "<group>"; };
+		0552C491195DF98C006AE004 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		0552C492195DF98C006AE004 /* image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image@2x.png"; sourceTree = "<group>"; };
+		0552C4DC195DF9CF006AE004 /* CustomTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextView.h; sourceTree = "<group>"; };
+		0552C4DD195DF9CF006AE004 /* CustomTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextView.m; sourceTree = "<group>"; };
+		0552C4DE195DF9CF006AE004 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
+		0552C4DF195DF9CF006AE004 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
+		0552C4E0195DF9CF006AE004 /* CSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSParser.h; sourceTree = "<group>"; };
+		0552C4E1195DF9CF006AE004 /* CSSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSParser.m; sourceTree = "<group>"; };
+		0552C4E2195DF9CF006AE004 /* ColorTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTextFieldCell.h; sourceTree = "<group>"; };
+		0552C4E3195DF9CF006AE004 /* ColorTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTextFieldCell.m; sourceTree = "<group>"; };
+		0552C4E4195DF9CF006AE004 /* ColorTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTextField.h; sourceTree = "<group>"; };
+		0552C4E5195DF9CF006AE004 /* ColorTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTextField.m; sourceTree = "<group>"; };
+		0552C4E6195DF9CF006AE004 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		0552C4E7195DF9CF006AE004 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		0552C4E8195DF9CF006AE004 /* CustomOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOutlineView.h; sourceTree = "<group>"; };
+		0552C4E9195DF9CF006AE004 /* CustomOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOutlineView.m; sourceTree = "<group>"; };
+		0552C4EA195DF9CF006AE004 /* SyntaxHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxHighlighter.h; sourceTree = "<group>"; };
+		0552C4EB195DF9CF006AE004 /* SyntaxHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxHighlighter.m; sourceTree = "<group>"; };
+		0552C4F4195DF9D9006AE004 /* NSImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Tint.h"; sourceTree = "<group>"; };
+		0552C4F5195DF9D9006AE004 /* NSImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Tint.m"; sourceTree = "<group>"; };
+		0552C4F6195DF9D9006AE004 /* NSColor+HTMLColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+HTMLColors.h"; sourceTree = "<group>"; };
+		0552C4F7195DF9D9006AE004 /* NSColor+HTMLColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+HTMLColors.m"; sourceTree = "<group>"; };
+		0552C4F8195DF9D9006AE004 /* NSColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Extensions.h"; sourceTree = "<group>"; };
+		0552C4F9195DF9D9006AE004 /* NSColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Extensions.m"; sourceTree = "<group>"; };
+		0552C4FA195DF9D9006AE004 /* NSColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+iOS7Colors.h"; sourceTree = "<group>"; };
+		0552C4FB195DF9D9006AE004 /* NSColor+iOS7Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+iOS7Colors.m"; sourceTree = "<group>"; };
+		0552C4FC195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+StrokeExtensions.h"; sourceTree = "<group>"; };
+		0552C4FD195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+StrokeExtensions.m"; sourceTree = "<group>"; };
+		0552C4FE195DF9D9006AE004 /* NSColor+ChessboardColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ChessboardColor.h"; sourceTree = "<group>"; };
+		0552C4FF195DF9D9006AE004 /* NSColor+ChessboardColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ChessboardColor.m"; sourceTree = "<group>"; };
+		0552C508195DF9FD006AE004 /* ACTGradientEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTGradientEditor.h; sourceTree = "<group>"; };
+		0552C509195DF9FD006AE004 /* ACTGradientEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTGradientEditor.m; sourceTree = "<group>"; };
+		0552C50B195DFA04006AE004 /* TBMDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDetailView.h; sourceTree = "<group>"; };
+		0552C50C195DFA04006AE004 /* TBMDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDetailView.m; sourceTree = "<group>"; };
+		0552C50D195DFA04006AE004 /* TBMInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMInspectorView.h; sourceTree = "<group>"; };
+		0552C50E195DFA04006AE004 /* TBMInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMInspectorView.m; sourceTree = "<group>"; };
+		0552C50F195DFA04006AE004 /* TBMInspectorView_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMInspectorView_Internal.h; sourceTree = "<group>"; };
+		0552C510195DFA04006AE004 /* TBMShowHideButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMShowHideButton.h; sourceTree = "<group>"; };
+		0552C511195DFA04006AE004 /* TBMShowHideButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMShowHideButton.m; sourceTree = "<group>"; };
+		0552C515195DFA0D006AE004 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		0552C516195DFA0D006AE004 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		0552C518195DFA14006AE004 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		0552C519195DFA14006AE004 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		0552C51A195DFA14006AE004 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
+		0552C51B195DFA14006AE004 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
+		0552C51E195DFA91006AE004 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0552C520195DFA9A006AE004 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0552C523195E5328006AE004 /* test.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = test.css; sourceTree = "<group>"; };
+		0552C524195E5328006AE004 /* colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colors.plist; sourceTree = "<group>"; };
+		0552C527195FC0F5006AE004 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		0552C528195FC0F5006AE004 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		0552C529195FC0F5006AE004 /* delete-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-pressed.png"; sourceTree = "<group>"; };
+		0552C52A195FC0F5006AE004 /* delete-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-pressed@2x.png"; sourceTree = "<group>"; };
+		0552C52F195FC277006AE004 /* PositioningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningViewController.h; sourceTree = "<group>"; };
+		0552C530195FC277006AE004 /* PositioningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningViewController.m; sourceTree = "<group>"; };
+		0552C531195FC277006AE004 /* PositioningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositioningViewController.xib; sourceTree = "<group>"; };
+		05973D0A195FD0A7005C3D10 /* DimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionsViewController.h; sourceTree = "<group>"; };
+		05973D0B195FD0A7005C3D10 /* DimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionsViewController.m; sourceTree = "<group>"; };
+		05973D0C195FD0A7005C3D10 /* DimensionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DimensionsViewController.xib; sourceTree = "<group>"; };
+		05973D1019607605005C3D10 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
+		05973D1119607605005C3D10 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
+		05973D1219607605005C3D10 /* BackgroundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +305,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0552C521195DFA9A006AE004 /* WebKit.framework in Frameworks */,
+				0552C51F195DFA91006AE004 /* libicucore.dylib in Frameworks */,
 				0552C40E195DF91A006AE004 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +345,8 @@
 		0552C40C195DF91A006AE004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0552C520195DFA9A006AE004 /* WebKit.framework */,
+				0552C51E195DFA91006AE004 /* libicucore.dylib */,
 				0552C40D195DF91A006AE004 /* Cocoa.framework */,
 				0552C42F195DF91A006AE004 /* XCTest.framework */,
 				0552C40F195DF91A006AE004 /* Other Frameworks */,
@@ -117,11 +367,33 @@
 		0552C413195DF91A006AE004 /* iCSS */ = {
 			isa = PBXGroup;
 			children = (
+				0552C507195DF9E5006AE004 /* External */,
+				0552C506195DF9DE006AE004 /* Categories */,
 				0552C41F195DF91A006AE004 /* Document.h */,
 				0552C420195DF91A006AE004 /* Document.m */,
 				0552C422195DF91A006AE004 /* Document.xib */,
+				0552C535195FC32F006AE004 /* View Controllers */,
+				0552C4DC195DF9CF006AE004 /* CustomTextView.h */,
+				0552C4DD195DF9CF006AE004 /* CustomTextView.m */,
+				0552C4DE195DF9CF006AE004 /* SplitViewController.h */,
+				0552C4DF195DF9CF006AE004 /* SplitViewController.m */,
+				0552C4E0195DF9CF006AE004 /* CSSParser.h */,
+				0552C4E1195DF9CF006AE004 /* CSSParser.m */,
+				0552C4E2195DF9CF006AE004 /* ColorTextFieldCell.h */,
+				0552C4E3195DF9CF006AE004 /* ColorTextFieldCell.m */,
+				0552C4E4195DF9CF006AE004 /* ColorTextField.h */,
+				0552C4E5195DF9CF006AE004 /* ColorTextField.m */,
+				0552C4E6195DF9CF006AE004 /* ImageAndTextCell.h */,
+				0552C4E7195DF9CF006AE004 /* ImageAndTextCell.m */,
+				0552C4E8195DF9CF006AE004 /* CustomOutlineView.h */,
+				0552C4E9195DF9CF006AE004 /* CustomOutlineView.m */,
+				0552C4EA195DF9CF006AE004 /* SyntaxHighlighter.h */,
+				0552C4EB195DF9CF006AE004 /* SyntaxHighlighter.m */,
 				0552C425195DF91A006AE004 /* MainMenu.xib */,
+				0552C523195E5328006AE004 /* test.css */,
+				0552C524195E5328006AE004 /* colors.plist */,
 				0552C428195DF91A006AE004 /* Images.xcassets */,
+				0552C522195E5182006AE004 /* images */,
 				0552C414195DF91A006AE004 /* Supporting Files */,
 			);
 			path = iCSS;
@@ -155,6 +427,182 @@
 				0552C437195DF91A006AE004 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0552C444195DF94F006AE004 /* Border */ = {
+			isa = PBXGroup;
+			children = (
+				0552C445195DF966006AE004 /* BorderViewController.h */,
+				0552C446195DF966006AE004 /* BorderViewController.m */,
+				0552C447195DF966006AE004 /* BorderViewController.xib */,
+			);
+			name = Border;
+			sourceTree = "<group>";
+		};
+		0552C506195DF9DE006AE004 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0552C4F4195DF9D9006AE004 /* NSImage+Tint.h */,
+				0552C4F5195DF9D9006AE004 /* NSImage+Tint.m */,
+				0552C4F6195DF9D9006AE004 /* NSColor+HTMLColors.h */,
+				0552C4F7195DF9D9006AE004 /* NSColor+HTMLColors.m */,
+				0552C4F8195DF9D9006AE004 /* NSColor+Extensions.h */,
+				0552C4F9195DF9D9006AE004 /* NSColor+Extensions.m */,
+				0552C4FA195DF9D9006AE004 /* NSColor+iOS7Colors.h */,
+				0552C4FB195DF9D9006AE004 /* NSColor+iOS7Colors.m */,
+				0552C4FC195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.h */,
+				0552C4FD195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m */,
+				0552C4FE195DF9D9006AE004 /* NSColor+ChessboardColor.h */,
+				0552C4FF195DF9D9006AE004 /* NSColor+ChessboardColor.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		0552C507195DF9E5006AE004 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0552C508195DF9FD006AE004 /* ACTGradientEditor.h */,
+				0552C509195DF9FD006AE004 /* ACTGradientEditor.m */,
+				0552C50B195DFA04006AE004 /* TBMDetailView.h */,
+				0552C50C195DFA04006AE004 /* TBMDetailView.m */,
+				0552C50D195DFA04006AE004 /* TBMInspectorView.h */,
+				0552C50E195DFA04006AE004 /* TBMInspectorView.m */,
+				0552C50F195DFA04006AE004 /* TBMInspectorView_Internal.h */,
+				0552C510195DFA04006AE004 /* TBMShowHideButton.h */,
+				0552C511195DFA04006AE004 /* TBMShowHideButton.m */,
+				0552C515195DFA0D006AE004 /* RegexKitLite.h */,
+				0552C516195DFA0D006AE004 /* RegexKitLite.m */,
+				0552C518195DFA14006AE004 /* NoodleLineNumberMarker.h */,
+				0552C519195DFA14006AE004 /* NoodleLineNumberMarker.m */,
+				0552C51A195DFA14006AE004 /* NoodleLineNumberView.h */,
+				0552C51B195DFA14006AE004 /* NoodleLineNumberView.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		0552C522195E5182006AE004 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0552C527195FC0F5006AE004 /* delete@2x.png */,
+				0552C528195FC0F5006AE004 /* delete.png */,
+				0552C529195FC0F5006AE004 /* delete-pressed.png */,
+				0552C52A195FC0F5006AE004 /* delete-pressed@2x.png */,
+				0552C44A195DF98B006AE004 /* borderGroove.pdf */,
+				0552C44B195DF98B006AE004 /* borderOutset.pdf */,
+				0552C44C195DF98B006AE004 /* borderDouble.pdf */,
+				0552C44D195DF98B006AE004 /* borderSolid.pdf */,
+				0552C44E195DF98B006AE004 /* borderInset.pdf */,
+				0552C44F195DF98B006AE004 /* borderHidden.pdf */,
+				0552C450195DF98B006AE004 /* borderDotted.pdf */,
+				0552C451195DF98B006AE004 /* borderDashed.pdf */,
+				0552C452195DF98B006AE004 /* borderRidge.pdf */,
+				0552C453195DF98B006AE004 /* borderNone.pdf */,
+				0552C454195DF98B006AE004 /* borderAllTemplate.pdf */,
+				0552C455195DF98B006AE004 /* borderBottomTemplate.pdf */,
+				0552C456195DF98B006AE004 /* borderLeftTemplate.pdf */,
+				0552C457195DF98B006AE004 /* borderRightTemplate.pdf */,
+				0552C458195DF98B006AE004 /* borderTopTemplate.pdf */,
+				0552C459195DF98B006AE004 /* positionBottom.pdf */,
+				0552C45A195DF98B006AE004 /* positionLeft.pdf */,
+				0552C45B195DF98B006AE004 /* positionRight.pdf */,
+				0552C45C195DF98B006AE004 /* positionTop.pdf */,
+				0552C45D195DF98B006AE004 /* clearBothTemplate.pdf */,
+				0552C45E195DF98B006AE004 /* clearLeftTemplate.pdf */,
+				0552C45F195DF98B006AE004 /* clearRightTemplate.pdf */,
+				0552C460195DF98B006AE004 /* floatLeftTemplate.pdf */,
+				0552C461195DF98B006AE004 /* floatRightTemplate.pdf */,
+				0552C462195DF98B006AE004 /* marginAll.pdf */,
+				0552C463195DF98B006AE004 /* marginBottom.pdf */,
+				0552C464195DF98B006AE004 /* marginLeft.pdf */,
+				0552C465195DF98B006AE004 /* marginRight.pdf */,
+				0552C466195DF98B006AE004 /* marginTop.pdf */,
+				0552C467195DF98B006AE004 /* paddingAll.pdf */,
+				0552C468195DF98B006AE004 /* paddingBottom.pdf */,
+				0552C469195DF98B006AE004 /* paddingLeft.pdf */,
+				0552C46A195DF98B006AE004 /* paddingRight.pdf */,
+				0552C46B195DF98B006AE004 /* paddingTop.pdf */,
+				0552C46C195DF98B006AE004 /* zDownTemplate.pdf */,
+				0552C46D195DF98B006AE004 /* zUpTemplate.pdf */,
+				0552C46E195DF98B006AE004 /* arrowLeftTemplate.pdf */,
+				0552C46F195DF98B006AE004 /* arrowRightTemplate.pdf */,
+				0552C470195DF98B006AE004 /* arrowUpTemplate.pdf */,
+				0552C471195DF98B006AE004 /* arrowDownTemplate.pdf */,
+				0552C472195DF98B006AE004 /* arrowLeftBottomTemplate.pdf */,
+				0552C473195DF98B006AE004 /* arrowRightBottomTemplate.pdf */,
+				0552C474195DF98B006AE004 /* arrowLeftTopTemplate.pdf */,
+				0552C475195DF98B006AE004 /* arrowRightTopTemplate.pdf */,
+				0552C476195DF98B006AE004 /* repeatTemplate.pdf */,
+				0552C477195DF98B006AE004 /* repeatYTemplate.pdf */,
+				0552C478195DF98B006AE004 /* repeatXTemplate.pdf */,
+				0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */,
+				0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */,
+				0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */,
+				0552C47C195DF98C006AE004 /* picture.png */,
+				0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */,
+				0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */,
+				0552C47F195DF98C006AE004 /* SmallX.png */,
+				0552C480195DF98C006AE004 /* fontTemplate.pdf */,
+				0552C481195DF98C006AE004 /* comment.png */,
+				0552C482195DF98C006AE004 /* comment@2x.png */,
+				0552C483195DF98C006AE004 /* media.png */,
+				0552C484195DF98C006AE004 /* media@2x.png */,
+				0552C485195DF98C006AE004 /* charset@2x.png */,
+				0552C486195DF98C006AE004 /* charset.png */,
+				0552C487195DF98C006AE004 /* import.png */,
+				0552C488195DF98C006AE004 /* import@2x.png */,
+				0552C489195DF98C006AE004 /* alignLeftTemplate.pdf */,
+				0552C48A195DF98C006AE004 /* alignCenterTemplate.pdf */,
+				0552C48B195DF98C006AE004 /* alignRightTemplate.pdf */,
+				0552C48C195DF98C006AE004 /* alignTemplate.pdf */,
+				0552C48D195DF98C006AE004 /* gradientLinear.png */,
+				0552C48E195DF98C006AE004 /* gradientLinear@2x.png */,
+				0552C48F195DF98C006AE004 /* gradientRadial.png */,
+				0552C490195DF98C006AE004 /* gradientRadial@2x.png */,
+				0552C491195DF98C006AE004 /* image.png */,
+				0552C492195DF98C006AE004 /* image@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		0552C534195FC27C006AE004 /* Positioning */ = {
+			isa = PBXGroup;
+			children = (
+				0552C52F195FC277006AE004 /* PositioningViewController.h */,
+				0552C530195FC277006AE004 /* PositioningViewController.m */,
+				0552C531195FC277006AE004 /* PositioningViewController.xib */,
+			);
+			name = Positioning;
+			sourceTree = "<group>";
+		};
+		0552C535195FC32F006AE004 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05973D151960760A005C3D10 /* Background */,
+				05973D0F195FD0AE005C3D10 /* Dimensions */,
+				0552C534195FC27C006AE004 /* Positioning */,
+				0552C444195DF94F006AE004 /* Border */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		05973D0F195FD0AE005C3D10 /* Dimensions */ = {
+			isa = PBXGroup;
+			children = (
+				05973D0A195FD0A7005C3D10 /* DimensionsViewController.h */,
+				05973D0B195FD0A7005C3D10 /* DimensionsViewController.m */,
+				05973D0C195FD0A7005C3D10 /* DimensionsViewController.xib */,
+			);
+			name = Dimensions;
+			sourceTree = "<group>";
+		};
+		05973D151960760A005C3D10 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				05973D1019607605005C3D10 /* BackgroundViewController.h */,
+				05973D1119607605005C3D10 /* BackgroundViewController.m */,
+				05973D1219607605005C3D10 /* BackgroundViewController.xib */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,11 +681,94 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0552C496195DF98C006AE004 /* borderSolid.pdf in Resources */,
 				0552C424195DF91A006AE004 /* Document.xib in Resources */,
+				0552C495195DF98C006AE004 /* borderDouble.pdf in Resources */,
+				0552C49F195DF98C006AE004 /* borderLeftTemplate.pdf in Resources */,
+				0552C4C9195DF98C006AE004 /* fontTemplate.pdf in Resources */,
+				0552C4DA195DF98C006AE004 /* image.png in Resources */,
+				0552C526195E5328006AE004 /* colors.plist in Resources */,
+				0552C4D1195DF98C006AE004 /* import@2x.png in Resources */,
+				0552C4D3195DF98C006AE004 /* alignCenterTemplate.pdf in Resources */,
+				0552C4A4195DF98C006AE004 /* positionRight.pdf in Resources */,
+				0552C4A2195DF98C006AE004 /* positionBottom.pdf in Resources */,
+				0552C4C1195DF98C006AE004 /* repeatXTemplate.pdf in Resources */,
+				05973D1419607605005C3D10 /* BackgroundViewController.xib in Resources */,
+				0552C4C7195DF98C006AE004 /* ShowStylesPaneTemplate.png in Resources */,
+				0552C4D4195DF98C006AE004 /* alignRightTemplate.pdf in Resources */,
+				0552C4B6195DF98C006AE004 /* zUpTemplate.pdf in Resources */,
 				0552C429195DF91A006AE004 /* Images.xcassets in Resources */,
+				0552C49C195DF98C006AE004 /* borderNone.pdf in Resources */,
+				0552C4BF195DF98C006AE004 /* repeatTemplate.pdf in Resources */,
+				0552C494195DF98C006AE004 /* borderOutset.pdf in Resources */,
+				0552C4D9195DF98C006AE004 /* gradientRadial@2x.png in Resources */,
+				0552C49A195DF98C006AE004 /* borderDashed.pdf in Resources */,
 				0552C418195DF91A006AE004 /* InfoPlist.strings in Resources */,
+				0552C4AE195DF98C006AE004 /* marginRight.pdf in Resources */,
+				0552C52D195FC0F5006AE004 /* delete-pressed.png in Resources */,
+				0552C4C6195DF98C006AE004 /* HideStylesPaneTemplate.png in Resources */,
+				0552C4AD195DF98C006AE004 /* marginLeft.pdf in Resources */,
+				0552C4BC195DF98C006AE004 /* arrowRightBottomTemplate.pdf in Resources */,
+				0552C4AC195DF98C006AE004 /* marginBottom.pdf in Resources */,
+				0552C4D8195DF98C006AE004 /* gradientRadial.png in Resources */,
+				0552C4AF195DF98C006AE004 /* marginTop.pdf in Resources */,
+				0552C4CB195DF98C006AE004 /* comment@2x.png in Resources */,
+				0552C4AB195DF98C006AE004 /* marginAll.pdf in Resources */,
+				0552C4B3195DF98C006AE004 /* paddingRight.pdf in Resources */,
+				0552C525195E5328006AE004 /* test.css in Resources */,
+				0552C4A8195DF98C006AE004 /* clearRightTemplate.pdf in Resources */,
+				0552C4C0195DF98C006AE004 /* repeatYTemplate.pdf in Resources */,
+				0552C4CF195DF98C006AE004 /* charset.png in Resources */,
+				0552C4A3195DF98C006AE004 /* positionLeft.pdf in Resources */,
+				0552C4A9195DF98C006AE004 /* floatLeftTemplate.pdf in Resources */,
+				0552C52C195FC0F5006AE004 /* delete.png in Resources */,
+				0552C4CD195DF98C006AE004 /* media@2x.png in Resources */,
+				0552C4C4195DF98C006AE004 /* attFixedTemplate.pdf in Resources */,
+				0552C4D5195DF98C006AE004 /* alignTemplate.pdf in Resources */,
+				0552C52E195FC0F5006AE004 /* delete-pressed@2x.png in Resources */,
+				0552C4BB195DF98C006AE004 /* arrowLeftBottomTemplate.pdf in Resources */,
+				0552C4C2195DF98C006AE004 /* repeatNoTemplate.pdf in Resources */,
+				0552C533195FC277006AE004 /* PositioningViewController.xib in Resources */,
+				0552C499195DF98C006AE004 /* borderDotted.pdf in Resources */,
+				0552C4B5195DF98C006AE004 /* zDownTemplate.pdf in Resources */,
+				0552C4D0195DF98C006AE004 /* import.png in Resources */,
+				0552C4B8195DF98C006AE004 /* arrowRightTemplate.pdf in Resources */,
+				0552C4A5195DF98C006AE004 /* positionTop.pdf in Resources */,
+				0552C49D195DF98C006AE004 /* borderAllTemplate.pdf in Resources */,
+				0552C493195DF98C006AE004 /* borderGroove.pdf in Resources */,
+				0552C4B4195DF98C006AE004 /* paddingTop.pdf in Resources */,
+				0552C4D2195DF98C006AE004 /* alignLeftTemplate.pdf in Resources */,
+				0552C4C5195DF98C006AE004 /* picture.png in Resources */,
+				0552C4DB195DF98C006AE004 /* image@2x.png in Resources */,
 				0552C41E195DF91A006AE004 /* Credits.rtf in Resources */,
+				0552C4B7195DF98C006AE004 /* arrowLeftTemplate.pdf in Resources */,
+				0552C449195DF966006AE004 /* BorderViewController.xib in Resources */,
+				0552C4D7195DF98C006AE004 /* gradientLinear@2x.png in Resources */,
+				05973D0E195FD0A7005C3D10 /* DimensionsViewController.xib in Resources */,
+				0552C4AA195DF98C006AE004 /* floatRightTemplate.pdf in Resources */,
+				0552C4C8195DF98C006AE004 /* SmallX.png in Resources */,
+				0552C4A1195DF98C006AE004 /* borderTopTemplate.pdf in Resources */,
+				0552C52B195FC0F5006AE004 /* delete@2x.png in Resources */,
+				0552C4C3195DF98C006AE004 /* attScrollTemplate.pdf in Resources */,
+				0552C4B9195DF98C006AE004 /* arrowUpTemplate.pdf in Resources */,
+				0552C4BA195DF98C006AE004 /* arrowDownTemplate.pdf in Resources */,
+				0552C4BD195DF98C006AE004 /* arrowLeftTopTemplate.pdf in Resources */,
+				0552C497195DF98C006AE004 /* borderInset.pdf in Resources */,
+				0552C4A0195DF98C006AE004 /* borderRightTemplate.pdf in Resources */,
+				0552C4B2195DF98C006AE004 /* paddingLeft.pdf in Resources */,
+				0552C498195DF98C006AE004 /* borderHidden.pdf in Resources */,
+				0552C4B0195DF98C006AE004 /* paddingAll.pdf in Resources */,
+				0552C49E195DF98C006AE004 /* borderBottomTemplate.pdf in Resources */,
+				0552C4A7195DF98C006AE004 /* clearLeftTemplate.pdf in Resources */,
+				0552C4BE195DF98C006AE004 /* arrowRightTopTemplate.pdf in Resources */,
+				0552C4A6195DF98C006AE004 /* clearBothTemplate.pdf in Resources */,
+				0552C4B1195DF98C006AE004 /* paddingBottom.pdf in Resources */,
+				0552C4CC195DF98C006AE004 /* media.png in Resources */,
+				0552C4CA195DF98C006AE004 /* comment.png in Resources */,
+				0552C4CE195DF98C006AE004 /* charset@2x.png in Resources */,
 				0552C427195DF91A006AE004 /* MainMenu.xib in Resources */,
+				0552C4D6195DF98C006AE004 /* gradientLinear.png in Resources */,
+				0552C49B195DF98C006AE004 /* borderRidge.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +787,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0552C502195DF9D9006AE004 /* NSColor+Extensions.m in Sources */,
+				05973D0D195FD0A7005C3D10 /* DimensionsViewController.m in Sources */,
+				0552C50A195DF9FD006AE004 /* ACTGradientEditor.m in Sources */,
+				0552C4F1195DF9CF006AE004 /* ImageAndTextCell.m in Sources */,
+				0552C4EE195DF9CF006AE004 /* CSSParser.m in Sources */,
 				0552C421195DF91A006AE004 /* Document.m in Sources */,
+				0552C4F3195DF9CF006AE004 /* SyntaxHighlighter.m in Sources */,
+				05973D1319607605005C3D10 /* BackgroundViewController.m in Sources */,
+				0552C51D195DFA14006AE004 /* NoodleLineNumberView.m in Sources */,
+				0552C503195DF9D9006AE004 /* NSColor+iOS7Colors.m in Sources */,
+				0552C501195DF9D9006AE004 /* NSColor+HTMLColors.m in Sources */,
+				0552C505195DF9D9006AE004 /* NSColor+ChessboardColor.m in Sources */,
+				0552C532195FC277006AE004 /* PositioningViewController.m in Sources */,
 				0552C41A195DF91A006AE004 /* main.m in Sources */,
+				0552C4F0195DF9CF006AE004 /* ColorTextField.m in Sources */,
+				0552C4ED195DF9CF006AE004 /* SplitViewController.m in Sources */,
+				0552C4F2195DF9CF006AE004 /* CustomOutlineView.m in Sources */,
+				0552C514195DFA04006AE004 /* TBMShowHideButton.m in Sources */,
+				0552C517195DFA0D006AE004 /* RegexKitLite.m in Sources */,
+				0552C4EC195DF9CF006AE004 /* CustomTextView.m in Sources */,
+				0552C513195DFA04006AE004 /* TBMInspectorView.m in Sources */,
+				0552C512195DFA04006AE004 /* TBMDetailView.m in Sources */,
+				0552C504195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m in Sources */,
+				0552C51C195DFA14006AE004 /* NoodleLineNumberMarker.m in Sources */,
+				0552C4EF195DF9CF006AE004 /* ColorTextFieldCell.m in Sources */,
+				0552C448195DF966006AE004 /* BorderViewController.m in Sources */,
+				0552C500195DF9D9006AE004 /* NSImage+Tint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +1034,7 @@
 				0552C440195DF91A006AE004 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0552C441195DF91A006AE004 /* Build configuration list for PBXNativeTarget "iCSSTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +1043,7 @@
 				0552C443195DF91A006AE004 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

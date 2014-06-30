@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BackgroundViewController">
+            <connections>
+                <outlet property="bgAddImageMenu" destination="kqm-MD-CyK" id="B8o-4L-dZN"/>
+                <outlet property="bgAddImageMenuItem" destination="Yfs-tW-yNU" id="uOM-DC-ySM"/>
+                <outlet property="bgAddLinearGradientMenuItem" destination="wlB-NY-yTA" id="NsJ-Ep-Ptg"/>
+                <outlet property="bgAddRadialGradientMenuItem" destination="S0a-aF-035" id="wjg-kD-Yas"/>
+                <outlet property="bgAttachmentControl" destination="ooN-pf-1E5" id="zTh-ax-LLM"/>
+                <outlet property="bgColorControl" destination="I7z-ar-mKC" id="RCl-9G-Zqf"/>
+                <outlet property="bgColorTextControl" destination="gte-F3-0Dq" id="big-QF-Fqv"/>
+                <outlet property="bgHeightControl" destination="FPI-za-4j0" id="L0X-0A-19w"/>
+                <outlet property="bgHeightUnitsControl" destination="q9V-zC-Rk2" id="pJf-UT-eBx"/>
+                <outlet property="bgImageAddAndRemoveButtons" destination="GhH-tg-LpJ" id="CzY-b2-zVR"/>
+                <outlet property="bgImageControl" destination="Ott-FE-lUW" id="HBm-IR-4RC"/>
+                <outlet property="bgImageDirectionControl" destination="BQO-DO-lyb" id="7l9-P1-J1B"/>
+                <outlet property="bgImageDirectionLabel" destination="SEI-3h-lyT" id="pCu-RF-gVX"/>
+                <outlet property="bgImageDirectionUnitsControl" destination="Zma-By-aTG" id="dRt-X4-tA6"/>
+                <outlet property="bgImageExtentControl" destination="UkA-Ib-3di" id="wLf-cN-pPd"/>
+                <outlet property="bgImageExtentLabel" destination="ABE-pQ-sne" id="ASs-yg-zc1"/>
+                <outlet property="bgImageGradientEditor" destination="FsU-Ig-Y3g" id="WVy-Nr-rpX"/>
+                <outlet property="bgImageGradientLabel" destination="Vmc-fL-fJs" id="7az-4q-wSD"/>
+                <outlet property="bgImagePositionXControl" destination="lYm-ey-d4l" id="ykG-UM-5VR"/>
+                <outlet property="bgImagePositionXLabel" destination="KMg-Rm-46G" id="wL7-Q9-rRq"/>
+                <outlet property="bgImagePositionXUnitsControl" destination="WLK-Vl-fV6" id="d0c-ca-RMg"/>
+                <outlet property="bgImagePositionYControl" destination="3R6-Nr-EUn" id="VY5-iD-yx8"/>
+                <outlet property="bgImagePositionYLabel" destination="t5x-gP-xAj" id="gNA-dz-BBn"/>
+                <outlet property="bgImagePositionYUnitsControl" destination="z0v-lg-sfV" id="Yji-fV-0TN"/>
+                <outlet property="bgImageShapeControl" destination="fje-IU-4Yl" id="bXe-Eo-YBk"/>
+                <outlet property="bgImageShapeLabel" destination="jJM-Pa-yhY" id="B7O-2U-sYd"/>
+                <outlet property="bgImageSizeXControl" destination="p0V-ym-s7h" id="17M-GS-hoR"/>
+                <outlet property="bgImageSizeXLabel" destination="3XG-zX-xoF" id="POF-fo-tP7"/>
+                <outlet property="bgImageSizeXUnitsControl" destination="mZ1-Te-p8W" id="pH6-7Z-qnY"/>
+                <outlet property="bgImageSizeYControl" destination="g8p-qx-eJY" id="Jgv-Px-qtw"/>
+                <outlet property="bgImageSizeYLabel" destination="kcY-p8-9Iu" id="HjR-Ip-37f"/>
+                <outlet property="bgImageSizeYUnitsControl" destination="Fc9-kr-hf7" id="t6h-rx-fuM"/>
+                <outlet property="bgImageURLControl" destination="JOE-9C-qkD" id="dGy-AM-tLM"/>
+                <outlet property="bgImageURLLabel" destination="Rbb-bf-ABm" id="XZR-mr-pb3"/>
+                <outlet property="bgPositionXControl" destination="XvP-wh-zma" id="IFq-Za-x2c"/>
+                <outlet property="bgPositionXUnitsControl" destination="wna-lq-PQg" id="4Ce-0e-dH2"/>
+                <outlet property="bgPositionYControl" destination="SYp-ys-8z1" id="zES-eG-y38"/>
+                <outlet property="bgPositionYUnitsControl" destination="AZs-X1-XXX" id="O5V-SZ-DJM"/>
+                <outlet property="bgRepeatControl" destination="FVj-Z0-2vS" id="LnL-Fc-Sum"/>
+                <outlet property="bgWidthControl" destination="hMz-F7-9TS" id="7qf-BY-ooq"/>
+                <outlet property="bgWidthUnitsControl" destination="eAu-bj-obq" id="XnW-3z-UYd"/>
+                <outlet property="view" destination="kuF-g1-gct" id="n4t-Ps-uAi"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customView id="kuF-g1-gct" userLabel="Background">
+            <rect key="frame" x="0.0" y="0.0" width="246" height="500"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vQQ-Ea-Ir0">
+                    <rect key="frame" x="8" y="472" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Color" id="pqL-tb-ky1">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell id="I7z-ar-mKC">
+                    <rect key="frame" x="87" y="468" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="color" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="JNB-LQ-avd"/>
+                    </connections>
+                </colorWell>
+                <textField verticalHuggingPriority="750" id="gte-F3-0Dq" customClass="ColorTextField">
+                    <rect key="frame" x="131" y="468" width="105" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cdO-Ye-zHY" customClass="ColorTextFieldCell">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="O2p-o9-jQO"/>
+                        <outlet property="nextKeyView" destination="JOE-9C-qkD" id="DtM-A3-Pj2"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E5n-wW-AvO">
+                    <rect key="frame" x="8" y="438" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Image" id="7yp-Nb-5GA">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="Ott-FE-lUW">
+                    <rect key="frame" x="131" y="432" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="8aK-pu-wqu">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="Oeg-gd-vQ9"/>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="MdW-Se-qpr"/>
+                    </connections>
+                </popUpButton>
+                <segmentedControl verticalHuggingPriority="750" id="GhH-tg-LpJ">
+                    <rect key="frame" x="87" y="432" width="39" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="7fG-sO-vcB">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment image="NSAddTemplate" width="18">
+                                <nil key="label"/>
+                            </segment>
+                            <segment image="NSRemoveTemplate" width="18" tag="1">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="6QM-2x-W1n"/>
+                    </connections>
+                </segmentedControl>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Rbb-bf-ABm">
+                    <rect key="frame" x="8" y="412" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="URL" id="ots-sk-atV">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="JOE-9C-qkD">
+                    <rect key="frame" x="87" y="382" width="149" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OIZ-Ri-C1i">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="ors-Pr-G59"/>
+                        <outlet property="nextKeyView" destination="BQO-DO-lyb" id="HOL-tN-KEF"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bpd-zF-po9">
+                    <rect key="frame" x="8" y="144" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Position X" id="gXW-3Y-Xk2">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="jmZ-Cg-TMh">
+                    <rect key="frame" x="8" y="118" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Position Y" id="opN-FR-MvX">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="XvP-wh-zma">
+                    <rect key="frame" x="87" y="140" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="4Qo-MP-gKo">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="Feh-V1-i0U"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="wna-lq-PQg">
+                    <rect key="frame" x="131" y="138" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="IeH-eI-mzV" id="Khx-3S-N8a">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="EY5-Vn-RUX">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="IeH-eI-mzV">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="wmn-1Z-dQo"/>
+                                <menuItem title="Percentage" enabled="NO" id="9Sg-xL-l6d">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="%" indentationLevel="1" id="2Vk-Wa-CRQ">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="bg1-n7-fdY"/>
+                                <menuItem title="Relative" enabled="NO" id="N0s-GV-w3e"/>
+                                <menuItem title="em" indentationLevel="1" id="fzp-Sq-dTI"/>
+                                <menuItem title="ex" indentationLevel="1" id="Qh6-ey-C4u"/>
+                                <menuItem title="ch" indentationLevel="1" id="qZQ-kb-hZp"/>
+                                <menuItem title="rem" indentationLevel="1" id="YSp-5N-lV8"/>
+                                <menuItem title="vw" indentationLevel="1" id="SyS-Cy-xzD"/>
+                                <menuItem title="vh" indentationLevel="1" id="xCM-91-AFu"/>
+                                <menuItem title="vmin" indentationLevel="1" id="gQt-hv-Unl"/>
+                                <menuItem title="vmax" indentationLevel="1" id="D8y-v7-2D0"/>
+                                <menuItem isSeparatorItem="YES" id="WvF-ia-b0j"/>
+                                <menuItem title="Absolute" enabled="NO" id="4HI-Hw-rv8"/>
+                                <menuItem title="cm" indentationLevel="1" id="Hva-dg-mxe"/>
+                                <menuItem title="mm" indentationLevel="1" id="Tyv-Lh-Lol"/>
+                                <menuItem title="in" indentationLevel="1" id="zzt-FI-H2G"/>
+                                <menuItem title="px" indentationLevel="1" id="ZrV-9k-O5d"/>
+                                <menuItem title="pt" indentationLevel="1" id="qDC-hu-yfw"/>
+                                <menuItem title="pc" indentationLevel="1" id="wyW-w3-LAT"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="btO-Rz-sSJ"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="SYp-ys-8z1">
+                    <rect key="frame" x="87" y="114" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hRp-wF-MkW">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="bCE-Cl-n3h"/>
+                        <outlet property="nextKeyView" destination="gte-F3-0Dq" id="5g6-ER-w06"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="AZs-X1-XXX">
+                    <rect key="frame" x="131" y="112" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="kJ0-cB-h1z" id="Tpc-AA-dN4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="Yik-bb-r8H">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="kJ0-cB-h1z">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="eVm-xt-Gyn"/>
+                                <menuItem title="Percentage" enabled="NO" id="FhC-uL-8hm">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="%" indentationLevel="1" id="dcp-Bs-q57">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="dFo-Pd-b22"/>
+                                <menuItem title="Relative" enabled="NO" id="Kth-4L-2qp"/>
+                                <menuItem title="em" indentationLevel="1" id="mdg-uK-RkQ"/>
+                                <menuItem title="ex" indentationLevel="1" id="P9h-hq-qaO"/>
+                                <menuItem title="ch" indentationLevel="1" id="8hJ-g4-R1u"/>
+                                <menuItem title="rem" indentationLevel="1" id="AMl-Qc-Hnn"/>
+                                <menuItem title="vw" indentationLevel="1" id="l4B-YQ-cKS"/>
+                                <menuItem title="vh" indentationLevel="1" id="0yk-8d-QkY"/>
+                                <menuItem title="vmin" indentationLevel="1" id="fGH-Qa-Gpp"/>
+                                <menuItem title="vmax" indentationLevel="1" id="PlA-Tx-jCY"/>
+                                <menuItem isSeparatorItem="YES" id="UzL-CQ-CdR"/>
+                                <menuItem title="Absolute" enabled="NO" id="YBU-uh-A1l"/>
+                                <menuItem title="cm" indentationLevel="1" id="Gr6-4P-cgx"/>
+                                <menuItem title="mm" indentationLevel="1" id="Ktw-a1-Zra"/>
+                                <menuItem title="in" indentationLevel="1" id="E8s-3D-0lb"/>
+                                <menuItem title="px" indentationLevel="1" id="zdw-d4-LfX"/>
+                                <menuItem title="pt" indentationLevel="1" id="xdC-AZ-FWn"/>
+                                <menuItem title="pc" indentationLevel="1" id="cob-je-SSa"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="yx4-8Q-PU9"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="L1Y-od-0co">
+                    <rect key="frame" x="8" y="40" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Repeat" id="odn-9b-DPz">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <segmentedControl verticalHuggingPriority="750" id="FVj-Z0-2vS">
+                    <rect key="frame" x="87" y="34" width="149" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="ooE-lw-tqu">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment image="repeatTemplate" imageScaling="none" width="36">
+                                <nil key="label"/>
+                            </segment>
+                            <segment image="repeatYTemplate" imageScaling="none" width="36" tag="1">
+                                <nil key="label"/>
+                            </segment>
+                            <segment image="repeatXTemplate" imageScaling="none" width="36">
+                                <nil key="label"/>
+                            </segment>
+                            <segment image="repeatNoTemplate" imageScaling="none" width="36">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="W93-WC-SJd"/>
+                    </connections>
+                </segmentedControl>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UUf-3l-avj">
+                    <rect key="frame" x="8" y="14" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Attachment" id="Vrw-bv-dlb">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <segmentedControl verticalHuggingPriority="750" id="ooN-pf-1E5">
+                    <rect key="frame" x="87" y="8" width="149" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="Frb-q5-fME">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment image="attScrollTemplate" width="73">
+                                <nil key="label"/>
+                            </segment>
+                            <segment image="attFixedTemplate" width="73" tag="1">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="unp-bp-rFK"/>
+                    </connections>
+                </segmentedControl>
+                <customView id="FsU-Ig-Y3g" customClass="ACTGradientEditor">
+                    <rect key="frame" x="80" y="356" width="163" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Vmc-fL-fJs">
+                    <rect key="frame" x="8" y="360" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Gradient" id="hGk-gS-7Jx">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SEI-3h-lyT">
+                    <rect key="frame" x="8" y="334" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Direction" id="YqZ-uy-18u">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="BQO-DO-lyb">
+                    <rect key="frame" x="87" y="330" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ppz-eu-Xtq">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="W5k-sZ-Pv7"/>
+                        <outlet property="nextKeyView" destination="lYm-ey-d4l" id="pym-Cb-0Fr"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="Zma-By-aTG">
+                    <rect key="frame" x="131" y="328" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="J3z-FG-AHu" id="9Hu-pl-Iex">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="3T8-do-iwe">
+                            <items>
+                                <menuItem title="unchanged" state="on" indentationLevel="1" id="J3z-FG-AHu"/>
+                                <menuItem isSeparatorItem="YES" id="VDd-Be-zan"/>
+                                <menuItem title="to left" image="arrowLeftTemplate" indentationLevel="1" id="iUw-p4-d3v">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="to right" image="arrowRightTemplate" indentationLevel="1" id="GVD-jv-tHX"/>
+                                <menuItem title="to top" image="arrowUpTemplate" indentationLevel="1" id="hmk-zC-dSj"/>
+                                <menuItem title="to bottom" image="arrowDownTemplate" indentationLevel="1" id="gUO-h3-NkB"/>
+                                <menuItem title="to left top" image="arrowLeftTopTemplate" indentationLevel="1" id="9rX-fc-bSQ"/>
+                                <menuItem title="to left bottom" image="arrowLeftBottomTemplate" indentationLevel="1" id="Ijo-JE-Mza"/>
+                                <menuItem title="to right top" image="arrowRightTopTemplate" indentationLevel="1" id="Ix0-X3-fgl"/>
+                                <menuItem title="to right bottom" image="arrowRightBottomTemplate" indentationLevel="1" id="pgh-k3-ptC"/>
+                                <menuItem isSeparatorItem="YES" id="2Pd-rY-Z9d"/>
+                                <menuItem title="deg" indentationLevel="1" id="dFl-pL-itj"/>
+                                <menuItem title="grad" indentationLevel="1" id="oMp-JH-4aC"/>
+                                <menuItem title="rad" indentationLevel="1" id="1OY-wz-ojb"/>
+                                <menuItem title="turn" indentationLevel="1" id="3ta-gs-csw"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Hxd-zc-AfG"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="jJM-Pa-yhY">
+                    <rect key="frame" x="8" y="256" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Shape" id="RaH-0L-Lvf">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="fje-IU-4Yl">
+                    <rect key="frame" x="87" y="250" width="149" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="ellipse" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="yE6-BX-BPb" id="Uud-Ei-aHg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="4Dg-Pi-jtm">
+                            <items>
+                                <menuItem title="ellipse" state="on" id="yE6-BX-BPb"/>
+                                <menuItem title="circle" id="4cN-9x-AzB"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="CzL-UB-y3s"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KMg-Rm-46G">
+                    <rect key="frame" x="8" y="308" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Position X" id="6q7-nr-ddk">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t5x-gP-xAj">
+                    <rect key="frame" x="8" y="282" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Position Y" id="sNE-gH-oI3">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="lYm-ey-d4l">
+                    <rect key="frame" x="87" y="304" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ibb-Xb-4j5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="XqO-KK-AIM"/>
+                        <outlet property="nextKeyView" destination="3R6-Nr-EUn" id="FfD-qB-BTQ"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="WLK-Vl-fV6">
+                    <rect key="frame" x="131" y="302" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="VCu-At-zQX" id="goA-BM-K6T">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="7oM-fH-zmL">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="VCu-At-zQX"/>
+                                <menuItem isSeparatorItem="YES" id="x6d-Tw-mWp"/>
+                                <menuItem title="Percentage" enabled="NO" id="cr2-Ga-L84"/>
+                                <menuItem title="%" indentationLevel="1" id="7l7-WQ-YZq"/>
+                                <menuItem isSeparatorItem="YES" id="f1u-B4-p3k"/>
+                                <menuItem title="Relative" enabled="NO" id="XEM-YS-gpy"/>
+                                <menuItem title="em" indentationLevel="1" id="wP7-1r-VvY"/>
+                                <menuItem title="ex" indentationLevel="1" id="Dkn-hx-XbC"/>
+                                <menuItem title="ch" indentationLevel="1" id="dfs-ZB-R6p"/>
+                                <menuItem title="rem" indentationLevel="1" id="FM7-Qk-wE9"/>
+                                <menuItem title="vw" indentationLevel="1" id="FJ2-1E-876"/>
+                                <menuItem title="vh" indentationLevel="1" id="NQR-cT-V5e"/>
+                                <menuItem title="vmin" indentationLevel="1" id="4xL-Op-tiv"/>
+                                <menuItem title="vmax" indentationLevel="1" id="80t-ey-xlO"/>
+                                <menuItem isSeparatorItem="YES" id="OxZ-sW-ESs"/>
+                                <menuItem title="Absolute" enabled="NO" id="qWa-DO-YIJ"/>
+                                <menuItem title="cm" indentationLevel="1" id="8Ze-bA-PPg"/>
+                                <menuItem title="mm" indentationLevel="1" id="qmD-b8-L60"/>
+                                <menuItem title="in" indentationLevel="1" id="aMC-vz-jCu"/>
+                                <menuItem title="px" indentationLevel="1" id="8jI-el-DQH"/>
+                                <menuItem title="pt" indentationLevel="1" id="aZ7-Ha-dws"/>
+                                <menuItem title="pc" indentationLevel="1" id="iJj-PM-tyJ"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Pvm-k6-sVH"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="3R6-Nr-EUn">
+                    <rect key="frame" x="87" y="278" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="iD6-jC-ZtA">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="8Md-b1-YXc"/>
+                        <outlet property="nextKeyView" destination="p0V-ym-s7h" id="QKT-dC-x6u"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="z0v-lg-sfV">
+                    <rect key="frame" x="131" y="276" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="VJ7-RL-ZWG" id="Ik3-ST-Dbq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="Xym-0d-Pnu">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="VJ7-RL-ZWG"/>
+                                <menuItem isSeparatorItem="YES" id="rLU-5d-dTr"/>
+                                <menuItem title="Percentage" enabled="NO" id="OSb-5b-E51"/>
+                                <menuItem title="%" indentationLevel="1" id="dJm-BU-nJF"/>
+                                <menuItem isSeparatorItem="YES" id="50v-v6-xDX"/>
+                                <menuItem title="Relative" enabled="NO" id="jiw-0c-Tvc"/>
+                                <menuItem title="em" indentationLevel="1" id="L8k-7v-lCv"/>
+                                <menuItem title="ex" indentationLevel="1" id="qRO-Vw-C0M"/>
+                                <menuItem title="ch" indentationLevel="1" id="pq2-xa-e4k"/>
+                                <menuItem title="rem" indentationLevel="1" id="vqV-Sh-GiS"/>
+                                <menuItem title="vw" indentationLevel="1" id="HII-5m-HDL"/>
+                                <menuItem title="vh" indentationLevel="1" id="TIy-22-ZIw"/>
+                                <menuItem title="vmin" indentationLevel="1" id="GRH-rC-wD9"/>
+                                <menuItem title="vmax" indentationLevel="1" id="bcR-cc-dTa"/>
+                                <menuItem isSeparatorItem="YES" id="ke0-tn-46a"/>
+                                <menuItem title="Absolute" enabled="NO" id="PIq-TM-Bzv"/>
+                                <menuItem title="cm" indentationLevel="1" id="Y2t-lk-sjm"/>
+                                <menuItem title="mm" indentationLevel="1" id="hCJ-22-TLm"/>
+                                <menuItem title="in" indentationLevel="1" id="fg3-y3-lE3"/>
+                                <menuItem title="px" indentationLevel="1" id="TGQ-AQ-XZ9"/>
+                                <menuItem title="pt" indentationLevel="1" id="Z18-Rl-IND"/>
+                                <menuItem title="pc" indentationLevel="1" id="SLV-nU-dSk"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="3gA-dC-5xp"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ABE-pQ-sne">
+                    <rect key="frame" x="8" y="230" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size" id="Vac-7S-QDP">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="UkA-Ib-3di">
+                    <rect key="frame" x="87" y="224" width="149" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="1NE-2K-fqG" id="AFc-Xc-SsC">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="Dic-ff-XXn">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="1NE-2K-fqG"/>
+                                <menuItem isSeparatorItem="YES" id="SxO-x9-yqK"/>
+                                <menuItem title="closest-side" id="CdW-Ah-2HF"/>
+                                <menuItem title="closest-corner" id="aeE-Mu-s0l"/>
+                                <menuItem title="farthest-side" id="WCr-Aa-rDU"/>
+                                <menuItem title="farthest-corner" id="ePw-Mf-iKI"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="h7O-fq-PoC"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3XG-zX-xoF">
+                    <rect key="frame" x="8" y="204" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size H" id="xCq-Pl-7um">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kcY-p8-9Iu">
+                    <rect key="frame" x="8" y="178" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size V" id="V4c-wl-uhY">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="p0V-ym-s7h">
+                    <rect key="frame" x="87" y="200" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gce-3n-tvS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="gdZ-9e-xqV"/>
+                        <outlet property="nextKeyView" destination="g8p-qx-eJY" id="3sf-u4-Ejm"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="mZ1-Te-p8W">
+                    <rect key="frame" x="131" y="198" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="3jz-u7-GBO" id="aEp-rk-OAr">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="kWu-pS-olp">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="3jz-u7-GBO"/>
+                                <menuItem isSeparatorItem="YES" id="cQS-PU-4Nq"/>
+                                <menuItem title="Percentage" enabled="NO" id="4hf-c3-PPi"/>
+                                <menuItem title="%" indentationLevel="1" id="3M0-Zt-3aF"/>
+                                <menuItem isSeparatorItem="YES" id="GDW-8C-pvm"/>
+                                <menuItem title="Relative" enabled="NO" id="BfY-mM-5Jy"/>
+                                <menuItem title="em" indentationLevel="1" id="PAe-IR-Y08"/>
+                                <menuItem title="ex" indentationLevel="1" id="Yrk-ze-st4"/>
+                                <menuItem title="ch" indentationLevel="1" id="8ih-hw-XIx"/>
+                                <menuItem title="rem" indentationLevel="1" id="Are-Ie-EDc"/>
+                                <menuItem title="vw" indentationLevel="1" id="CVF-rX-r5A"/>
+                                <menuItem title="vh" indentationLevel="1" id="mR0-RZ-3c4"/>
+                                <menuItem title="vmin" indentationLevel="1" id="mnd-bj-hrq"/>
+                                <menuItem title="vmax" indentationLevel="1" id="w6V-rf-juo"/>
+                                <menuItem isSeparatorItem="YES" id="PwJ-No-wpm"/>
+                                <menuItem title="Absolute" enabled="NO" id="KpF-CM-Wlb"/>
+                                <menuItem title="cm" indentationLevel="1" id="S8F-Tr-Nnx"/>
+                                <menuItem title="mm" indentationLevel="1" id="vl8-Bf-6mi"/>
+                                <menuItem title="in" indentationLevel="1" id="NfO-1w-hGn"/>
+                                <menuItem title="px" indentationLevel="1" id="xs1-LN-uQs"/>
+                                <menuItem title="pt" indentationLevel="1" id="tnN-B3-xr4"/>
+                                <menuItem title="pc" indentationLevel="1" id="mY7-sG-IOA"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Fxo-Pp-O3I"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="g8p-qx-eJY">
+                    <rect key="frame" x="87" y="174" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="YaC-7V-K9X">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="awC-IY-QbJ"/>
+                        <outlet property="nextKeyView" destination="XvP-wh-zma" id="YSd-UV-BLQ"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="Fc9-kr-hf7">
+                    <rect key="frame" x="131" y="172" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="a56-dO-9op" id="Xbp-94-PAf">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="YUO-Ew-IfE">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="a56-dO-9op"/>
+                                <menuItem isSeparatorItem="YES" id="BqD-V8-GY6"/>
+                                <menuItem title="Percentage" enabled="NO" id="pPW-gM-rBi"/>
+                                <menuItem title="%" indentationLevel="1" id="wUZ-Za-xKC"/>
+                                <menuItem isSeparatorItem="YES" id="TgR-ox-dQb"/>
+                                <menuItem title="Relative" enabled="NO" id="KAu-T8-9zQ"/>
+                                <menuItem title="em" indentationLevel="1" id="yej-Dc-mFR"/>
+                                <menuItem title="ex" indentationLevel="1" id="B3r-CD-jgz"/>
+                                <menuItem title="ch" indentationLevel="1" id="STP-i5-iSv"/>
+                                <menuItem title="rem" indentationLevel="1" id="xht-UM-WFh"/>
+                                <menuItem title="vw" indentationLevel="1" id="Ba4-1T-2qn"/>
+                                <menuItem title="vh" indentationLevel="1" id="QIw-T0-ate"/>
+                                <menuItem title="vmin" indentationLevel="1" id="EYA-VE-voy"/>
+                                <menuItem title="vmax" indentationLevel="1" id="cFE-Ew-ptA"/>
+                                <menuItem isSeparatorItem="YES" id="Pgh-6p-j6r"/>
+                                <menuItem title="Absolute" enabled="NO" id="rWS-9o-t4J"/>
+                                <menuItem title="cm" indentationLevel="1" id="KTe-nI-PSO"/>
+                                <menuItem title="mm" indentationLevel="1" id="HZE-fi-dfl"/>
+                                <menuItem title="in" indentationLevel="1" id="5LZ-hf-bE2"/>
+                                <menuItem title="px" indentationLevel="1" id="WBr-Y7-1uW"/>
+                                <menuItem title="pt" indentationLevel="1" id="uK8-ng-lf5"/>
+                                <menuItem title="pc" indentationLevel="1" id="V7C-p9-npZ"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="rAM-jt-ckX"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bq6-pA-hWp">
+                    <rect key="frame" x="8" y="92" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Width" id="l8A-Ms-ulo">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="F8S-sF-7rz">
+                    <rect key="frame" x="8" y="66" width="71" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Height" id="Arx-CU-znM">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="hMz-F7-9TS">
+                    <rect key="frame" x="87" y="88" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XQM-78-ll5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="MGB-5N-AlT"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="eAu-bj-obq">
+                    <rect key="frame" x="131" y="86" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="xSO-BQ-Gmi" id="Jyl-ru-fdG">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="dQq-1e-43s">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="xSO-BQ-Gmi">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="3uy-sv-h5T"/>
+                                <menuItem title="Percentage" enabled="NO" id="AJF-CQ-V3u">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="%" indentationLevel="1" id="uLl-u0-JXl">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="ndY-yH-2Fp"/>
+                                <menuItem title="Relative" enabled="NO" id="zDN-Lm-1OJ"/>
+                                <menuItem title="em" indentationLevel="1" id="nrN-6G-gkJ"/>
+                                <menuItem title="ex" indentationLevel="1" id="xOo-3I-LmO"/>
+                                <menuItem title="ch" indentationLevel="1" id="kms-U9-0z9"/>
+                                <menuItem title="rem" indentationLevel="1" id="9IX-dI-GfH"/>
+                                <menuItem title="vw" indentationLevel="1" id="Hxm-wT-4tO"/>
+                                <menuItem title="vh" indentationLevel="1" id="P8n-Hq-mSa"/>
+                                <menuItem title="vmin" indentationLevel="1" id="3km-Hg-ROi"/>
+                                <menuItem title="vmax" indentationLevel="1" id="w1a-iL-SdM"/>
+                                <menuItem isSeparatorItem="YES" id="uC0-vP-T9D"/>
+                                <menuItem title="Absolute" enabled="NO" id="6wZ-Ri-Xmk"/>
+                                <menuItem title="cm" indentationLevel="1" id="XX4-Gw-gsO"/>
+                                <menuItem title="mm" indentationLevel="1" id="AgV-aN-WWu"/>
+                                <menuItem title="in" indentationLevel="1" id="5J7-NW-SPa"/>
+                                <menuItem title="px" indentationLevel="1" id="RCF-bd-DX1"/>
+                                <menuItem title="pt" indentationLevel="1" id="La6-ts-JX7"/>
+                                <menuItem title="pc" indentationLevel="1" id="1NC-XK-t2a"/>
+                                <menuItem isSeparatorItem="YES" id="eDd-fE-TyQ"/>
+                                <menuItem title="Keyword" enabled="NO" id="RYy-nn-qDH"/>
+                                <menuItem title="auto" indentationLevel="1" id="buH-P4-Yw9"/>
+                                <menuItem title="cover" indentationLevel="1" id="YAa-cS-8Th"/>
+                                <menuItem title="contain" indentationLevel="1" id="gBa-Le-UPu"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Tbs-b5-9I3"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="FPI-za-4j0">
+                    <rect key="frame" x="87" y="62" width="39" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ser-6V-PNm">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="NJA-86-PCP"/>
+                        <outlet property="nextKeyView" destination="gte-F3-0Dq" id="hRy-GO-hBz"/>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="q9V-zC-Rk2">
+                    <rect key="frame" x="131" y="60" width="105" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="QiL-Xt-9Qd" id="rar-lv-Xbc">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" autoenablesItems="NO" id="HeD-n0-8vS">
+                            <items>
+                                <menuItem title="unchanged" state="on" id="QiL-Xt-9Qd">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="zyN-ay-jcG"/>
+                                <menuItem title="Percentage" enabled="NO" id="m9V-dz-pOn">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="%" indentationLevel="1" id="qHT-mN-7Ql">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="8Sn-Ga-Mrh"/>
+                                <menuItem title="Relative" enabled="NO" id="Jd7-ic-gRy"/>
+                                <menuItem title="em" indentationLevel="1" id="HcL-nO-ExK"/>
+                                <menuItem title="ex" indentationLevel="1" id="kLv-ET-3u5"/>
+                                <menuItem title="ch" indentationLevel="1" id="tTJ-is-fXd"/>
+                                <menuItem title="rem" indentationLevel="1" id="AmO-zj-daJ"/>
+                                <menuItem title="vw" indentationLevel="1" id="Djh-pm-ZtY"/>
+                                <menuItem title="vh" indentationLevel="1" id="9q2-0P-BcR"/>
+                                <menuItem title="vmin" indentationLevel="1" id="vdS-y4-ST2"/>
+                                <menuItem title="vmax" indentationLevel="1" id="PAX-pn-mhX"/>
+                                <menuItem isSeparatorItem="YES" id="sdM-dd-OCA"/>
+                                <menuItem title="Absolute" enabled="NO" id="q2c-28-bdY"/>
+                                <menuItem title="cm" indentationLevel="1" id="v57-zd-N8m"/>
+                                <menuItem title="mm" indentationLevel="1" id="4q3-dA-hGj"/>
+                                <menuItem title="in" indentationLevel="1" id="fg9-xr-7gd"/>
+                                <menuItem title="px" indentationLevel="1" id="Ahl-8P-pUL"/>
+                                <menuItem title="pt" indentationLevel="1" id="VLt-5y-foW"/>
+                                <menuItem title="pc" indentationLevel="1" id="cln-d9-ysu"/>
+                                <menuItem isSeparatorItem="YES" id="j2H-S4-tSS"/>
+                                <menuItem title="Keyword" enabled="NO" id="Lyf-qA-91E"/>
+                                <menuItem title="auto" indentationLevel="1" id="BwM-qq-1ou"/>
+                                <menuItem title="cover" indentationLevel="1" id="roJ-kv-02y"/>
+                                <menuItem title="contain" indentationLevel="1" id="nu1-Uf-Npf"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="A3f-pg-Ef8"/>
+                    </connections>
+                </popUpButton>
+            </subviews>
+        </customView>
+        <menu showsStateColumn="NO" id="kqm-MD-CyK" userLabel="Add Background Image Menu">
+            <items>
+                <menuItem title="Image" image="image" id="Yfs-tW-yNU">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Linear Gradient" image="gradientLinear" id="wlB-NY-yTA">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Radial Gradient" image="gradientRadial" id="S0a-aF-035">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+    <resources>
+        <image name="NSAddTemplate" width="8" height="8"/>
+        <image name="NSRemoveTemplate" width="8" height="8"/>
+        <image name="arrowDownTemplate" width="15" height="15"/>
+        <image name="arrowLeftBottomTemplate" width="15" height="15"/>
+        <image name="arrowLeftTemplate" width="15" height="15"/>
+        <image name="arrowLeftTopTemplate" width="15" height="15"/>
+        <image name="arrowRightBottomTemplate" width="15" height="15"/>
+        <image name="arrowRightTemplate" width="15" height="15"/>
+        <image name="arrowRightTopTemplate" width="15" height="15"/>
+        <image name="arrowUpTemplate" width="15" height="15"/>
+        <image name="attFixedTemplate" width="24" height="16"/>
+        <image name="attScrollTemplate" width="24" height="16"/>
+        <image name="gradientLinear" width="16" height="16"/>
+        <image name="gradientRadial" width="16" height="16"/>
+        <image name="image" width="16" height="16"/>
+        <image name="repeatNoTemplate" width="24" height="16"/>
+        <image name="repeatTemplate" width="24" height="16"/>
+        <image name="repeatXTemplate" width="24" height="16"/>
+        <image name="repeatYTemplate" width="24" height="16"/>
+    </resources>
+</document>
