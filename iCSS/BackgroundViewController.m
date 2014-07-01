@@ -10,7 +10,7 @@
 #import "NSColor+HTMLColors.h"
 #import "ColorTextField.h"
 #import "Document.h"
-#import "RegexKitLite.h"
+#import <RegexKitLite/RegexKitLite.h>
 #import <WebKit/WebKit.h>
 
 @interface BackgroundViewController ()

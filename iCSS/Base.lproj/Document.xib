@@ -130,13 +130,14 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="6nh-vI-glp">
                                                         <rect key="frame" x="0.0" y="529" width="246" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="4RW-Op-izl">
-                                                        <rect key="frame" x="231" y="0.0" width="15" height="545"/>
+                                                        <rect key="frame" x="230" y="0.0" width="16" height="545"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>

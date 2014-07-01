@@ -14,10 +14,11 @@
 #import "SyntaxHighlighter.h"
 #import "CSSParser.h"
 #import "TBMInspectorView.h"
-#import "RegexKitLite.h"
 #import "NSColor+HTMLColors.h"
 #import "NSColor+iOS7Colors.h"
 #import "ImageAndTextCell.h"
+#import <TBMInspectorView/TBMDetailView.h>
+#import <RegexKitLite/RegexKitLite.h>
 #import <WebKit/WebKit.h>
 
 @interface Document ()
@@ -104,7 +105,7 @@
     [inspector addView:self.positioningViewController.view label:@"Positioning" expanded:YES];
     [inspector addView:self.borderViewController.view label:@"Borders" expanded:YES];
     [self.inspectorScrollView setDocumentView:inspector];
-        
+    
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"css"];
     NSError *error;
     self.textView.string = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];

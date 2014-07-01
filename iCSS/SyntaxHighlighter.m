@@ -7,7 +7,6 @@
 //
 
 #import "SyntaxHighlighter.h"
-#import "RegexKitLite.h"
 #import "NSColor+iOS7Colors.h"
 
 #define CSS_PROPERTY @"property"
