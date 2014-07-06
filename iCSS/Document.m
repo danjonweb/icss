@@ -20,8 +20,8 @@
 #import "NSColor+iOS7Colors.h"
 #import "ImageAndTextCell.h"
 #import "ColorTextField.h"
-#import <TBMInspectorView/TBMDetailView.h>
-#import <RegexKitLite/RegexKitLite.h>
+#import "TBMDetailView.h"
+#import "RegexKitLite.h"
 #import <WebKit/WebKit.h>
 
 @interface Document ()

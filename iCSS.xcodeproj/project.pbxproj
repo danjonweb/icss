@@ -121,15 +121,18 @@
 		05973D0E195FD0A7005C3D10 /* DimensionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05973D0C195FD0A7005C3D10 /* DimensionsViewController.xib */; };
 		05973D1319607605005C3D10 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05973D1119607605005C3D10 /* BackgroundViewController.m */; };
 		05973D1419607605005C3D10 /* BackgroundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05973D1219607605005C3D10 /* BackgroundViewController.xib */; };
-		05DDFE541961CEDD002F6ADC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE531961CEDD002F6ADC /* Podfile */; };
 		05DDFE571963CB9C002F6ADC /* NSMutableString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE561963CB9C002F6ADC /* NSMutableString+Trim.m */; };
 		05DDFE5B19659E5F002F6ADC /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE5919659E5F002F6ADC /* TextViewController.m */; };
 		05DDFE5C19659E5F002F6ADC /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE5A19659E5F002F6ADC /* TextViewController.xib */; };
 		05DDFE611965B01F002F6ADC /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE5F1965B01F002F6ADC /* FontViewController.m */; };
 		05DDFE621965B01F002F6ADC /* FontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE601965B01F002F6ADC /* FontViewController.xib */; };
 		05DDFE661966094C002F6ADC /* OnlyIntegerValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */; };
+		05DDFE6E1968F08F002F6ADC /* TBMDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE681968F08F002F6ADC /* TBMDetailView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		05DDFE6F1968F08F002F6ADC /* TBMInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE6B1968F08F002F6ADC /* TBMInspectorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		05DDFE701968F08F002F6ADC /* TBMShowHideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE6D1968F08F002F6ADC /* TBMShowHideButton.m */; };
+		05DDFE731968F0DB002F6ADC /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE721968F0DB002F6ADC /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E7070255D3F4BF985B21450 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B86A004A21CA4D17BAF2D8DB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA07C34EC7644FFBBA67242 /* libPods.a */; };
+		B86A004A21CA4D17BAF2D8DB /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,7 +289,6 @@
 		05973D1019607605005C3D10 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
 		05973D1119607605005C3D10 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
 		05973D1219607605005C3D10 /* BackgroundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundViewController.xib; sourceTree = "<group>"; };
-		05DDFE531961CEDD002F6ADC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		05DDFE551963CB9C002F6ADC /* NSMutableString+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Trim.h"; sourceTree = "<group>"; };
 		05DDFE561963CB9C002F6ADC /* NSMutableString+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Trim.m"; sourceTree = "<group>"; };
 		05DDFE5819659E5F002F6ADC /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
@@ -297,8 +299,15 @@
 		05DDFE601965B01F002F6ADC /* FontViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontViewController.xib; sourceTree = "<group>"; };
 		05DDFE641966094C002F6ADC /* OnlyIntegerValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyIntegerValueFormatter.h; sourceTree = "<group>"; };
 		05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyIntegerValueFormatter.m; sourceTree = "<group>"; };
-		4BA07C34EC7644FFBBA67242 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F210D9FF0E36476F840F2D15 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		05DDFE671968F08F002F6ADC /* TBMDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDetailView.h; sourceTree = "<group>"; };
+		05DDFE681968F08F002F6ADC /* TBMDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDetailView.m; sourceTree = "<group>"; };
+		05DDFE691968F08F002F6ADC /* TBMInspectorView_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMInspectorView_Internal.h; sourceTree = "<group>"; };
+		05DDFE6A1968F08F002F6ADC /* TBMInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMInspectorView.h; sourceTree = "<group>"; };
+		05DDFE6B1968F08F002F6ADC /* TBMInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMInspectorView.m; sourceTree = "<group>"; };
+		05DDFE6C1968F08F002F6ADC /* TBMShowHideButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMShowHideButton.h; sourceTree = "<group>"; };
+		05DDFE6D1968F08F002F6ADC /* TBMShowHideButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMShowHideButton.m; sourceTree = "<group>"; };
+		05DDFE711968F0DB002F6ADC /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		05DDFE721968F0DB002F6ADC /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,7 +319,7 @@
 				0552C51F195DFA91006AE004 /* libicucore.dylib in Frameworks */,
 				0552C40E195DF91A006AE004 /* Cocoa.framework in Frameworks */,
 				4E7070255D3F4BF985B21450 /* (null) in Frameworks */,
-				B86A004A21CA4D17BAF2D8DB /* libPods.a in Frameworks */,
+				B86A004A21CA4D17BAF2D8DB /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,12 +338,10 @@
 		0552C401195DF91A006AE004 = {
 			isa = PBXGroup;
 			children = (
-				05DDFE531961CEDD002F6ADC /* Podfile */,
 				0552C413195DF91A006AE004 /* iCSS */,
 				0552C434195DF91A006AE004 /* iCSSTests */,
 				0552C40C195DF91A006AE004 /* Frameworks */,
 				0552C40B195DF91A006AE004 /* Products */,
-				F210D9FF0E36476F840F2D15 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,7 +362,6 @@
 				0552C40D195DF91A006AE004 /* Cocoa.framework */,
 				0552C42F195DF91A006AE004 /* XCTest.framework */,
 				0552C40F195DF91A006AE004 /* Other Frameworks */,
-				4BA07C34EC7644FFBBA67242 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,6 +483,15 @@
 				0552C519195DFA14006AE004 /* NoodleLineNumberMarker.m */,
 				0552C51A195DFA14006AE004 /* NoodleLineNumberView.h */,
 				0552C51B195DFA14006AE004 /* NoodleLineNumberView.m */,
+				05DDFE671968F08F002F6ADC /* TBMDetailView.h */,
+				05DDFE681968F08F002F6ADC /* TBMDetailView.m */,
+				05DDFE691968F08F002F6ADC /* TBMInspectorView_Internal.h */,
+				05DDFE6A1968F08F002F6ADC /* TBMInspectorView.h */,
+				05DDFE6B1968F08F002F6ADC /* TBMInspectorView.m */,
+				05DDFE6C1968F08F002F6ADC /* TBMShowHideButton.h */,
+				05DDFE6D1968F08F002F6ADC /* TBMShowHideButton.m */,
+				05DDFE711968F0DB002F6ADC /* RegexKitLite.h */,
+				05DDFE721968F0DB002F6ADC /* RegexKitLite.m */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -631,11 +646,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0552C43E195DF91A006AE004 /* Build configuration list for PBXNativeTarget "iCSS" */;
 			buildPhases = (
-				ADE23A47CF5249F8A19FE64F /* Check Pods Manifest.lock */,
 				0552C406195DF91A006AE004 /* Sources */,
 				0552C407195DF91A006AE004 /* Frameworks */,
 				0552C408195DF91A006AE004 /* Resources */,
-				C4A6EBC43FC14242BD0E5823 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -755,7 +768,6 @@
 				0552C4A5195DF98C006AE004 /* positionTop.pdf in Resources */,
 				0552C49D195DF98C006AE004 /* borderAllTemplate.pdf in Resources */,
 				0552C493195DF98C006AE004 /* borderGroove.pdf in Resources */,
-				05DDFE541961CEDD002F6ADC /* Podfile in Resources */,
 				0552C4B4195DF98C006AE004 /* paddingTop.pdf in Resources */,
 				0552C4D2195DF98C006AE004 /* alignLeftTemplate.pdf in Resources */,
 				0552C4DB195DF98C006AE004 /* image@2x.png in Resources */,
@@ -802,45 +814,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		ADE23A47CF5249F8A19FE64F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C4A6EBC43FC14242BD0E5823 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		0552C406195DF91A006AE004 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				05DDFE5B19659E5F002F6ADC /* TextViewController.m in Sources */,
+				05DDFE731968F0DB002F6ADC /* RegexKitLite.m in Sources */,
 				05DDFE611965B01F002F6ADC /* FontViewController.m in Sources */,
 				0552C502195DF9D9006AE004 /* NSColor+Extensions.m in Sources */,
 				05973D0D195FD0A7005C3D10 /* DimensionsViewController.m in Sources */,
@@ -851,9 +831,12 @@
 				0552C421195DF91A006AE004 /* Document.m in Sources */,
 				0552C4F3195DF9CF006AE004 /* SyntaxHighlighter.m in Sources */,
 				05973D1319607605005C3D10 /* BackgroundViewController.m in Sources */,
+				05DDFE6F1968F08F002F6ADC /* TBMInspectorView.m in Sources */,
+				05DDFE6E1968F08F002F6ADC /* TBMDetailView.m in Sources */,
 				0552C51D195DFA14006AE004 /* NoodleLineNumberView.m in Sources */,
 				0552C503195DF9D9006AE004 /* NSColor+iOS7Colors.m in Sources */,
 				0552C501195DF9D9006AE004 /* NSColor+HTMLColors.m in Sources */,
+				05DDFE701968F08F002F6ADC /* TBMShowHideButton.m in Sources */,
 				0552C505195DF9D9006AE004 /* NSColor+ChessboardColor.m in Sources */,
 				0552C532195FC277006AE004 /* PositioningViewController.m in Sources */,
 				0552C41A195DF91A006AE004 /* main.m in Sources */,
@@ -1004,7 +987,6 @@
 		};
 		0552C43F195DF91A006AE004 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F210D9FF0E36476F840F2D15 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1018,7 +1000,6 @@
 		};
 		0552C440195DF91A006AE004 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F210D9FF0E36476F840F2D15 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;

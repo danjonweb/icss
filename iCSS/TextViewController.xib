@@ -6,7 +6,23 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TextViewController">
             <connections>
+                <outlet property="letterSpacingControl" destination="ecW-9h-g91" id="OuM-zI-nxu"/>
+                <outlet property="letterSpacingUnitsControl" destination="dgC-lS-Zho" id="xUK-Ng-sOy"/>
+                <outlet property="textAlignControl" destination="lvq-2T-tQW" id="pLU-46-C0R"/>
+                <outlet property="textIndentControl" destination="M4t-au-XCY" id="mjy-EV-dQM"/>
+                <outlet property="textIndentUnitsControl" destination="6k3-d9-A08" id="jDD-Tu-fI2"/>
+                <outlet property="textShadowAddAndRemoveButtons" destination="GVg-sD-VXd" id="kRT-ZC-Jj1"/>
+                <outlet property="textShadowBlurControl" destination="wyw-ez-dWa" id="HrL-iK-DO9"/>
+                <outlet property="textShadowBlurUnitsControl" destination="mdI-mw-Quw" id="7ih-6h-ulm"/>
+                <outlet property="textShadowColorControl" destination="FZM-OT-s2E" id="bp3-sB-Jud"/>
+                <outlet property="textShadowColorTextControl" destination="mkC-Ro-Os5" id="OTi-rh-gYM"/>
+                <outlet property="textShadowControl" destination="9CP-O5-JPg" id="RBO-Nf-LsJ"/>
+                <outlet property="textShadowXControl" destination="xSo-Vi-ne9" id="FfO-RY-mPw"/>
+                <outlet property="textShadowXUnitsControl" destination="cx6-hQ-9Vf" id="mub-fJ-Xhs"/>
+                <outlet property="textShadowYControl" destination="jh6-jm-c75" id="Yzp-Ns-nib"/>
+                <outlet property="textShadowYUnitsControl" destination="Tcf-DU-bGL" id="SmI-IO-oqf"/>
                 <outlet property="view" destination="Ew5-iA-zMm" id="cUj-yi-fSO"/>
+                <outlet property="wordSpacingControl" destination="o5l-lv-SGO" id="LaP-4k-pLN"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -61,12 +77,12 @@
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="6k3-d9-A08">
                     <rect key="frame" x="131" y="204" width="105" height="19"/>
-                    <popUpButtonCell key="cell" type="roundTextured" title="unchanged" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="i3R-hm-CvQ">
+                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="i3R-hm-CvQ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                         <menu key="menu" title="OtherViews" autoenablesItems="NO" id="Zo2-zy-32K">
                             <items>
-                                <menuItem title="unchanged" state="on" id="aiz-Js-Rni">
+                                <menuItem title="unchanged" id="aiz-Js-Rni">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
                                 <menuItem title="initial" id="sSY-P6-XEp"/>
@@ -233,7 +249,7 @@
                     </popUpButtonCell>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9C4-uA-F9n">
-                    <rect key="frame" x="8" y="115" width="71" height="13"/>
+                    <rect key="frame" x="8" y="105" width="71" height="13"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Shadow" id="O38-c7-vMh">
                         <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -241,7 +257,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="9CP-O5-JPg">
-                    <rect key="frame" x="131" y="112" width="105" height="19"/>
+                    <rect key="frame" x="131" y="102" width="105" height="19"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="mlE-hy-q37">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
@@ -266,12 +282,12 @@
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="cx6-hQ-9Vf">
                     <rect key="frame" x="131" y="79" width="105" height="19"/>
-                    <popUpButtonCell key="cell" type="roundTextured" title="Relative" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="iXe-Kh-a7h">
+                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="iXe-Kh-a7h">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                         <menu key="menu" title="OtherViews" autoenablesItems="NO" id="deI-bX-qS2">
                             <items>
-                                <menuItem title="Relative" state="on" enabled="NO" id="417-uW-DXy"/>
+                                <menuItem title="Relative" enabled="NO" id="417-uW-DXy"/>
                                 <menuItem title="em" indentationLevel="1" id="UEV-pg-XG4"/>
                                 <menuItem title="ex" indentationLevel="1" id="i7T-Az-bg1"/>
                                 <menuItem title="ch" indentationLevel="1" id="gIp-5h-HZn"/>
@@ -405,7 +421,7 @@
                     </textFieldCell>
                 </textField>
                 <segmentedControl verticalHuggingPriority="750" id="GVg-sD-VXd">
-                    <rect key="frame" x="87" y="112" width="39" height="19"/>
+                    <rect key="frame" x="87" y="102" width="39" height="19"/>
                     <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="WOo-nv-lrN">
                         <font key="font" metaFont="smallSystem"/>
                         <segments>

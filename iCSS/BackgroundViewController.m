@@ -11,7 +11,7 @@
 #import "ColorTextField.h"
 #import "Document.h"
 #import "NSMutableString+Trim.h"
-#import <RegexKitLite/RegexKitLite.h>
+#import "RegexKitLite.h"
 #import <WebKit/WebKit.h>
 
 @interface BackgroundViewController ()
@@ -572,7 +572,7 @@
         
         if (self.bgImageControl.indexOfSelectedItem != -1) {
             NSDictionary *bgDict = self.backgrounds[self.bgImageControl.indexOfSelectedItem];
-            NSLog(@"%@", bgDict);
+
             // Load the background image -- either a url or gradient
             NSString *backgroundImage = bgDict[@"image"];
             [self enableOrDisableControlsForBackgroundImage:backgroundImage];
@@ -633,139 +633,6 @@
         }
     }
     
-}
-
-#pragma mark - ACTGradientDelegate Methods
-
-- (void)gradientDidChange:(ACTGradientEditor *)gradientEditor {
-    [self controlChanged:self.bgImageGradientEditor];
-}
-
-#pragma mark - Utilities
-
-- (NSMutableArray *)parseBackgrounds:(NSString *)s {
-    NSMutableArray *backgrounds = [NSMutableArray array];
-    NSMutableArray *openExpr = [NSMutableArray array];
-    NSInteger start = 0;
-    for (NSInteger i = 0; i < s.length; i++) {
-        unichar c = [s characterAtIndex:i];
-        if (c == '(') {
-            [openExpr addObject:@(i)];
-        } else if (c == ')') {
-            [openExpr removeLastObject];
-        } else if (c == '"') {
-            do {
-                if (i + 1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '"'));
-        } else if (c == '\'') {
-            do {
-                if (i+1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '\''));
-        } else if (c == '/' && i+1 < s.length && [s characterAtIndex:i+1] == '*') {
-            do {
-                if (i+1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '*' && i+1 < s.length && [s characterAtIndex:i+1] == '/'));
-        }
-        if ((c == ',' && openExpr.count == 0) || i == s.length-1) {
-            NSInteger end = i == s.length-1 ? i+1 : i;
-            NSString *background = [s substringWithRange:NSMakeRange(start, end-start)];
-            background = [background stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            background = [background stringByReplacingOccurrencesOfRegex:@"applewebdata:\\/\\/[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}\\/" withString:@""];
-            [backgrounds addObject:background];
-            start = i+1;
-        }
-    }
-    return backgrounds;
-}
-
-- (NSMutableDictionary *)parseBackground:(NSString *)s {
-    NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
-    NSMutableArray *openExpr = [NSMutableArray array];
-    NSInteger start = 0;
-    BOOL isSize = NO;
-    for (NSInteger i = 0; i < s.length; i++) {
-        unichar c = [s characterAtIndex:i];
-        if (c == '(') {
-            [openExpr addObject:@(i)];
-        } else if (c == ')') {
-            [openExpr removeLastObject];
-        } else if (c == '"') {
-            do {
-                if (i + 1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '"'));
-        } else if (c == '\'') {
-            do {
-                if (i+1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '\''));
-        } else if (c == '/' && i+1 < s.length && [s characterAtIndex:i+1] == '*') {
-            do {
-                if (i+1 < s.length) i++; else break;
-            } while (!([s characterAtIndex:i] == '*' && i+1 < s.length && [s characterAtIndex:i+1] == '/'));
-        }
-        if ((c == ' ' && openExpr.count == 0) || i == s.length-1) {
-            NSInteger end = i == s.length-1 ? i+1 : i;
-            NSString *chunk = [s substringWithRange:NSMakeRange(start, end-start)];
-            start = i+1;
-            if ([chunk isEqualToString:@"/"]) {
-                isSize = YES;
-            }
-            if ([chunk hasPrefix:@"url"]) {
-                bgDict[@"image"] = chunk;
-            } else if ([chunk hasPrefix:@"linear-gradient"]) {
-                bgDict[@"image"] = chunk;
-            } else if ([chunk hasPrefix:@"radial-gradient"]) {
-                bgDict[@"image"] = chunk;
-            }
-            NSArray *repeats = @[@"repeat-x", @"repeat-y", @"repeat", @"space", @"round", @"no-repeat"];
-            if ([repeats containsObject:chunk]) {
-                NSMutableArray *repeat = bgDict[@"repeat"];
-                if (!repeat) {
-                    repeat = [NSMutableArray array];
-                }
-                [repeat addObject:chunk];
-                bgDict[@"repeat"] = repeat;
-            }
-            NSArray *attachments = @[@"scroll", @"fixed", @"local"];
-            if ([attachments containsObject:chunk]) {
-                bgDict[@"attachment"] = chunk;
-            }
-            
-            NSArray *unitsArray = @[@"rem", @"em", @"ex", @"ch", @"vw", @"vh", @"vmin", @"vmax", @"cm", @"mm", @"in", @"px", @"pt", @"pc", @"%"];
-            for (NSString *units in unitsArray) {
-                if ([chunk hasSuffix:units] && ![chunk isEqualToString:@"contain"] /* Fixes a bug where keyword "contain" counts for a length because it has a suffix "in" */) {
-                    if (!isSize) {
-                        // Slash not encountered yet, this is a position
-                        NSMutableArray *position = bgDict[@"position"];
-                        if (!position) {
-                            position = [NSMutableArray array];
-                        }
-                        [position addObject:chunk];
-                        bgDict[@"position"] = position;
-                    } else {
-                        NSMutableArray *size = bgDict[@"size"];
-                        if (!size) {
-                            size = [NSMutableArray array];
-                        }
-                        [size addObject:chunk];
-                        bgDict[@"size"] = size;
-                    }
-                    break;
-                }
-            }
-            
-            NSArray *size = @[@"auto", @"cover", @"contain"];
-            if ([size containsObject:chunk]) {
-                NSMutableArray *size = bgDict[@"size"];
-                if (!size) {
-                    size = [NSMutableArray array];
-                }
-                [size addObject:chunk];
-                bgDict[@"size"] = size;
-            }
-        }
-    }
-    
-    return bgDict;
 }
 
 - (void)loadGradient:(NSString *)string {
@@ -988,6 +855,139 @@
 #pragma clang diagnostic pop
     
     self.bgImageGradientEditor.gradient = gradient;
+}
+
+#pragma mark - ACTGradientDelegate Methods
+
+- (void)gradientDidChange:(ACTGradientEditor *)gradientEditor {
+    [self controlChanged:self.bgImageGradientEditor];
+}
+
+#pragma mark - Utilities
+
+- (NSMutableArray *)parseBackgrounds:(NSString *)s {
+    NSMutableArray *backgrounds = [NSMutableArray array];
+    NSMutableArray *openExpr = [NSMutableArray array];
+    NSInteger start = 0;
+    for (NSInteger i = 0; i < s.length; i++) {
+        unichar c = [s characterAtIndex:i];
+        if (c == '(') {
+            [openExpr addObject:@(i)];
+        } else if (c == ')') {
+            [openExpr removeLastObject];
+        } else if (c == '"') {
+            do {
+                if (i + 1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '"'));
+        } else if (c == '\'') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '\''));
+        } else if (c == '/' && i+1 < s.length && [s characterAtIndex:i+1] == '*') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '*' && i+1 < s.length && [s characterAtIndex:i+1] == '/'));
+        }
+        if ((c == ',' && openExpr.count == 0) || i == s.length-1) {
+            NSInteger end = i == s.length-1 ? i+1 : i;
+            NSString *background = [s substringWithRange:NSMakeRange(start, end-start)];
+            background = [background stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            background = [background stringByReplacingOccurrencesOfRegex:@"applewebdata:\\/\\/[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}\\/" withString:@""];
+            [backgrounds addObject:background];
+            start = i+1;
+        }
+    }
+    return backgrounds;
+}
+
+- (NSMutableDictionary *)parseBackground:(NSString *)s {
+    NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
+    NSMutableArray *openExpr = [NSMutableArray array];
+    NSInteger start = 0;
+    BOOL isSize = NO;
+    for (NSInteger i = 0; i < s.length; i++) {
+        unichar c = [s characterAtIndex:i];
+        if (c == '(') {
+            [openExpr addObject:@(i)];
+        } else if (c == ')') {
+            [openExpr removeLastObject];
+        } else if (c == '"') {
+            do {
+                if (i + 1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '"'));
+        } else if (c == '\'') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '\''));
+        } else if (c == '/' && i+1 < s.length && [s characterAtIndex:i+1] == '*') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '*' && i+1 < s.length && [s characterAtIndex:i+1] == '/'));
+        }
+        if ((c == ' ' && openExpr.count == 0) || i == s.length-1) {
+            NSInteger end = i == s.length-1 ? i+1 : i;
+            NSString *chunk = [s substringWithRange:NSMakeRange(start, end-start)];
+            start = i+1;
+            if ([chunk isEqualToString:@"/"]) {
+                isSize = YES;
+            }
+            if ([chunk hasPrefix:@"url"]) {
+                bgDict[@"image"] = chunk;
+            } else if ([chunk hasPrefix:@"linear-gradient"]) {
+                bgDict[@"image"] = chunk;
+            } else if ([chunk hasPrefix:@"radial-gradient"]) {
+                bgDict[@"image"] = chunk;
+            }
+            NSArray *repeats = @[@"repeat-x", @"repeat-y", @"repeat", @"space", @"round", @"no-repeat"];
+            if ([repeats containsObject:chunk]) {
+                NSMutableArray *repeat = bgDict[@"repeat"];
+                if (!repeat) {
+                    repeat = [NSMutableArray array];
+                }
+                [repeat addObject:chunk];
+                bgDict[@"repeat"] = repeat;
+            }
+            NSArray *attachments = @[@"scroll", @"fixed", @"local"];
+            if ([attachments containsObject:chunk]) {
+                bgDict[@"attachment"] = chunk;
+            }
+            
+            NSArray *unitsArray = @[@"rem", @"em", @"ex", @"ch", @"vw", @"vh", @"vmin", @"vmax", @"cm", @"mm", @"in", @"px", @"pt", @"pc", @"%"];
+            for (NSString *units in unitsArray) {
+                if ([chunk hasSuffix:units] && ![chunk isEqualToString:@"contain"] /* Fixes a bug where keyword "contain" counts for a length because it has a suffix "in" */) {
+                    if (!isSize) {
+                        // Slash not encountered yet, this is a position
+                        NSMutableArray *position = bgDict[@"position"];
+                        if (!position) {
+                            position = [NSMutableArray array];
+                        }
+                        [position addObject:chunk];
+                        bgDict[@"position"] = position;
+                    } else {
+                        NSMutableArray *size = bgDict[@"size"];
+                        if (!size) {
+                            size = [NSMutableArray array];
+                        }
+                        [size addObject:chunk];
+                        bgDict[@"size"] = size;
+                    }
+                    break;
+                }
+            }
+            
+            NSArray *size = @[@"auto", @"cover", @"contain"];
+            if ([size containsObject:chunk]) {
+                NSMutableArray *size = bgDict[@"size"];
+                if (!size) {
+                    size = [NSMutableArray array];
+                }
+                [size addObject:chunk];
+                bgDict[@"size"] = size;
+            }
+        }
+    }
+    
+    return bgDict;
 }
 
 - (void)enableOrDisableControlsForBackgroundImage:(NSString *)backgroundImage {

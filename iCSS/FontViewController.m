@@ -174,6 +174,74 @@
             [self.textTransformControl setSelectedSegment:3];
         }
     }
+    
+    if (style.fontFamily.length > 0) {
+        [self.fontFamilyDataSource addObjectsFromArray:[self parseFontFamily:style.fontFamily]];
+        [self.fontFamilyTableView reloadData];
+    }
+}
+
+#pragma mark - Parsing
+
+- (NSMutableArray *)parseFontFamily:(NSString *)s {
+    NSMutableArray *families = [NSMutableArray array];
+    NSMutableArray *openExpr = [NSMutableArray array];
+    NSInteger start = 0;
+    for (NSInteger i = 0; i < s.length; i++) {
+        unichar c = [s characterAtIndex:i];
+        if (c == '(') {
+            [openExpr addObject:@(i)];
+        } else if (c == ')') {
+            [openExpr removeLastObject];
+        } else if (c == '"') {
+            do {
+                if (i + 1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '"'));
+        } else if (c == '\'') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '\''));
+        } else if (c == '/' && i+1 < s.length && [s characterAtIndex:i+1] == '*') {
+            do {
+                if (i+1 < s.length) i++; else break;
+            } while (!([s characterAtIndex:i] == '*' && i+1 < s.length && [s characterAtIndex:i+1] == '/'));
+        }
+        if ((c == ',' && openExpr.count == 0) || i == s.length-1) {
+            NSInteger end = i == s.length-1 ? i+1 : i;
+            NSString *family = [s substringWithRange:NSMakeRange(start, end-start)];
+            family = [family stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            family = [family stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"'"]];
+            [families addObject:family];
+            start = i+1;
+        }
+    }
+    return families;
+}
+
+#pragma mark - Table View
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return self.fontFamilyDataSource.count;
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    if (row >= 0 && row < self.fontFamilyDataSource.count) {
+        return self.fontFamilyDataSource[row];
+    }
+    return @"";
+}
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    self.fontFamilyDataSource[row] = object;
+    //[self updateFontFamily];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    if (self.fontFamilyTableView.selectedRow == -1) {
+        [self.fontFamilyControl setEnabled:NO forSegment:1];
+    } else {
+        [self.fontFamilyControl setEnabled:YES forSegment:1];
+    }
 }
 
 #pragma mark - Create images
