@@ -71,10 +71,6 @@
 		0552C4C2195DF98C006AE004 /* repeatNoTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */; };
 		0552C4C3195DF98C006AE004 /* attScrollTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */; };
 		0552C4C4195DF98C006AE004 /* attFixedTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */; };
-		0552C4C5195DF98C006AE004 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47C195DF98C006AE004 /* picture.png */; };
-		0552C4C6195DF98C006AE004 /* HideStylesPaneTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */; };
-		0552C4C7195DF98C006AE004 /* ShowStylesPaneTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */; };
-		0552C4C8195DF98C006AE004 /* SmallX.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C47F195DF98C006AE004 /* SmallX.png */; };
 		0552C4C9195DF98C006AE004 /* fontTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0552C480195DF98C006AE004 /* fontTemplate.pdf */; };
 		0552C4CA195DF98C006AE004 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C481195DF98C006AE004 /* comment.png */; };
 		0552C4CB195DF98C006AE004 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0552C482195DF98C006AE004 /* comment@2x.png */; };
@@ -126,6 +122,12 @@
 		05973D1319607605005C3D10 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05973D1119607605005C3D10 /* BackgroundViewController.m */; };
 		05973D1419607605005C3D10 /* BackgroundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05973D1219607605005C3D10 /* BackgroundViewController.xib */; };
 		05DDFE541961CEDD002F6ADC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE531961CEDD002F6ADC /* Podfile */; };
+		05DDFE571963CB9C002F6ADC /* NSMutableString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE561963CB9C002F6ADC /* NSMutableString+Trim.m */; };
+		05DDFE5B19659E5F002F6ADC /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE5919659E5F002F6ADC /* TextViewController.m */; };
+		05DDFE5C19659E5F002F6ADC /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE5A19659E5F002F6ADC /* TextViewController.xib */; };
+		05DDFE611965B01F002F6ADC /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE5F1965B01F002F6ADC /* FontViewController.m */; };
+		05DDFE621965B01F002F6ADC /* FontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE601965B01F002F6ADC /* FontViewController.xib */; };
+		05DDFE661966094C002F6ADC /* OnlyIntegerValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */; };
 		4E7070255D3F4BF985B21450 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B86A004A21CA4D17BAF2D8DB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA07C34EC7644FFBBA67242 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -214,10 +216,6 @@
 		0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = repeatNoTemplate.pdf; sourceTree = "<group>"; };
 		0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = attScrollTemplate.pdf; sourceTree = "<group>"; };
 		0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = attFixedTemplate.pdf; sourceTree = "<group>"; };
-		0552C47C195DF98C006AE004 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
-		0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HideStylesPaneTemplate.png; sourceTree = "<group>"; };
-		0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowStylesPaneTemplate.png; sourceTree = "<group>"; };
-		0552C47F195DF98C006AE004 /* SmallX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallX.png; sourceTree = "<group>"; };
 		0552C480195DF98C006AE004 /* fontTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fontTemplate.pdf; sourceTree = "<group>"; };
 		0552C481195DF98C006AE004 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		0552C482195DF98C006AE004 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
@@ -289,6 +287,16 @@
 		05973D1119607605005C3D10 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
 		05973D1219607605005C3D10 /* BackgroundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundViewController.xib; sourceTree = "<group>"; };
 		05DDFE531961CEDD002F6ADC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		05DDFE551963CB9C002F6ADC /* NSMutableString+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Trim.h"; sourceTree = "<group>"; };
+		05DDFE561963CB9C002F6ADC /* NSMutableString+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Trim.m"; sourceTree = "<group>"; };
+		05DDFE5819659E5F002F6ADC /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		05DDFE5919659E5F002F6ADC /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		05DDFE5A19659E5F002F6ADC /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		05DDFE5E1965B01F002F6ADC /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
+		05DDFE5F1965B01F002F6ADC /* FontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontViewController.m; sourceTree = "<group>"; };
+		05DDFE601965B01F002F6ADC /* FontViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontViewController.xib; sourceTree = "<group>"; };
+		05DDFE641966094C002F6ADC /* OnlyIntegerValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyIntegerValueFormatter.h; sourceTree = "<group>"; };
+		05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyIntegerValueFormatter.m; sourceTree = "<group>"; };
 		4BA07C34EC7644FFBBA67242 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F210D9FF0E36476F840F2D15 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,6 +389,8 @@
 				0552C4E3195DF9CF006AE004 /* ColorTextFieldCell.m */,
 				0552C4E4195DF9CF006AE004 /* ColorTextField.h */,
 				0552C4E5195DF9CF006AE004 /* ColorTextField.m */,
+				05DDFE641966094C002F6ADC /* OnlyIntegerValueFormatter.h */,
+				05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */,
 				0552C4E6195DF9CF006AE004 /* ImageAndTextCell.h */,
 				0552C4E7195DF9CF006AE004 /* ImageAndTextCell.m */,
 				0552C4E8195DF9CF006AE004 /* CustomOutlineView.h */,
@@ -452,6 +462,8 @@
 				0552C4FD195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m */,
 				0552C4FE195DF9D9006AE004 /* NSColor+ChessboardColor.h */,
 				0552C4FF195DF9D9006AE004 /* NSColor+ChessboardColor.m */,
+				05DDFE551963CB9C002F6ADC /* NSMutableString+Trim.h */,
+				05DDFE561963CB9C002F6ADC /* NSMutableString+Trim.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -526,10 +538,6 @@
 				0552C479195DF98B006AE004 /* repeatNoTemplate.pdf */,
 				0552C47A195DF98B006AE004 /* attScrollTemplate.pdf */,
 				0552C47B195DF98C006AE004 /* attFixedTemplate.pdf */,
-				0552C47C195DF98C006AE004 /* picture.png */,
-				0552C47D195DF98C006AE004 /* HideStylesPaneTemplate.png */,
-				0552C47E195DF98C006AE004 /* ShowStylesPaneTemplate.png */,
-				0552C47F195DF98C006AE004 /* SmallX.png */,
 				0552C480195DF98C006AE004 /* fontTemplate.pdf */,
 				0552C481195DF98C006AE004 /* comment.png */,
 				0552C482195DF98C006AE004 /* comment@2x.png */,
@@ -566,6 +574,8 @@
 		0552C535195FC32F006AE004 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				05DDFE631965B027002F6ADC /* Font */,
+				05DDFE5D19659E66002F6ADC /* Text */,
 				05973D151960760A005C3D10 /* Background */,
 				05973D0F195FD0AE005C3D10 /* Dimensions */,
 				0552C534195FC27C006AE004 /* Positioning */,
@@ -592,6 +602,26 @@
 				05973D1219607605005C3D10 /* BackgroundViewController.xib */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		05DDFE5D19659E66002F6ADC /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				05DDFE5819659E5F002F6ADC /* TextViewController.h */,
+				05DDFE5919659E5F002F6ADC /* TextViewController.m */,
+				05DDFE5A19659E5F002F6ADC /* TextViewController.xib */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		05DDFE631965B027002F6ADC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				05DDFE5E1965B01F002F6ADC /* FontViewController.h */,
+				05DDFE5F1965B01F002F6ADC /* FontViewController.m */,
+				05DDFE601965B01F002F6ADC /* FontViewController.xib */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,7 +715,6 @@
 				0552C4A2195DF98C006AE004 /* positionBottom.pdf in Resources */,
 				0552C4C1195DF98C006AE004 /* repeatXTemplate.pdf in Resources */,
 				05973D1419607605005C3D10 /* BackgroundViewController.xib in Resources */,
-				0552C4C7195DF98C006AE004 /* ShowStylesPaneTemplate.png in Resources */,
 				0552C4D4195DF98C006AE004 /* alignRightTemplate.pdf in Resources */,
 				0552C4B6195DF98C006AE004 /* zUpTemplate.pdf in Resources */,
 				0552C429195DF91A006AE004 /* Images.xcassets in Resources */,
@@ -697,7 +726,6 @@
 				0552C418195DF91A006AE004 /* InfoPlist.strings in Resources */,
 				0552C4AE195DF98C006AE004 /* marginRight.pdf in Resources */,
 				0552C52D195FC0F5006AE004 /* delete-pressed.png in Resources */,
-				0552C4C6195DF98C006AE004 /* HideStylesPaneTemplate.png in Resources */,
 				0552C4AD195DF98C006AE004 /* marginLeft.pdf in Resources */,
 				0552C4BC195DF98C006AE004 /* arrowRightBottomTemplate.pdf in Resources */,
 				0552C4AC195DF98C006AE004 /* marginBottom.pdf in Resources */,
@@ -730,7 +758,6 @@
 				05DDFE541961CEDD002F6ADC /* Podfile in Resources */,
 				0552C4B4195DF98C006AE004 /* paddingTop.pdf in Resources */,
 				0552C4D2195DF98C006AE004 /* alignLeftTemplate.pdf in Resources */,
-				0552C4C5195DF98C006AE004 /* picture.png in Resources */,
 				0552C4DB195DF98C006AE004 /* image@2x.png in Resources */,
 				0552C41E195DF91A006AE004 /* Credits.rtf in Resources */,
 				0552C4B7195DF98C006AE004 /* arrowLeftTemplate.pdf in Resources */,
@@ -738,7 +765,7 @@
 				0552C4D7195DF98C006AE004 /* gradientLinear@2x.png in Resources */,
 				05973D0E195FD0A7005C3D10 /* DimensionsViewController.xib in Resources */,
 				0552C4AA195DF98C006AE004 /* floatRightTemplate.pdf in Resources */,
-				0552C4C8195DF98C006AE004 /* SmallX.png in Resources */,
+				05DDFE621965B01F002F6ADC /* FontViewController.xib in Resources */,
 				0552C4A1195DF98C006AE004 /* borderTopTemplate.pdf in Resources */,
 				0552C52B195FC0F5006AE004 /* delete@2x.png in Resources */,
 				0552C4C3195DF98C006AE004 /* attScrollTemplate.pdf in Resources */,
@@ -753,6 +780,7 @@
 				0552C49E195DF98C006AE004 /* borderBottomTemplate.pdf in Resources */,
 				0552C4A7195DF98C006AE004 /* clearLeftTemplate.pdf in Resources */,
 				0552C4BE195DF98C006AE004 /* arrowRightTopTemplate.pdf in Resources */,
+				05DDFE5C19659E5F002F6ADC /* TextViewController.xib in Resources */,
 				0552C4A6195DF98C006AE004 /* clearBothTemplate.pdf in Resources */,
 				0552C4B1195DF98C006AE004 /* paddingBottom.pdf in Resources */,
 				0552C4CC195DF98C006AE004 /* media.png in Resources */,
@@ -812,8 +840,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DDFE5B19659E5F002F6ADC /* TextViewController.m in Sources */,
+				05DDFE611965B01F002F6ADC /* FontViewController.m in Sources */,
 				0552C502195DF9D9006AE004 /* NSColor+Extensions.m in Sources */,
 				05973D0D195FD0A7005C3D10 /* DimensionsViewController.m in Sources */,
+				05DDFE571963CB9C002F6ADC /* NSMutableString+Trim.m in Sources */,
 				0552C50A195DF9FD006AE004 /* ACTGradientEditor.m in Sources */,
 				0552C4F1195DF9CF006AE004 /* ImageAndTextCell.m in Sources */,
 				0552C4EE195DF9CF006AE004 /* CSSParser.m in Sources */,
@@ -831,6 +862,7 @@
 				0552C4F2195DF9CF006AE004 /* CustomOutlineView.m in Sources */,
 				0552C4EC195DF9CF006AE004 /* CustomTextView.m in Sources */,
 				0552C504195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m in Sources */,
+				05DDFE661966094C002F6ADC /* OnlyIntegerValueFormatter.m in Sources */,
 				0552C51C195DFA14006AE004 /* NoodleLineNumberMarker.m in Sources */,
 				0552C4EF195DF9CF006AE004 /* ColorTextFieldCell.m in Sources */,
 				0552C448195DF966006AE004 /* BorderViewController.m in Sources */,

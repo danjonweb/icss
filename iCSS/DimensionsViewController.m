@@ -77,14 +77,21 @@
                sender == self.dimensionsMarginLeftControl || sender == self.dimensionsMarginLeftUnitsControl) {
 #pragma mark margins
         if (sender == self.dimensionsMarginAllControl || sender == self.dimensionsMarginAllUnitsControl) {
-            if (self.dimensionsMarginAllControl.stringValue.length == 0) {
-                [self.document removeProperty:@"margin" fromStyle:YES];
+            NSArray *keywords = @[@"auto"];
+            if ([keywords containsObject:self.dimensionsMarginAllUnitsControl.titleOfSelectedItem]) {
+                self.dimensionsMarginAllControl.stringValue = @"";
+                [self.document replaceProperty:@"margin" value:self.dimensionsMarginAllUnitsControl.titleOfSelectedItem inStyle:YES];
             } else {
-                [self.document removeProperty:@"margin-top" fromStyle:NO];
-                [self.document removeProperty:@"margin-right" fromStyle:NO];
-                [self.document removeProperty:@"margin-bottom" fromStyle:NO];
-                [self.document removeProperty:@"margin-left" fromStyle:NO];
-                [self.document replaceProperty:@"margin" value:[NSString stringWithFormat:@"%@%@", self.dimensionsMarginAllControl.stringValue, self.dimensionsMarginAllUnitsControl.titleOfSelectedItem] inStyle:YES];
+                
+                if (self.dimensionsMarginAllControl.stringValue.length == 0) {
+                    [self.document removeProperty:@"margin" fromStyle:YES];
+                } else {
+                    [self.document removeProperty:@"margin-top" fromStyle:NO];
+                    [self.document removeProperty:@"margin-right" fromStyle:NO];
+                    [self.document removeProperty:@"margin-bottom" fromStyle:NO];
+                    [self.document removeProperty:@"margin-left" fromStyle:NO];
+                    [self.document replaceProperty:@"margin" value:[NSString stringWithFormat:@"%@%@", self.dimensionsMarginAllControl.stringValue, self.dimensionsMarginAllUnitsControl.titleOfSelectedItem] inStyle:YES];
+                }
             }
         } else {
             if (self.dimensionsMarginTopControl.stringValue.length > 0 &&
@@ -346,54 +353,53 @@
 
 - (void)loadStyleRule:(DOMCSSStyleRule *)styleRule {
     DOMCSSStyleDeclaration *style = styleRule.style;
-    //NSLog(@"!!!!     Load Dimensions");
     [self clearControls];
     
 #pragma mark width
     if (style.width.length > 0) {
-        [self.document loadValue:style.width textControl:self.dimensionsWidthControl unitsControl:self.dimensionsWidthUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.width textControl:self.dimensionsWidthControl unitsControl:self.dimensionsWidthUnitsControl];
     }
     
 #pragma mark height
     if (style.height.length > 0) {
-        [self.document loadValue:style.height textControl:self.dimensionsHeightControl unitsControl:self.dimensionsHeightUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.height textControl:self.dimensionsHeightControl unitsControl:self.dimensionsHeightUnitsControl];
     }
     
 #pragma mark margins
     if ((style.marginTop.length > 0 && style.marginRight.length > 0 && style.marginBottom.length > 0 && style.marginLeft.length > 0) && ([style.marginTop isEqualToString:style.marginRight] && [style.marginRight isEqualToString:style.marginBottom] && [style.marginBottom isEqualToString:style.marginLeft])) {
         // All margins match
-        [self.document loadValue:style.marginTop textControl:self.dimensionsMarginAllControl unitsControl:self.dimensionsMarginAllUnitsControl keywords:@[@"auto"]];
+        [self.document loadValue:style.marginTop textControl:self.dimensionsMarginAllControl unitsControl:self.dimensionsMarginAllUnitsControl];
     } else {
         if (style.marginTop.length > 0) {
-            [self.document loadValue:style.marginTop textControl:self.dimensionsMarginTopControl unitsControl:self.dimensionsMarginTopUnitsControl keywords:@[@"auto"]];
+            [self.document loadValue:style.marginTop textControl:self.dimensionsMarginTopControl unitsControl:self.dimensionsMarginTopUnitsControl];
         }
         if (style.marginRight.length > 0) {
-            [self.document loadValue:style.marginRight textControl:self.dimensionsMarginRightControl unitsControl:self.dimensionsMarginRightUnitsControl keywords:@[@"auto"]];
+            [self.document loadValue:style.marginRight textControl:self.dimensionsMarginRightControl unitsControl:self.dimensionsMarginRightUnitsControl];
         }
         if (style.marginBottom.length > 0) {
-            [self.document loadValue:style.marginBottom textControl:self.dimensionsMarginBottomControl unitsControl:self.dimensionsMarginBottomUnitsControl keywords:@[@"auto"]];
+            [self.document loadValue:style.marginBottom textControl:self.dimensionsMarginBottomControl unitsControl:self.dimensionsMarginBottomUnitsControl];
         }
         if (style.marginLeft.length > 0) {
-            [self.document loadValue:style.marginLeft textControl:self.dimensionsMarginLeftControl unitsControl:self.dimensionsMarginLeftUnitsControl keywords:@[@"auto"]];
+            [self.document loadValue:style.marginLeft textControl:self.dimensionsMarginLeftControl unitsControl:self.dimensionsMarginLeftUnitsControl];
         }
     }
     
 #pragma mark padding
     if ((style.paddingTop.length > 0 && style.paddingRight.length > 0 && style.paddingBottom.length > 0 && style.paddingLeft.length > 0) && ([style.paddingTop isEqualToString:style.paddingRight] && [style.paddingRight isEqualToString:style.paddingBottom] && [style.paddingBottom isEqualToString:style.paddingLeft])) {
         // All padding matches
-        [self.document loadValue:style.paddingTop textControl:self.dimensionsPaddingAllControl unitsControl:self.dimensionsPaddingAllUnitsControl keywords:@[]];
+        [self.document loadValue:style.paddingTop textControl:self.dimensionsPaddingAllControl unitsControl:self.dimensionsPaddingAllUnitsControl];
     } else {
         if (style.paddingTop.length > 0) {
-            [self.document loadValue:style.paddingTop textControl:self.dimensionsPaddingTopControl unitsControl:self.dimensionsPaddingTopUnitsControl keywords:@[]];
+            [self.document loadValue:style.paddingTop textControl:self.dimensionsPaddingTopControl unitsControl:self.dimensionsPaddingTopUnitsControl];
         }
         if (style.paddingRight.length > 0) {
-            [self.document loadValue:style.paddingRight textControl:self.dimensionsPaddingRightControl unitsControl:self.dimensionsPaddingRightUnitsControl keywords:@[]];
+            [self.document loadValue:style.paddingRight textControl:self.dimensionsPaddingRightControl unitsControl:self.dimensionsPaddingRightUnitsControl];
         }
         if (style.paddingBottom.length > 0) {
-            [self.document loadValue:style.paddingBottom textControl:self.dimensionsPaddingBottomControl unitsControl:self.dimensionsPaddingBottomUnitsControl keywords:@[]];
+            [self.document loadValue:style.paddingBottom textControl:self.dimensionsPaddingBottomControl unitsControl:self.dimensionsPaddingBottomUnitsControl];
         }
         if (style.paddingLeft.length > 0) {
-            [self.document loadValue:style.paddingLeft textControl:self.dimensionsPaddingLeftControl unitsControl:self.dimensionsPaddingLeftUnitsControl keywords:@[]];
+            [self.document loadValue:style.paddingLeft textControl:self.dimensionsPaddingLeftControl unitsControl:self.dimensionsPaddingLeftUnitsControl];
         }
     }
 }

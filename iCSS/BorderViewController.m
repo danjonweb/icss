@@ -27,21 +27,6 @@
     return self;
 }
 
-- (void)saveColor {
-    NSArray *recentColors = [[NSUserDefaults standardUserDefaults] objectForKey:@"recentColors"];
-    NSMutableArray *newRecentColors = [NSMutableArray array];
-    if (recentColors) {
-        [newRecentColors addObjectsFromArray:recentColors];
-    }
-    [newRecentColors addObject:self.borderColorControl.color.formattedString];
-    if (newRecentColors.count > 5) {
-        [newRecentColors removeObjectAtIndex:0];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:newRecentColors forKey:@"recentColors"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.borderColorTextControl reload];
-}
-
 - (IBAction)controlChanged:(id)sender {
     DOMCSSStyleRule *styleRule = [self.document currentStyleRule];
     DOMCSSStyleDeclaration *style = styleRule.style;
@@ -109,8 +94,7 @@
         }
         
         if (sender == self.borderColorControl) {
-            [NSObject cancelPreviousPerformRequestsWithTarget:self];
-            [self performSelector:@selector(saveColor) withObject:nil afterDelay:5.0];
+            [self.document saveColor:self.borderColorControl.color reloadControl:self.borderColorTextControl];
             [self.document replaceProperty:borderColorProperty value:self.borderColorControl.color.formattedString inStyle:YES];
         }
         if (sender == self.borderColorTextControl) {
@@ -377,7 +361,7 @@
     
     BOOL isWidthCombined = [style.borderTopWidth isEqualToString:style.borderRightWidth] && [style.borderRightWidth isEqualToString:style.borderBottomWidth] && [style.borderBottomWidth isEqualToString:style.borderLeftWidth];
     if (borderWidth.length > 0 && ((self.borderControl.selectedSegment == 0 && isWidthCombined) || (self.borderControl.selectedSegment != 0 && !isWidthCombined))) {
-        [self.document loadValue:borderWidth textControl:self.borderThicknessControl unitsControl:self.borderThicknessUnitsControl keywords:@[@"initial", @"inherit", @"thin", @"medium", @"thick"]];
+        [self.document loadValue:borderWidth textControl:self.borderThicknessControl unitsControl:self.borderThicknessUnitsControl];
     } else {
         self.borderThicknessControl.stringValue = @"";
         [self.borderThicknessUnitsControl selectItemWithTitle:@"unchanged"];

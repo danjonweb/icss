@@ -7,16 +7,19 @@
 //
 
 #import "Document.h"
-#import "BorderViewController.h"
-#import "PositioningViewController.h"
-#import "DimensionsViewController.h"
+#import "FontViewController.h"
+#import "TextViewController.h"
 #import "BackgroundViewController.h"
+#import "DimensionsViewController.h"
+#import "PositioningViewController.h"
+#import "BorderViewController.h"
 #import "SyntaxHighlighter.h"
 #import "CSSParser.h"
 #import "TBMInspectorView.h"
 #import "NSColor+HTMLColors.h"
 #import "NSColor+iOS7Colors.h"
 #import "ImageAndTextCell.h"
+#import "ColorTextField.h"
 #import <TBMInspectorView/TBMDetailView.h>
 #import <RegexKitLite/RegexKitLite.h>
 #import <WebKit/WebKit.h>
@@ -35,15 +38,10 @@
 @property BOOL suppressParseOnProcessEditing;
 @property BOOL suppressTextViewSelectionChanged;
 @property (strong) NSMutableDictionary *units;
+@property (strong) NSTimer *saveColorTimer;
 @end
 
 @implementation Document
-
-- (IBAction)log:(id)sender {
-    //[self.docWindow.contentView setNeedsDisplay:YES];
-    //self.docWindow.toolbar dra
-    [self.inspectorScrollView setNeedsDisplay:YES];
-}
 
 - (id)init
 {
@@ -90,16 +88,22 @@
     [self.textView setContinuousSpellCheckingEnabled:NO];
     self.syntaxHighlighter = [SyntaxHighlighter syntaxHighlighterForTextView:self.textView];
     
+    self.fontViewController = [[FontViewController alloc] initWithNibName:@"FontViewController" bundle:nil];
+    self.textViewController = [[TextViewController alloc] initWithNibName:@"TextViewController" bundle:nil];
     self.backgroundViewController = [[BackgroundViewController alloc] initWithNibName:@"BackgroundViewController" bundle:nil];
-    self.backgroundViewController.document = self;
     self.dimensionsViewController = [[DimensionsViewController alloc] initWithNibName:@"DimensionsViewController" bundle:nil];
-    self.dimensionsViewController.document = self;
     self.positioningViewController = [[PositioningViewController alloc] initWithNibName:@"PositioningViewController" bundle:nil];
-    self.positioningViewController.document = self;
     self.borderViewController = [[BorderViewController alloc] initWithNibName:@"BorderViewController" bundle:nil];
+    self.fontViewController.document = self;
+    self.textViewController.document = self;
+    self.backgroundViewController.document = self;
+    self.dimensionsViewController.document = self;
+    self.positioningViewController.document = self;
     self.borderViewController.document = self;
     
     TBMInspectorView *inspector = [[TBMInspectorView alloc] initWithFrame:NSMakeRect(0.0, 0.0, NSWidth(self.inspectorScrollView.frame), 0.0)];
+    [inspector addView:self.fontViewController.view label:@"Font" expanded:YES];
+    [inspector addView:self.textViewController.view label:@"Text" expanded:YES];
     [inspector addView:self.backgroundViewController.view label:@"Background" expanded:YES];
     [inspector addView:self.dimensionsViewController.view label:@"Dimensions" expanded:YES];
     [inspector addView:self.positioningViewController.view label:@"Positioning" expanded:YES];
@@ -228,7 +232,6 @@
     if (self.suppressOutlineSelectionChanged)
         return;
     NSDictionary *ruleDict = (NSDictionary *)[self.stylesOutlineView itemAtRow:self.stylesOutlineView.selectedRow];
-    //NSLog(@"%@", ruleDict);
     
     if (ruleDict[@"range"]) {
         NSRange range = NSRangeFromString(ruleDict[@"range"]);
@@ -291,8 +294,6 @@
 }
 
 - (void)textViewDidChangeSelection:(NSNotification *)notification {
-    //self.textView.font = [NSFont userFixedPitchFontOfSize:[NSFont systemFontSize]];
-    
     if (self.suppressTextViewSelectionChanged)
         return;
     self.indexOfLastRule = -1;
@@ -389,6 +390,8 @@
 #pragma mark - Loading / Saving Properties
 
 - (void)resetStyleRule {
+    [self.fontViewController clearControls];
+    [self.textViewController clearControls];
     [self.backgroundViewController clearControls];
     [self.dimensionsViewController clearControls];
     [self.positioningViewController clearControls];
@@ -396,13 +399,33 @@
 }
 
 - (void)loadStyleRule:(DOMCSSStyleRule *)styleRule {
+    [self.fontViewController loadStyleRule:styleRule];
+    [self.textViewController loadStyleRule:styleRule];
     [self.backgroundViewController loadStyleRule:styleRule];
     [self.dimensionsViewController loadStyleRule:styleRule];
     [self.positioningViewController loadStyleRule:styleRule];
     [self.borderViewController loadStyleRule:styleRule];
 }
 
-- (void)loadValue:(NSString *)value textControl:(NSTextField *)textField unitsControl:(NSPopUpButton *)popUpButton keywords:(NSArray *)keywords {
+- (void)loadValue:(NSString *)value textControl:(NSTextField *)textField unitsControl:(NSPopUpButton *)popUpButton {
+    // Find keywords
+    NSMutableArray *keywords = [NSMutableArray array];
+    if ([popUpButton.itemTitles containsObject:@"Keyword"]) {
+        for (NSInteger i = popUpButton.numberOfItems-1; i >= 0; i--) {
+            NSString *title = [popUpButton itemTitleAtIndex:i];
+            if ([title isEqualToString:@"Keyword"]) {
+                break;
+            }
+            [keywords addObject:title];
+        }
+    }
+    if ([popUpButton.itemTitles containsObject:@"inherit"]) {
+        [keywords addObject:@"inherit"];
+    }
+    if ([popUpButton.itemTitles containsObject:@"initial"]) {
+        [keywords addObject:@"initial"];
+    }
+    
     if ([keywords containsObject:value]) {
         [popUpButton selectItemWithTitle:value];
     } else {
@@ -452,8 +475,6 @@
 }
 
 - (void)removeProperty:(NSString *)prop fromStyle:(BOOL)removeFromStyle {
-    //NSLog(@"!!!! Remove Property: %@ (%i)", prop, removeFromStyle);
-    
     NSMutableDictionary *ruleDict = [self ruleDictWithIndex:self.indexOfLastRule rules:self.rulesDataSource];
     if (!ruleDict)
         return;
@@ -488,9 +509,6 @@
         
         [self.textView.textStorage replaceCharactersInRange:NSMakeRange(range.location+replaceRange.location, replaceRange.length) withString:@""];
         
-        if (removeFromStyle) {
-            //[self loadStyleRule:styleRule];
-        }
         self.suppressParseOnProcessEditing = NO;
         self.suppressTextViewSelectionChanged = NO;
         
@@ -498,8 +516,6 @@
 }
 
 - (void)addProperty:(NSString *)prop value:(NSString *)val {
-    //NSLog(@"!!!! Add Property: %@ (%@)", prop, val);
-    
     NSMutableDictionary *ruleDict = [self ruleDictWithIndex:self.indexOfLastRule rules:self.rulesDataSource];
     if (!ruleDict)
         return;
@@ -514,8 +530,8 @@
         NSDictionary *attrs = @{NSFontAttributeName: self.textView.font};
         NSAttributedString *newText;
         
-        NSInteger i = pos-1;
-        for ( ; i > 0; i--) {
+        NSInteger i;
+        for (i = pos-1 ; i > 0; i--) {
             if (![[NSCharacterSet whitespaceAndNewlineCharacterSet] characterIsMember:[self.textView.string characterAtIndex:i]]) {
                 break;
             }
@@ -534,11 +550,21 @@
             }
         }
         
+        NSRange propRange, valRange;
         if ([self.textView.string characterAtIndex:i] == ';') {
+            // The last character is a semicolon, don't add one
             newText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@%@: %@;", ws, prop, val] attributes:attrs];
+            propRange = NSMakeRange(i+2, prop.length + ws.length);
+        } else if ([self.textView.string characterAtIndex:i] == '{') {
+            // The last character is an open brace--the rule is empty so add default whitespace
+            newText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n    %@%@: %@;", ws, prop, val] attributes:attrs];
+            propRange = NSMakeRange(i+6, prop.length + ws.length);
         } else {
+            // Add a closing semicolon before the new rule
             newText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@";\n%@%@: %@;", ws, prop, val] attributes:attrs];
+            propRange = NSMakeRange(i+3, prop.length + ws.length);
         }
+        valRange = NSMakeRange(NSMaxRange(propRange)+2, val.length);
         
         // Adjust range
         ruleDict[@"range"] = NSStringFromRange(NSMakeRange(range.location, range.length+newText.length));
@@ -546,6 +572,10 @@
         self.suppressParseOnProcessEditing = YES;
         self.suppressTextViewSelectionChanged = YES;
         [self.textView.textStorage insertAttributedString:newText atIndex:i+1];
+        for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
+            [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName:CSS_PROPERTY_COLOR} forCharacterRange:propRange];
+            [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName:CSS_VALUE_COLOR} forCharacterRange:valRange];
+        }
         self.textView.selectedRange = NSMakeRange(pos, 0);
         self.suppressTextViewSelectionChanged = NO;
         self.suppressParseOnProcessEditing = NO;
@@ -553,8 +583,6 @@
 }
 
 - (void)replaceProperty:(NSString *)prop value:(NSString *)val inStyle:(BOOL)replaceInStyle {
-    //NSLog(@"!!!! Replace Property: %@ (%@, %i)", prop, val, replaceInStyle);
-    
     NSMutableDictionary *ruleDict = [self ruleDictWithIndex:self.indexOfLastRule rules:self.rulesDataSource];
     if (!ruleDict)
         return;
@@ -582,13 +610,10 @@
         
         self.suppressParseOnProcessEditing = YES;
         self.suppressTextViewSelectionChanged = YES;
-        
         [self.textView replaceCharactersInRange:NSMakeRange(range.location+replaceRange.location, replaceRange.length) withString:newString];
-        
         for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
-            [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName:[NSColor iOS7redColor]} forCharacterRange:NSMakeRange(range.location+replaceRange.location, newString.length)];
+            [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: CSS_VALUE_COLOR} forCharacterRange:NSMakeRange(range.location+replaceRange.location, newString.length)];
         }
-        
         self.suppressParseOnProcessEditing = NO;
         self.suppressTextViewSelectionChanged = NO;
     }
@@ -785,6 +810,30 @@
         }];
     }
     return value;
+}
+
+- (void)saveColorTimerFired:(NSTimer *)timer {
+    NSDictionary *userInfo = timer.userInfo;
+    ColorTextField *textField = userInfo[@"control"];
+    NSColor *color = userInfo[@"color"];
+    NSArray *recentColors = [[NSUserDefaults standardUserDefaults] objectForKey:@"recentColors"];
+    NSMutableArray *newRecentColors = [NSMutableArray array];
+    if (recentColors) {
+        [newRecentColors addObjectsFromArray:recentColors];
+    }
+    [newRecentColors addObject:color.formattedString];
+    if (newRecentColors.count > 5) {
+        [newRecentColors removeObjectAtIndex:0];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:newRecentColors forKey:@"recentColors"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [textField reload];
+}
+
+- (void)saveColor:(NSColor *)color reloadControl:(ColorTextField *)textField {
+    [self.saveColorTimer invalidate];
+    self.saveColorTimer = nil;
+    self.saveColorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(saveColorTimerFired:) userInfo:@{@"control": textField, @"color": color} repeats:NO];
 }
 
 @end

@@ -9,14 +9,8 @@
 #import "SyntaxHighlighter.h"
 #import "NSColor+iOS7Colors.h"
 
-#define CSS_PROPERTY @"property"
-#define CSS_VALUE @"value"
-#define CSS_SELECTOR @"selector"
-#define QUOTE @"quote"
-
 @interface SyntaxHighlighter ()
 @property (assign) NSTextView *textView;
-@property (strong) NSMutableDictionary *colorsDict;
 @property (strong) NSTimer *parseTimer;
 @end
 
@@ -25,12 +19,6 @@
 + (SyntaxHighlighter *)syntaxHighlighterForTextView:(NSTextView *)textView {
     SyntaxHighlighter *sh = [[SyntaxHighlighter alloc] init];
     sh.textView = textView;
-    sh.colorsDict = [NSMutableDictionary dictionary];
-    [sh.colorsDict setObject:[NSColor iOS7darkGrayColor] forKey:QUOTE];
-    [sh.colorsDict setObject:[NSColor iOS7lightBlueColor] forKey:CSS_PROPERTY];
-    [sh.colorsDict setObject:[NSColor iOS7redColor] forKey:CSS_VALUE];
-    [sh.colorsDict setObject:[NSColor iOS7darkBlueColor] forKey:CSS_SELECTOR];
-    
     [textView.enclosingScrollView.contentView setPostsBoundsChangedNotifications:YES];
     [[NSNotificationCenter defaultCenter] addObserver:sh selector:@selector(boundDidChange:) name:NSViewBoundsDidChangeNotification object:nil];
     
@@ -40,8 +28,7 @@
 - (void)boundDidChange:(NSNotification *)notification {
     [self.parseTimer invalidate];
     self.parseTimer = nil;
-    self.parseTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
-                                                       target:self selector:@selector(parse:) userInfo:nil repeats:NO];
+    self.parseTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(parse:) userInfo:nil repeats:NO];
 }
 
 - (void)processEditing {
@@ -71,9 +58,7 @@
     if (NSMaxRange(visibleRange) > string.length) {
         visibleRange.length = string.length - visibleRange.location;
     }
-    
-    //NSLog(@"%@", NSStringFromRange(visibleRange));
-    
+        
     NSMutableArray *braces = [NSMutableArray array];
     
     for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
@@ -81,8 +66,11 @@
         [layoutManager removeTemporaryAttribute:NSForegroundColorAttributeName forCharacterRange:visibleRange];
     }
     
+    unichar buffer[string.length + 1];
+    [string getCharacters:buffer range:NSMakeRange(0, string.length)];
+    
     for (NSInteger i = visibleRange.location; i < NSMaxRange(visibleRange); i++) {
-        unichar c = [string characterAtIndex:i];
+        unichar c = buffer[i];
         
         if (c == '{') {
             [braces addObject:@(i)];
@@ -93,7 +81,7 @@
                 
                 NSInteger selectorStart = 0;
                 for (NSInteger j = selectorEnd-1; j >= 0; j--) {
-                    unichar cc = [string characterAtIndex:j];
+                    unichar cc = buffer[j];
                     if (cc == '}' || cc == '{' || cc == ';' || cc == '/') {
                         selectorStart = j+1;
                         break;
@@ -102,7 +90,7 @@
                 
                 NSRange selectorRange = NSMakeRange(selectorStart, selectorEnd-selectorStart);
                 for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
-                    [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: [self.colorsDict objectForKey:CSS_SELECTOR]} forCharacterRange:selectorRange];
+                    [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: CSS_SELECTOR_COLOR} forCharacterRange:selectorRange];
                 }
                 
                 // Start at end of rule, go backwards
@@ -110,11 +98,11 @@
                 NSInteger endValue = -1;
                 BOOL shouldSkip = NO;
                 for (NSInteger j = i; j >= selectorEnd; j--) {
-                    unichar cc = [string characterAtIndex:j];
+                    unichar cc = buffer[j];
                     if (cc == '(') {
                         shouldSkip = NO;
                     }
-                    if (cc == '*' && j-1 >= 0 && [string characterAtIndex:j-1] == '/') {
+                    if (cc == '*' && j-1 >= 0 && buffer[j-1] == '/') {
                         shouldSkip = NO;
                     }
                     if (shouldSkip) {
@@ -123,7 +111,7 @@
                     if (cc == ')') {
                         shouldSkip = YES;
                     }
-                    if (cc == '/' && j-1 >= 0 && [string characterAtIndex:j-1] == '*') {
+                    if (cc == '/' && j-1 >= 0 && buffer[j-1] == '*') {
                         shouldSkip = YES;
                     }
                     if (cc == ';' || cc == '}') {
@@ -135,16 +123,16 @@
                         if (endValue != -1) {
                             NSRange valRange = NSMakeRange(j+1, endValue-j-1);
                             for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
-                                [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: [self.colorsDict objectForKey:CSS_VALUE]} forCharacterRange:valRange];
+                                [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: CSS_VALUE_COLOR} forCharacterRange:valRange];
                             }
                             endValue = -1;
                         }
                     }
                     if (endProp != -1) {
-                        if (cc == ';' || cc == '{' || (cc == '/' && j-1 >= 0 && [string characterAtIndex:j-1] == '*')) {
+                        if (cc == ';' || cc == '{' || (cc == '/' && j-1 >= 0 && buffer[j-1] == '*')) {
                             NSRange propRange = NSMakeRange(j+1, endProp-j-1);
                             for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
-                                [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: [self.colorsDict objectForKey:CSS_PROPERTY]} forCharacterRange:propRange];
+                                [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: CSS_PROPERTY_COLOR} forCharacterRange:propRange];
                             }
                             
                             endProp = -1;
@@ -152,12 +140,12 @@
                     }
                 }
             }
-        } else if (c == '/' && i+1 < string.length && [string characterAtIndex:i+1] == '*') {
+        } else if (c == '/' && i+1 < string.length && buffer[i+1] == '*') {
             for (NSInteger j = i; j < string.length; j++) {
-                unichar cc = [string characterAtIndex:j];
-                if (cc == '*' && j+1 < string.length && [string characterAtIndex:j+1] == '/') {
+                unichar cc = buffer[j];
+                if (cc == '*' && j+1 < string.length && buffer[j+1] == '/') {
                     for (NSLayoutManager *layoutManager in self.textView.textStorage.layoutManagers) {
-                        [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: [self.colorsDict objectForKey:QUOTE]} forCharacterRange:NSMakeRange(i, j+2-i)];
+                        [layoutManager addTemporaryAttributes:@{NSForegroundColorAttributeName: CSS_QUOTE_COLOR} forCharacterRange:NSMakeRange(i, j+2-i)];
                     }
                     i = j+1;
                     break;

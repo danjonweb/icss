@@ -11,7 +11,7 @@
 @import "/css/fireball_unicode.css";
 
 html {
-    background: url(http://example.com/image.png) 10px/cover fixed repeat space, linear-gradient(rgb(255,0,0), blue) repeat-y scroll, 10px 10px no-repeat scroll;
+    background: url(http://example.com/image.png) 10px/cover fixed repeat space, linear-gradient(rgb(255,0,0), blue) repeat-y scroll, radial-gradient(blue, orange), 10px 10px no-repeat scroll;
 }
 
 body {

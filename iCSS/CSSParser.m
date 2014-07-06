@@ -44,15 +44,17 @@
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         return;
     }
+    unichar buffer[self.cssText.length + 1];
+    [self.cssText getCharacters:buffer range:NSMakeRange(0, self.cssText.length)];
     for (NSInteger i = self.chunkRange.location; i < NSMaxRange(self.chunkRange); i++) {
-        unichar c = [self.cssText characterAtIndex:i];
+        unichar c = buffer[i];
         if (c == '/') {
-            if (i+1 < self.cssText.length && [self.cssText characterAtIndex:i+1] == '*') {
+            if (i+1 < self.cssText.length && buffer[i+1] == '*') {
                 // Add comments
                 for (NSInteger j = i+1; j < self.cssText.length; j++) {
-                    unichar c2 = [self.cssText characterAtIndex:j];
+                    unichar c2 = buffer[j];
                     if (c2 == '*') {
-                        if (j+1 < self.cssText.length && [self.cssText characterAtIndex:j+1] == '/') {
+                        if (j+1 < self.cssText.length && buffer[j+1] == '/') {
                             if (self.braces.count == 0) {
                                 NSMutableDictionary *comment = [NSMutableDictionary dictionary];
                                 NSString *commentText = [self.cssText substringWithRange:NSMakeRange(i+2, j-i-2)];
@@ -77,15 +79,15 @@
             }
         } else if (c == '@') {
             if (i+7 < self.cssText.length &&
-                [self.cssText characterAtIndex:i+1] == 'c' &&
-                [self.cssText characterAtIndex:i+2] == 'h' &&
-                [self.cssText characterAtIndex:i+3] == 'a' &&
-                [self.cssText characterAtIndex:i+4] == 'r' &&
-                [self.cssText characterAtIndex:i+5] == 's' &&
-                [self.cssText characterAtIndex:i+6] == 'e' &&
-                [self.cssText characterAtIndex:i+7] == 't') {
+                buffer[i+1] == 'c' &&
+                buffer[i+2] == 'h' &&
+                buffer[i+3] == 'a' &&
+                buffer[i+4] == 'r' &&
+                buffer[i+5] == 's' &&
+                buffer[i+6] == 'e' &&
+                buffer[i+7] == 't') {
                 for (NSInteger j = i+7; j < self.cssText.length; j++) {
-                    unichar c2 = [self.cssText characterAtIndex:j];
+                    unichar c2 = buffer[j];
                     if (c2 == ';') {
                         NSMutableDictionary *ruleDict = [NSMutableDictionary dictionary];
                         [ruleDict setObject:[self.cssText substringWithRange:NSMakeRange(i, j-i)] forKey:@"name"];
@@ -101,14 +103,14 @@
                     }
                 }
             } else if (i+6 < self.cssText.length &&
-                       [self.cssText characterAtIndex:i+1] == 'i' &&
-                       [self.cssText characterAtIndex:i+2] == 'm' &&
-                       [self.cssText characterAtIndex:i+3] == 'p' &&
-                       [self.cssText characterAtIndex:i+4] == 'o' &&
-                       [self.cssText characterAtIndex:i+5] == 'r' &&
-                       [self.cssText characterAtIndex:i+6] == 't') {
+                       buffer[i+1] == 'i' &&
+                       buffer[i+2] == 'm' &&
+                       buffer[i+3] == 'p' &&
+                       buffer[i+4] == 'o' &&
+                       buffer[i+5] == 'r' &&
+                       buffer[i+6] == 't') {
                 for (NSInteger j = i+6; j < self.cssText.length; j++) {
-                    unichar c2 = [self.cssText characterAtIndex:j];
+                    unichar c2 = buffer[j];
                     if (c2 == ';') {
                         NSMutableDictionary *ruleDict = [NSMutableDictionary dictionary];
                         [ruleDict setObject:[self.cssText substringWithRange:NSMakeRange(i, j-i)] forKey:@"name"];
@@ -124,11 +126,11 @@
                     }
                 }
             } else if (i+5 < self.cssText.length &&
-                       [self.cssText characterAtIndex:i+1] == 'm' &&
-                       [self.cssText characterAtIndex:i+2] == 'e' &&
-                       [self.cssText characterAtIndex:i+3] == 'd' &&
-                       [self.cssText characterAtIndex:i+4] == 'i' &&
-                       [self.cssText characterAtIndex:i+5] == 'a') {
+                       buffer[i+1] == 'm' &&
+                       buffer[i+2] == 'e' &&
+                       buffer[i+3] == 'd' &&
+                       buffer[i+4] == 'i' &&
+                       buffer[i+5] == 'a') {
                 self.isGroup = YES;
                 [self.groupRules removeAllObjects];
             }
@@ -141,7 +143,7 @@
                 
                 NSInteger selectorStart = 0;
                 for (NSInteger j = selectorEnd-1; j >= 0; j--) {
-                    unichar cc = [self.cssText characterAtIndex:j];
+                    unichar cc = buffer[j];
                     if (cc == '}' || cc == '{' || cc == ';' || cc == '/') {
                         selectorStart = j+1;
                         break;

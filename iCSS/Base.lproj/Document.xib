@@ -137,7 +137,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="4RW-Op-izl">
-                                                        <rect key="frame" x="230" y="0.0" width="16" height="545"/>
+                                                        <rect key="frame" x="231" y="0.0" width="15" height="545"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -159,35 +159,6 @@
                     </splitView>
                 </subviews>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="C30346C4-1F55-49A2-B06A-8C4B9603CEEB" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Ncg-1r-LXR">
-                <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="2x8-1G-ulW"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="7Zg-nm-bUr"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="wj8-wL-0zw"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="5n1-rq-JOp"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="usa-AP-js1"/>
-                    <toolbarItem implicitItemIdentifier="0D8146EA-9243-4EC0-B3F7-B556EA38B306" label="Custom View" paletteLabel="Custom View" id="xHh-R1-q9q">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="82" height="32"/>
-                        <size key="maxSize" width="82" height="32"/>
-                        <button key="view" verticalHuggingPriority="750" id="p7f-IO-iYf">
-                            <rect key="frame" x="0.0" y="14" width="82" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="push" title="Log" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EFY-Sj-XVL">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
-                        <connections>
-                            <action selector="log:" target="-2" id="NOw-Xu-68r"/>
-                        </connections>
-                    </toolbarItem>
-                </allowedToolbarItems>
-                <defaultToolbarItems>
-                    <toolbarItem reference="usa-AP-js1"/>
-                    <toolbarItem reference="xHh-R1-q9q"/>
-                </defaultToolbarItems>
-            </toolbar>
         </window>
         <customObject id="flj-wP-bj9" customClass="SplitViewController"/>
     </objects>

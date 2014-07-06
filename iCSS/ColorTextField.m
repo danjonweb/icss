@@ -15,13 +15,13 @@
 
 @implementation ColorTextField
 
-- (void)viewDidMoveToWindow {    
+- (void)awakeFromNib {
     if (self.popUpButton) {
         [self.popUpButton removeFromSuperview];
         self.popUpButton = nil;
     }
     
-    NSPopUpButton *button = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(NSWidth(self.frame)-36, 0, 36, 22)];
+    NSPopUpButton *button = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(NSWidth(self.frame)-36, -1, 36, 19)];
     button.bordered = NO;
     button.pullsDown = YES;
     [button.cell setImageScaling:NSImageScaleProportionallyDown];

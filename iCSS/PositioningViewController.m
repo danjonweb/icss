@@ -224,19 +224,19 @@
     }
     
     if (style.top.length > 0) {
-        [self.document loadValue:style.top textControl:self.positionTopControl unitsControl:self.positionTopUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.top textControl:self.positionTopControl unitsControl:self.positionTopUnitsControl];
     }
     
     if (style.right.length > 0) {
-        [self.document loadValue:style.right textControl:self.positionRightControl unitsControl:self.positionRightUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.right textControl:self.positionRightControl unitsControl:self.positionRightUnitsControl];
     }
     
     if (style.bottom.length > 0) {
-        [self.document loadValue:style.bottom textControl:self.positionBottomControl unitsControl:self.positionBottomUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.bottom textControl:self.positionBottomControl unitsControl:self.positionBottomUnitsControl];
     }
     
     if (style.left.length > 0) {
-        [self.document loadValue:style.left textControl:self.positionLeftControl unitsControl:self.positionLeftUnitsControl keywords:@[@"initial", @"inherit", @"auto"]];
+        [self.document loadValue:style.left textControl:self.positionLeftControl unitsControl:self.positionLeftUnitsControl];
     }
     
     if (style.display.length > 0) {

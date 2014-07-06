@@ -10,6 +10,7 @@
 #import "NSColor+HTMLColors.h"
 #import "ColorTextField.h"
 #import "Document.h"
+#import "NSMutableString+Trim.h"
 #import <RegexKitLite/RegexKitLite.h>
 #import <WebKit/WebKit.h>
 
@@ -24,9 +25,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code here.
+
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    self.bgImageGradientEditor.delegate = self;
 }
 
 #pragma mark - Control Changed
@@ -48,12 +53,10 @@
 
 - (IBAction)controlChanged:(id)sender {
     DOMCSSStyleRule *styleRule = [self.document currentStyleRule];
-    DOMCSSStyleDeclaration *style = styleRule.style;
     
     if (sender == self.bgColorControl) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         [self performSelector:@selector(saveColor) withObject:nil afterDelay:5.0];
-        //[self.document replaceProperty:@"background-color" value:self.bgColorControl.color.formattedString inStyle:YES];
     }
     if (sender == self.bgColorTextControl) {
         if (self.bgColorTextControl.stringValue.length == 0) {
@@ -61,7 +64,6 @@
         } else {
             NSColor *color = [NSColor colorWithCSS:self.bgColorTextControl.stringValue];
             if (color) {
-                //[self.document replaceProperty:@"background-color" value:color.formattedString inStyle:YES];
                 self.bgColorControl.color = color;
             } else {
                 return;
@@ -77,6 +79,11 @@
             if (self.bgImageControl.indexOfSelectedItem == -1 || self.bgImageControl.indexOfSelectedItem >= self.backgrounds.count)
                 return;
             [self.backgrounds removeObjectAtIndex:self.bgImageControl.indexOfSelectedItem];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self.bgImageControl selectItemAtIndex:0];
+                self.reloadBackgroundSelection = YES;
+                [self loadStyleRule:styleRule];
+            });
         } else if (selectedSegment == 0) {
             // Add a new background image
             [NSMenu popUpContextMenu:self.bgAddImageMenu withEvent:[[NSApplication sharedApplication] currentEvent] forView:self.bgImageAddAndRemoveButtons];
@@ -84,20 +91,175 @@
             return;
         }
     }
-    if (sender == self.bgAddImageMenuItem) {
-        NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
-        bgDict[@"image"] = @"url(background.png)";
-        [self.backgrounds addObject:bgDict];
-    } else if (sender == self.bgAddLinearGradientMenuItem) {
-        NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
-        bgDict[@"image"] = @"linear-gradient(green, yellow)";
-        [self.backgrounds addObject:bgDict];
-    } else if (sender == self.bgAddRadialGradientMenuItem) {
-        NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
-        bgDict[@"image"] = @"radial-gradient(blue, orange)";
-        [self.backgrounds addObject:bgDict];
+    if (sender == self.bgAddImageMenuItem || sender == self.bgAddLinearGradientMenuItem || sender == self.bgAddRadialGradientMenuItem) {
+        if (sender == self.bgAddImageMenuItem) {
+            NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
+            bgDict[@"image"] = @"url(background.png)";
+            [self.backgrounds addObject:bgDict];
+            
+        } else if (sender == self.bgAddLinearGradientMenuItem) {
+            NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
+            bgDict[@"image"] = @"linear-gradient(green, yellow)";
+            [self.backgrounds addObject:bgDict];
+        } else if (sender == self.bgAddRadialGradientMenuItem) {
+            NSMutableDictionary *bgDict = [NSMutableDictionary dictionary];
+            bgDict[@"image"] = @"radial-gradient(blue, orange)";
+            [self.backgrounds addObject:bgDict];
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self.bgImageControl selectItem:self.bgImageControl.lastItem];
+            self.reloadBackgroundSelection = YES;
+            [self loadStyleRule:styleRule];
+        });
+    }
+    if (sender == self.bgImageGradientEditor ||
+        sender == self.bgImageDirectionControl || sender == self.bgImageDirectionUnitsControl ||
+        sender == self.bgImagePositionXControl || sender == self.bgImagePositionXUnitsControl ||
+        sender == self.bgImagePositionYControl || sender == self.bgImagePositionYUnitsControl ||
+        sender == self.bgImageShapeControl || sender == self.bgImageExtentControl ||
+        sender == self.bgImageSizeXControl || sender == self.bgImageSizeXUnitsControl ||
+        sender == self.bgImageSizeYControl || sender == self.bgImageSizeYUnitsControl) {
+        
+        NSMutableString *bgImage = [NSMutableString string];
+        
+        if ([self.bgImageControl.titleOfSelectedItem hasPrefix:@"linear-gradient"]) {
+            if (![self.bgImageDirectionUnitsControl.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+                if (self.bgImageDirectionControl.stringValue.length > 0) {
+                    [bgImage appendFormat:@" %@%@", self.bgImageDirectionControl.stringValue, self.bgImageDirectionUnitsControl.titleOfSelectedItem];
+                } else {
+                    [bgImage appendFormat:@" %@", self.bgImageDirectionUnitsControl.titleOfSelectedItem];
+                }
+            }
+            
+            for (NSInteger i = 0; i < self.bgImageGradientEditor.gradient.numberOfColorStops; i++) {
+                NSColor *color;
+                CGFloat location;
+                [self.bgImageGradientEditor.gradient getColor:&color location:&location atIndex:i];
+                [bgImage appendFormat:@", %@ %.0f%%", color.formattedString, location*100];
+            }
+            [bgImage trimCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
+            self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"image"] = [NSString stringWithFormat:@"linear-gradient(%@)", bgImage];
+        } else if ([self.bgImageControl.titleOfSelectedItem hasPrefix:@"radial-gradient"]) {
+            if ([self.bgImageShapeControl.titleOfSelectedItem isEqualToString:@"circle"]) {
+                if (self.bgImageSizeXControl.stringValue.length == 0) {
+                    [bgImage appendString:@"circle"];
+                }
+            }
+            if (![self.bgImageExtentControl.titleOfSelectedItem isEqualToString:@"unchanged"] &&
+                ![self.bgImageExtentControl.titleOfSelectedItem isEqualToString:@"farthest-corner"]) {
+                [bgImage appendFormat:@" %@", self.bgImageExtentControl.titleOfSelectedItem];
+            }
+            if (self.bgImageSizeXControl.stringValue.length > 0) {
+                [bgImage appendFormat:@" %@%@", self.bgImageSizeXControl.stringValue, self.bgImageSizeXUnitsControl.titleOfSelectedItem];
+            }
+            if (self.bgImageSizeYControl.stringValue.length > 0) {
+                [bgImage appendFormat:@" %@%@", self.bgImageSizeYControl.stringValue, self.bgImageSizeYUnitsControl.titleOfSelectedItem];
+            }
+            if (self.bgImagePositionXControl.stringValue.length > 0) {
+                [bgImage appendFormat:@" at %@%@", self.bgImagePositionXControl.stringValue, self.bgImagePositionXUnitsControl.titleOfSelectedItem];
+            }
+            if (self.bgImagePositionYControl.stringValue.length > 0) {
+                [bgImage appendFormat:@" %@%@", self.bgImagePositionYControl.stringValue, self.bgImagePositionYUnitsControl.titleOfSelectedItem];
+            }
+            
+            for (NSInteger i = 0; i < self.bgImageGradientEditor.gradient.numberOfColorStops; i++) {
+                NSColor *color;
+                CGFloat location;
+                [self.bgImageGradientEditor.gradient getColor:&color location:&location atIndex:i];
+                [bgImage appendFormat:@", %@ %.0f%%", color.formattedString, location*100];
+            }
+            [bgImage trimCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
+            self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"image"] = [NSString stringWithFormat:@"radial-gradient(%@)", bgImage];
+        }
     }
     
+    if (sender == self.bgPositionXControl || sender == self.bgPositionXUnitsControl ||
+        sender == self.bgPositionYControl || sender == self.bgPositionYUnitsControl) {
+        if ([self.bgPositionXUnitsControl.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"position"];
+            [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"size"];
+        } else {
+            if ([self.bgPositionYControl.stringValue isEqualToString:@"50"] && [self.bgPositionYUnitsControl.titleOfSelectedItem isEqualToString:@"%"]) {
+                self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"position"] = @[[NSString stringWithFormat:@"%@%@", self.bgPositionXControl.stringValue, self.bgPositionXUnitsControl.titleOfSelectedItem]];
+            } else {
+                self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"position"] = @[[NSString stringWithFormat:@"%@%@", self.bgPositionXControl.stringValue, self.bgPositionXUnitsControl.titleOfSelectedItem], [NSString stringWithFormat:@"%@%@", self.bgPositionYControl.stringValue, self.bgPositionYUnitsControl.titleOfSelectedItem]];
+            }
+        }
+    }
+    
+    // FIXME: There is an issue with background-size and WebKit where WebKit interprets one value
+    // to be the value of both width and height, but the spec states:
+    //   The first value gives the width of the corresponding image, the second value its height.
+    //   If only one value is given the second is assumed to be ‘auto’.
+    if (sender == self.bgWidthControl || sender == self.bgWidthUnitsControl ||
+        sender == self.bgHeightControl || sender == self.bgHeightUnitsControl) {
+        if ([self.bgWidthUnitsControl.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"size"];
+        } else {
+            if ([self.bgWidthUnitsControl.titleOfSelectedItem isEqualToString:@"auto"]) {
+                self.bgWidthControl.stringValue = @"";
+            } else if ([self.bgWidthUnitsControl.titleOfSelectedItem isEqualToString:@"cover"] || [self.bgHeightUnitsControl.titleOfSelectedItem isEqualToString:@"cover"]) {
+                [self.bgWidthUnitsControl selectItemWithTitle:@"cover"];
+                self.bgWidthControl.stringValue = @"";
+                [self.bgHeightUnitsControl selectItemWithTitle:@"cover"];
+                self.bgHeightControl.stringValue = @"";
+            } else if ([self.bgWidthUnitsControl.titleOfSelectedItem isEqualToString:@"contain"] || [self.bgHeightUnitsControl.titleOfSelectedItem isEqualToString:@"contain"]) {
+                [self.bgWidthUnitsControl selectItemWithTitle:@"contain"];
+                self.bgWidthControl.stringValue = @"";
+                [self.bgHeightUnitsControl selectItemWithTitle:@"contain"];
+                self.bgHeightControl.stringValue = @"";
+            } else {
+            
+                if ([self.bgHeightUnitsControl.titleOfSelectedItem isEqualToString:@"auto"]) {
+                    self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"size"] = @[[NSString stringWithFormat:@"%@%@", self.bgWidthControl.stringValue, self.bgWidthUnitsControl.titleOfSelectedItem]];
+                } else {
+                    self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"size"] = @[[NSString stringWithFormat:@"%@%@", self.bgWidthControl.stringValue, self.bgWidthUnitsControl.titleOfSelectedItem], [NSString stringWithFormat:@"%@%@", self.bgHeightControl.stringValue, self.bgHeightUnitsControl.titleOfSelectedItem]];
+                }
+            }
+        }
+    }
+    
+    if (sender == self.bgRepeatControl) {
+        NSString *repeat = nil;
+        if (self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"]) {
+            repeat = self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"][0];
+        }
+        if (self.bgRepeatControl.selectedSegment == 0) {
+            if ([repeat isEqualToString:@"repeat"]) {
+                [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"repeat"];
+                [self.bgRepeatControl setSelected:NO forSegment:0];
+            } else {
+                self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"] = @[@"repeat"];
+                [self.bgRepeatControl setSelected:YES forSegment:0];
+            }
+        } else if (self.bgRepeatControl.selectedSegment == 1) {
+            if ([repeat isEqualToString:@"repeat-y"]) {
+                [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"repeat"];
+                [self.bgRepeatControl setSelected:NO forSegment:1];
+            } else {
+                self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"] = @[@"repeat-y"];
+                [self.bgRepeatControl setSelected:YES forSegment:1];
+            }
+        } else if (self.bgRepeatControl.selectedSegment == 2) {
+            if ([repeat isEqualToString:@"repeat-x"]) {
+                [self.backgrounds[self.bgImageControl.indexOfSelectedItem] removeObjectForKey:@"repeat"];
+                [self.bgRepeatControl setSelected:NO forSegment:2];
+            } else {
+                self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"] = @[@"repeat-x"];
+                [self.bgRepeatControl setSelected:YES forSegment:2];
+            }
+        } else if (self.bgRepeatControl.selectedSegment == 3) {
+            if ([self.backgrounds[self.bgImageControl.indexOfSelectedItem][@"repeat"][0] isEqualToString:@"no-repeat"]) {
+                [self.document removeProperty:@"background-repeat" fromStyle:YES];
+                [self.bgRepeatControl setSelected:NO forSegment:3];
+            } else {
+                [self.document replaceProperty:@"background-repeat" value:@"no-repeat" inStyle:YES];
+                [self.bgRepeatControl setSelected:YES forSegment:3];
+            }
+        }
+    }
+    
+    // Re-create the background property -- remove all existing background properties
     [self.document removeProperty:@"background" fromStyle:YES];
     [self.document removeProperty:@"background-image" fromStyle:YES];
     [self.document removeProperty:@"background-position" fromStyle:YES];
@@ -106,7 +268,7 @@
     [self.document removeProperty:@"background-attachment" fromStyle:YES];
     [self.document removeProperty:@"background-color" fromStyle:YES];
     
-    NSMutableString *backgrounds = [NSMutableString string];
+    NSMutableString *backgroundString = [NSMutableString string];
     for (NSDictionary *bgDict in self.backgrounds) {
         NSMutableString *bg = [NSMutableString string];
         if (bgDict[@"image"]) {
@@ -136,21 +298,23 @@
         }
         bg = [bg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].mutableCopy;
         [bg appendString:@", "];
-        [backgrounds appendString:bg];
+        [backgroundString appendString:bg];
     }
-    backgrounds = [backgrounds stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]].mutableCopy;
+    [backgroundString trimCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
+    
     if (self.bgColorTextControl.stringValue.length > 0) {
-        [backgrounds appendFormat:@" %@", self.bgColorTextControl.stringValue.formattedString];
+        [backgroundString appendFormat:@" %@", self.bgColorTextControl.stringValue.formattedString];
     }
+    [backgroundString trimCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
     
-    [self.document replaceProperty:@"background" value:backgrounds inStyle:YES];
-    
+    if (backgroundString.length > 0) {
+        [self.document replaceProperty:@"background" value:backgroundString inStyle:YES];
+    } else {
+        [self.document removeProperty:@"background" fromStyle:YES];
+    }
     
     self.reloadBackgroundSelection = YES;
-    
     [self loadStyleRule:styleRule];
-    
-    self.reloadBackgroundSelection = NO;
 }
 
 - (void)controlTextDidChange:(NSNotification *)notification {
@@ -245,6 +409,31 @@
             self.bgPositionYControl.stringValue = @"50";
             [self.bgPositionYUnitsControl selectItemWithTitle:@"%"];
         }
+    } else if (sender == self.bgWidthControl) {
+        if (self.bgWidthUnitsControl.indexOfSelectedItem == 0) {
+            [self.bgWidthUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.bgWidthControl.stringValue.length == 0) {
+            [self.bgWidthUnitsControl selectItemWithTitle:@"unchanged"];
+            self.bgHeightControl.stringValue = @"";
+            [self.bgHeightUnitsControl selectItemWithTitle:@"unchanged"];
+        } else {
+            if ([self.bgHeightUnitsControl.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+                [self.bgHeightUnitsControl selectItemWithTitle:@"auto"];
+            }
+        }
+    } else if (sender == self.bgHeightControl) {
+        if ([self.bgHeightUnitsControl.titleOfSelectedItem isEqualToString:@"auto"]) {
+            [self.bgHeightUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.bgHeightControl.stringValue.length == 0) {
+            // If there is a width and no height specified, set height to default "auto"
+            if (![self.bgWidthUnitsControl.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+                [self.bgHeightUnitsControl selectItemWithTitle:@"auto"];
+            } else {
+                [self.bgHeightUnitsControl selectItemWithTitle:@"unchanged"];
+            }
+        }
     }
     
     [self controlChanged:sender];
@@ -333,6 +522,8 @@
     
     [self clearControls];
     
+    self.backgrounds = [NSMutableArray array];
+        
     // Load recent colors
     [self.bgColorTextControl reload];
     
@@ -350,7 +541,6 @@
         NSArray *backgroundArray = [self parseBackgrounds:style.background];
         
         // Parse each background into image, position, size, repeat, and attachment
-        self.backgrounds = [NSMutableArray array];
         for (NSString *background in backgroundArray) {
             NSDictionary *bgDict = [self parseBackground:background];
             [self.backgrounds addObject:bgDict];
@@ -377,12 +567,12 @@
         if (self.reloadBackgroundSelection) {
             // Reload background selection after loading the style
             [self.bgImageControl selectItemAtIndex:selectedBackgroundImageIndex];
+            self.reloadBackgroundSelection = NO;
         }
         
         if (self.bgImageControl.indexOfSelectedItem != -1) {
             NSDictionary *bgDict = self.backgrounds[self.bgImageControl.indexOfSelectedItem];
             NSLog(@"%@", bgDict);
-            
             // Load the background image -- either a url or gradient
             NSString *backgroundImage = bgDict[@"image"];
             [self enableOrDisableControlsForBackgroundImage:backgroundImage];
@@ -395,18 +585,25 @@
             // Load the position, size, repeat, and attachment
             if (bgDict[@"position"]) {
                 NSArray *position = bgDict[@"position"];
-                [self.document loadValue:position[0] textControl:self.bgPositionXControl unitsControl:self.bgPositionXUnitsControl keywords:@[]];
-                [self.document loadValue:position[1] textControl:self.bgPositionYControl unitsControl:self.bgPositionYUnitsControl keywords:@[]];
+                [self.document loadValue:position[0] textControl:self.bgPositionXControl unitsControl:self.bgPositionXUnitsControl];
+                [self.document loadValue:position[1] textControl:self.bgPositionYControl unitsControl:self.bgPositionYUnitsControl];
             }
             
             if (bgDict[@"size"]) {
                 NSArray *size = bgDict[@"size"];
                 if (size.count == 1) {
-                    [self.document loadValue:size[0] textControl:self.bgWidthControl unitsControl:self.bgWidthUnitsControl keywords:@[@"auto", @"cover", @"contain"]];
-                    [self.document loadValue:size[0] textControl:self.bgHeightControl unitsControl:self.bgHeightUnitsControl keywords:@[@"auto", @"cover", @"contain"]];
+                    [self.document loadValue:size[0] textControl:self.bgWidthControl unitsControl:self.bgWidthUnitsControl];
+                    
+                    if ([size[0] isEqualToString:@"cover"] || [size[0] isEqualToString:@"contain"]) {
+                        // If cover or contain, load it into both width and height controls
+                        [self.document loadValue:size[0] textControl:self.bgHeightControl unitsControl:self.bgHeightUnitsControl];
+                    } else {
+                        // Otherwise, height defaults to "auto"
+                        [self.document loadValue:@"auto" textControl:self.bgHeightControl unitsControl:self.bgHeightUnitsControl];
+                    }
                 } else if (size.count == 2) {
-                    [self.document loadValue:size[0] textControl:self.bgWidthControl unitsControl:self.bgWidthUnitsControl keywords:@[@"auto", @"cover", @"contain"]];
-                    [self.document loadValue:size[1] textControl:self.bgHeightControl unitsControl:self.bgHeightUnitsControl keywords:@[@"auto", @"cover", @"contain"]];
+                    [self.document loadValue:size[0] textControl:self.bgWidthControl unitsControl:self.bgWidthUnitsControl];
+                    [self.document loadValue:size[1] textControl:self.bgHeightControl unitsControl:self.bgHeightUnitsControl];
                 }
             }
             
@@ -535,7 +732,7 @@
             
             NSArray *unitsArray = @[@"rem", @"em", @"ex", @"ch", @"vw", @"vh", @"vmin", @"vmax", @"cm", @"mm", @"in", @"px", @"pt", @"pc", @"%"];
             for (NSString *units in unitsArray) {
-                if ([chunk hasSuffix:units]) {
+                if ([chunk hasSuffix:units] && ![chunk isEqualToString:@"contain"] /* Fixes a bug where keyword "contain" counts for a length because it has a suffix "in" */) {
                     if (!isSize) {
                         // Slash not encountered yet, this is a position
                         NSMutableArray *position = bgDict[@"position"];
