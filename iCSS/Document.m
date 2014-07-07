@@ -261,9 +261,9 @@
 - (void)textStorageDidProcessEditing:(NSNotification *)notification {
     [self.syntaxHighlighter processEditing];
     if (self.suppressParseOnProcessEditing) {
-        [self scan];
+        [self scanAndParse:NO];
     } else {
-        [self scanAndParse];
+        [self scanAndParse:YES];
     }
 }
 
@@ -340,6 +340,8 @@
 }
 
 - (void)parserDidFinish:(NSDictionary *)userInfo {
+    CSSParser *parser = userInfo[@"parser"];
+    [self.parsers removeObject:parser];
     NSArray *rules = userInfo[@"rules"];
     BOOL shouldReload = [userInfo[@"reload"] boolValue];
     
@@ -371,26 +373,21 @@
     }
 }
 
-- (void)scanAndParse {
-    for (NSInteger i = self.parsers.count - 1; i > 0; i--) {
-        CSSParser *parser = [self.parsers objectAtIndex:i];
+- (void)parserDidCancel:(NSDictionary *)userInfo {
+    CSSParser *parser = userInfo[@"parser"];
+    [self.parsers removeObject:parser];
+}
+
+- (void)scanAndParse:(BOOL)shouldParse {
+    // Cancel existing parsers
+    for (CSSParser *parser in self.parsers) {
         [parser cancel];
     }
+    
     [self.parseTimer invalidate];
     self.parseTimer = nil;
     
-    NSDictionary *userInfo = userInfo = @{@"string": self.textView.string, @"reload": @(YES)};
-    self.parseTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(parseContentTimer:) userInfo:userInfo repeats:NO];
-}
-
-- (void)scan {
-    for (NSInteger i = self.parsers.count - 1; i > 0; i--) {
-        CSSParser *parser = [self.parsers objectAtIndex:i];
-        [parser cancel];
-    }
-    [self.parseTimer invalidate];
-    self.parseTimer = nil;
-    NSDictionary *userInfo = userInfo = @{@"string": self.textView.string, @"reload": @(NO)};
+    NSDictionary *userInfo = userInfo = @{@"string": self.textView.string, @"reload": @(shouldParse)};
     self.parseTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(parseContentTimer:) userInfo:userInfo repeats:NO];
 }
 
@@ -731,58 +728,6 @@
         }
     }
     return nil;
-}
-
-- (void)applyFontShorthandForRule:(DOMCSSStyleRule *)styleRule {
-    if (styleRule.style.font.length > 0) {
-        [self removeProperty:@"font-style" fromStyle:NO];
-        [self removeProperty:@"font-variant" fromStyle:NO];
-        [self removeProperty:@"font-weight" fromStyle:NO];
-        [self removeProperty:@"font-size" fromStyle:NO];
-        [self removeProperty:@"line-height" fromStyle:NO];
-        [self removeProperty:@"font-family" fromStyle:NO];
-        
-        NSMutableString *fontString = [NSMutableString string];
-        if (styleRule.style.fontStyle.length > 0 && ![styleRule.style.fontStyle isEqualToString:@"normal"]) {
-            [fontString appendFormat:@" %@", styleRule.style.fontStyle];
-        }
-        if (styleRule.style.fontVariant.length > 0 && ![styleRule.style.fontVariant isEqualToString:@"normal"]) {
-            [fontString appendFormat:@" %@", styleRule.style.fontVariant];
-        }
-        if (styleRule.style.fontWeight.length > 0 && ![styleRule.style.fontWeight isEqualToString:@"normal"]) {
-            [fontString appendFormat:@" %@", styleRule.style.fontWeight];
-        }
-        [fontString appendFormat:@" %@", styleRule.style.fontSize];
-        if (styleRule.style.lineHeight.length > 0 && ![styleRule.style.lineHeight isEqualToString:@"normal"]) {
-            [fontString appendFormat:@"/%@", styleRule.style.lineHeight];
-        }
-        [fontString appendFormat:@" %@", styleRule.style.fontFamily];
-        [self replaceProperty:@"font" value:[fontString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] inStyle:NO];
-        [self loadStyleRule:styleRule];
-    } else {
-        [self removeProperty:@"font" fromStyle:NO];
-        
-        if (styleRule.style.fontStyle.length > 0) {
-            [self replaceProperty:@"font-style" value:styleRule.style.fontStyle inStyle:NO];
-        }
-        if (styleRule.style.fontVariant.length > 0) {
-            [self replaceProperty:@"font-variant" value:styleRule.style.fontVariant inStyle:NO];
-        }
-        if (styleRule.style.fontWeight.length > 0) {
-            [self replaceProperty:@"font-weight" value:styleRule.style.fontWeight inStyle:NO];
-        }
-        if (styleRule.style.fontSize.length > 0) {
-            [self replaceProperty:@"font-size" value:styleRule.style.fontSize inStyle:NO];
-        }
-        if (styleRule.style.lineHeight.length > 0) {
-            [self replaceProperty:@"line-height" value:styleRule.style.lineHeight inStyle:NO];
-        }
-        if (styleRule.style.fontFamily.length > 0) {
-            [self replaceProperty:@"font-family" value:styleRule.style.fontFamily inStyle:NO];
-        }
-        
-        [self loadStyleRule:styleRule];
-    }
 }
 
 - (void)setIfNotFirstResponder:(NSControl *)control string:(NSString *)string {

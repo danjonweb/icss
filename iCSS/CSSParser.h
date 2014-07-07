@@ -14,6 +14,6 @@
 - (void)parse:(NSString *)string shouldReloadAfterParse:(BOOL)reload;
 - (void)cancel;
 
-@property (assign) id delegate;
+@property (nonatomic, assign) id delegate;
 
 @end

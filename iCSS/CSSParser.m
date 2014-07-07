@@ -7,6 +7,7 @@
 //
 
 #import "CSSParser.h"
+#import "CSSParserDelegate.h"
 
 @interface CSSParser ()
 @property BOOL isCancelled;
@@ -19,11 +20,6 @@
 @property BOOL isGroup;
 @property NSRange chunkRange;
 @property BOOL shouldReload;
-@end
-
-@protocol CSSParser <NSObject>
-- (void)parserDidFinish:(NSDictionary *)userInfo;
-- (void)parserDidParseFirstRule:(NSDictionary *)userInfo;
 @end
 
 @implementation CSSParser
@@ -42,6 +38,9 @@
 - (void)parseChunk {
     if (self.isCancelled) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
+        if ([self.delegate respondsToSelector:@selector(parserDidCancel:)]) {
+            [self.delegate performSelector:@selector(parserDidCancel:) withObject:@{@"parser": self} afterDelay:0.0];
+        }
         return;
     }
     unichar buffer[self.cssText.length + 1];
@@ -181,11 +180,6 @@
                     }
                 } else {
                     [self.rules addObject:ruleDict];
-                    if (self.rules.count == 1) {
-                        if ([self.delegate respondsToSelector:@selector(parserDidParseFirstRule:)]) {
-                            [self.delegate performSelector:@selector(parserDidParseFirstRule:) withObject:@{@"rule": ruleDict} afterDelay:0.0];
-                        }
-                    }
                 }
             }
         }
@@ -196,7 +190,7 @@
     NSInteger newStart = NSMaxRange(self.chunkRange);
     if (newStart >= self.cssText.length) {
         if ([self.delegate respondsToSelector:@selector(parserDidFinish:)]) {
-            [self.delegate performSelector:@selector(parserDidFinish:) withObject:@{@"rules": self.rules, @"string": self.parsableString, @"reload": @(self.shouldReload)} afterDelay:0.0];
+            [self.delegate performSelector:@selector(parserDidFinish:) withObject:@{@"parser": self, @"rules": self.rules, @"string": self.parsableString, @"reload": @(self.shouldReload)} afterDelay:0.0];
         }
     } else {
         self.chunkRange = NSMakeRange(newStart, newStart + CHUNK_SIZE < self.cssText.length ? CHUNK_SIZE : self.cssText.length - newStart);

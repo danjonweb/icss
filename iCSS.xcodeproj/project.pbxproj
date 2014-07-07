@@ -305,6 +305,7 @@
 		05DDFE6D1968F08F002F6ADC /* TBMShowHideButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMShowHideButton.m; sourceTree = "<group>"; };
 		05DDFE711968F0DB002F6ADC /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		05DDFE721968F0DB002F6ADC /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		05DDFE74196A5EE8002F6ADC /* CSSParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSParserDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +387,7 @@
 				0552C4DD195DF9CF006AE004 /* CustomTextView.m */,
 				0552C4DE195DF9CF006AE004 /* SplitViewController.h */,
 				0552C4DF195DF9CF006AE004 /* SplitViewController.m */,
+				05DDFE74196A5EE8002F6ADC /* CSSParserDelegate.h */,
 				0552C4E0195DF9CF006AE004 /* CSSParser.h */,
 				0552C4E1195DF9CF006AE004 /* CSSParser.m */,
 				0552C4E2195DF9CF006AE004 /* ColorTextFieldCell.h */,

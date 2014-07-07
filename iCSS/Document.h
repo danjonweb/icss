@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CSSParserDelegate.h"
 
 @class DOMCSSStyleRule;
 @class FontViewController;
@@ -17,7 +18,7 @@
 @class BorderViewController;
 @class ColorTextField;
 
-@interface Document : NSDocument <NSTextStorageDelegate>
+@interface Document : NSDocument <NSTextStorageDelegate, CSSParserDelegate>
 
 @property (assign) IBOutlet NSWindow *docWindow;
 @property (assign) IBOutlet NSOutlineView *stylesOutlineView;
