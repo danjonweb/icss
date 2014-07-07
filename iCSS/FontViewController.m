@@ -50,7 +50,202 @@
 - (IBAction)controlChanged:(id)sender {
     DOMCSSStyleRule *styleRule = [self.document currentStyleRule];
     
+    if (sender == self.fontColorControl) {
+        self.fontColorTextControl.stringValue = self.fontColorControl.color.formattedString;
+        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+        [self.document saveColor:self.fontColorControl.color reloadControl:self.fontColorTextControl];
+    }
+    if (sender == self.fontColorTextControl) {
+        if (self.fontColorTextControl.stringValue.length == 0) {
+            [self.document removeProperty:@"color" fromStyle:YES];
+        } else {
+            NSColor *color = [NSColor colorWithCSS:self.fontColorTextControl.stringValue];
+            if (color) {
+                self.fontColorControl.color = color;
+            } else {
+                return;
+            }
+        }
+    } else if (sender == self.fontSizeControl || sender == self.fontSizeUnitsControl) {
+        [self.document changeProperty:@"font-size" textControl:self.fontSizeControl unitsControl:self.fontSizeUnitsControl keywords:@[@"initial", @"inherit", @"smaller", @"larger", @"xx-small", @"x-small", @"small", @"medium", @"large", @"x-large", @"xx-large"]];
+    } else if (sender == self.lineHeightControl || sender == self.lineHeightUnitsControl) {
+        [self.document changeProperty:@"line-height" textControl:self.lineHeightControl unitsControl:self.lineHeightUnitsControl keywords:@[@"initial", @"inherit", @"normal"]];
+    } else if (sender == self.fontWeightAndStyleControl) {
+        NSSegmentedControl *segmentedControl = self.fontWeightAndStyleControl;
+        NSInteger selectedIndex = segmentedControl.selectedSegment;
+        [segmentedControl setSelected:NO forSegment:0];
+        [segmentedControl setSelected:NO forSegment:1];
+        [segmentedControl setSelected:NO forSegment:2];
+        [segmentedControl setSelected:NO forSegment:3];
+        if (selectedIndex == 0) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-weight" value:@"bold" inStyle:YES];
+                [self.document replaceProperty:@"font-style" value:@"normal" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:0];
+            } else {
+                if ([styleRule.style.fontWeight isEqualToString:@"bold"] && (styleRule.style.fontStyle.length == 0 || [styleRule.style.fontStyle isEqualToString:@"normal"])) {
+                    [self.document removeProperty:@"font-weight" fromStyle:YES];
+                } else {
+                    [self.document removeProperty:@"font-style" fromStyle:YES];
+                    [self.document replaceProperty:@"font-weight" value:@"bold" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:0];
+                }
+            }
+        } else if (selectedIndex == 1) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-weight" value:@"bold" inStyle:YES];
+                [self.document replaceProperty:@"font-style" value:@"italic" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:1];
+            } else {
+                if ([styleRule.style.fontWeight isEqualToString:@"bold"] && [styleRule.style.fontStyle isEqualToString:@"italic"]) {
+                    [self.document removeProperty:@"font-style" fromStyle:YES];
+                    [self.document removeProperty:@"font-weight" fromStyle:YES];
+                } else {
+                    [self.document replaceProperty:@"font-style" value:@"italic" inStyle:YES];
+                    [self.document replaceProperty:@"font-weight" value:@"bold" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:1];
+                }
+            }
+        } else if (selectedIndex == 2) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-style" value:@"italic" inStyle:YES];
+                [self.document replaceProperty:@"font-weight" value:@"normal" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:2];
+            } else {
+                if ([styleRule.style.fontStyle isEqualToString:@"italic"] && (styleRule.style.fontWeight.length == 0 || [styleRule.style.fontWeight isEqualToString:@"normal"])) {
+                    [self.document removeProperty:@"font-style" fromStyle:YES];
+                } else {
+                    [self.document removeProperty:@"font-weight" fromStyle:YES];
+                    [self.document replaceProperty:@"font-style" value:@"italic" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:2];
+                }
+            }
+        } else if (selectedIndex == 3) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-style" value:@"normal" inStyle:YES];
+                [self.document replaceProperty:@"font-weight" value:@"normal" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:3];
+            } else {
+                if ([styleRule.style.fontWeight isEqualToString:@"normal"]) {
+                    [self.document removeProperty:@"font-style" fromStyle:YES];
+                    [self.document removeProperty:@"font-weight" fromStyle:YES];
+                } else {
+                    [self.document replaceProperty:@"font-style" value:@"normal" inStyle:YES];
+                    [self.document replaceProperty:@"font-weight" value:@"normal" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:3];
+                }
+            }
+        }
+    } else if (sender == self.textDecorationControl) {
+        NSSegmentedControl *segmentedControl = self.textDecorationControl;
+        NSInteger selectedIndex = segmentedControl.selectedSegment;
+        [segmentedControl setSelected:NO forSegment:0];
+        [segmentedControl setSelected:NO forSegment:1];
+        [segmentedControl setSelected:NO forSegment:2];
+        [segmentedControl setSelected:NO forSegment:3];
+        if (selectedIndex == 0) {
+            if ([styleRule.style.textDecoration isEqualToString:@"underline"]) {
+                [self.document removeProperty:@"text-decoration" fromStyle:YES];
+            } else {
+                [self.document replaceProperty:@"text-decoration" value:@"underline" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:0];
+            }
+        } else if (selectedIndex == 1) {
+            if ([styleRule.style.textDecoration isEqualToString:@"line-through"]) {
+                [self.document removeProperty:@"text-decoration" fromStyle:YES];
+            } else {
+                [self.document replaceProperty:@"text-decoration" value:@"line-through" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:1];
+            }
+        } else if (selectedIndex == 2) {
+            if ([styleRule.style.textDecoration isEqualToString:@"overline"]) {
+                [self.document removeProperty:@"text-decoration" fromStyle:YES];
+            } else {
+                [self.document replaceProperty:@"text-decoration" value:@"overline" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:2];
+            }
+        } else if (selectedIndex == 3) {
+            if ([styleRule.style.textDecoration isEqualToString:@"none"]) {
+                [self.document removeProperty:@"text-decoration" fromStyle:YES];
+            } else {
+                [self.document replaceProperty:@"text-decoration" value:@"none" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:3];
+            }
+        }
+    } else if (sender == self.fontVariantControl) {
+        NSSegmentedControl *segmentedControl = self.fontVariantControl;
+        NSInteger selectedIndex = segmentedControl.selectedSegment;
+        [segmentedControl setSelected:NO forSegment:0];
+        [segmentedControl setSelected:NO forSegment:1];
+        if (selectedIndex == 0) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-variant" value:@"small-caps" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:0];
+            } else {
+                if ([styleRule.style.fontVariant isEqualToString:@"small-caps"]) {
+                    [self.document removeProperty:@"font-variant" fromStyle:YES];
+                } else {
+                    [self.document replaceProperty:@"font-variant" value:@"small-caps" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:0];
+                }
+            }
+        } else if (selectedIndex == 1) {
+            if (styleRule.style.font.length > 0) {
+                [self.document replaceProperty:@"font-variant" value:@"normal" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:1];
+            } else {
+                if ([styleRule.style.fontVariant isEqualToString:@"normal"]) {
+                    [self.document removeProperty:@"font-variant" fromStyle:YES];
+                } else {
+                    [self.document replaceProperty:@"font-variant" value:@"normal" inStyle:YES];
+                    [segmentedControl setSelected:YES forSegment:1];
+                }
+            }
+        }
+    } else if (sender == self.textTransformControl) {
+        NSSegmentedControl *segmentedControl = self.textTransformControl;
+        NSInteger selectedIndex = segmentedControl.selectedSegment;
+        NSString *property = @"text-transform";
+        [segmentedControl setSelected:NO forSegment:0];
+        [segmentedControl setSelected:NO forSegment:1];
+        [segmentedControl setSelected:NO forSegment:2];
+        [segmentedControl setSelected:NO forSegment:3];
+        if (selectedIndex == 0) {
+            if ([styleRule.style.textTransform isEqualToString:@"capitalize"]) {
+                [self.document removeProperty:property fromStyle:YES];
+            } else {
+                [self.document replaceProperty:property value:@"capitalize" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:0];
+            }
+        } else if (selectedIndex == 1) {
+            if ([styleRule.style.textTransform isEqualToString:@"uppercase"]) {
+                [self.document removeProperty:property fromStyle:YES];
+            } else {
+                [self.document replaceProperty:property value:@"uppercase" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:1];
+            }
+        } else if (selectedIndex == 2) {
+            if ([styleRule.style.textTransform isEqualToString:@"lowercase"]) {
+                [self.document removeProperty:property fromStyle:YES];
+            } else {
+                [self.document replaceProperty:property value:@"lowercase" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:2];
+            }
+        } else if (selectedIndex == 3) {
+            if ([styleRule.style.textTransform isEqualToString:@"none"]) {
+                [self.document removeProperty:property fromStyle:YES];
+            } else {
+                [self.document replaceProperty:property value:@"none" inStyle:YES];
+                [segmentedControl setSelected:YES forSegment:3];
+            }
+        }
+    }
     
+    if (self.fontColorTextControl.stringValue.length > 0 ) {
+        [self.document replaceProperty:@"color" value:self.fontColorTextControl.stringValue inStyle:YES];
+    } else {
+        [self.document removeProperty:@"color" fromStyle:YES];
+    }
     
     [self loadStyleRule:styleRule];
 }
@@ -58,7 +253,24 @@
 - (void)controlTextDidChange:(NSNotification *)notification {
     id sender = [notification object];
     
-    
+    if (sender == self.fontSizeControl) {
+        if (self.fontSizeUnitsControl.indexOfSelectedItem == 0) {
+            [self.fontSizeUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.fontSizeControl.stringValue.length == 0) {
+            [self.fontSizeUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+    } else if (sender == self.lineHeightControl) {
+        if (self.lineHeightUnitsControl.indexOfSelectedItem == 0) {
+            [self.lineHeightUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.lineHeightControl.stringValue.length == 0) {
+            [self.lineHeightUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+        if (self.lineHeightControl.stringValue.length != 0 && [self.lineHeightUnitsControl.titleOfSelectedItem isEqualToString:@"normal"]) {
+            [self.lineHeightUnitsControl selectItemWithTitle:@"px"];
+        }
+    }
     
     [self controlChanged:sender];
 }

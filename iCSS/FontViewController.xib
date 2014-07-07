@@ -41,6 +41,9 @@
                     <rect key="frame" x="87" y="239" width="39" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="GvA-vF-bXB"/>
+                    </connections>
                 </colorWell>
                 <textField verticalHuggingPriority="750" id="Hy2-e9-2G3" customClass="ColorTextField">
                     <rect key="frame" x="131" y="239" width="105" height="19"/>
@@ -51,6 +54,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <outlet property="delegate" destination="-2" id="cuO-nl-DIS"/>
                         <outlet property="nextKeyView" destination="EIf-iJ-Jvk" id="oak-tP-x8L"/>
                     </connections>
                 </textField>
@@ -72,6 +76,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <outlet property="delegate" destination="-2" id="mRK-0O-qxJ"/>
                         <outlet property="nextKeyView" destination="xX0-3f-zK0" id="wH5-Xd-30Z"/>
                     </connections>
                 </textField>
@@ -92,6 +97,9 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="zyB-b5-jkV"/>
+                    </connections>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="sCN-SF-D7Z">
                     <rect key="frame" x="131" y="216" width="105" height="19"/>
@@ -141,6 +149,9 @@
                             </items>
                         </menu>
                     </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Vb5-I3-eQh"/>
+                    </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" id="xKw-xk-h9f">
                     <rect key="frame" x="131" y="193" width="105" height="19"/>
@@ -184,6 +195,9 @@
                             </items>
                         </menu>
                     </popUpButtonCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="5oC-5U-bu7"/>
+                    </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kBx-r7-9yu">
                     <rect key="frame" x="8" y="173" width="71" height="13"/>
@@ -206,6 +220,9 @@
                             <segment label="none" width="36"/>
                         </segments>
                     </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="Exu-2r-QN8"/>
+                    </connections>
                 </segmentedControl>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5Fj-vN-5CH">
                     <rect key="frame" x="8" y="150" width="71" height="13"/>
@@ -228,6 +245,9 @@
                             <segment label="none" width="36"/>
                         </segments>
                     </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="QD6-aD-J2d"/>
+                    </connections>
                 </segmentedControl>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8st-qG-Rhe">
                     <rect key="frame" x="8" y="127" width="71" height="13"/>
@@ -248,6 +268,9 @@
                             <segment label="Normal" width="73" tag="1"/>
                         </segments>
                     </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="LHo-MG-ZLe"/>
+                    </connections>
                 </segmentedControl>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pTX-bU-uA4">
                     <rect key="frame" x="8" y="104" width="71" height="13"/>
@@ -270,6 +293,9 @@
                             <segment label="none" width="36"/>
                         </segments>
                     </segmentedCell>
+                    <connections>
+                        <action selector="controlChanged:" target="-2" id="gEJ-Kd-OTb"/>
+                    </connections>
                 </segmentedControl>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Kyv-fs-01t">
                     <rect key="frame" x="87" y="31" width="149" height="66"/>

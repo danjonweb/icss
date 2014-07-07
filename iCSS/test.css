@@ -1,4 +1,13 @@
-/* Test file 'all.css' from stackoverflow.com */
+/* 
+ Test file 'all.css' from stackoverflow.com
+ 
+ Try it out:
+ - Click on a selector in the sidebar.
+ - Type some CSS to see it parsed and loaded into the controls on the right.
+ - Type 'background-color: lime' or 'color: white' to see changes in the sidebar.
+ - Change the font style to 'bold' using the control on the right.
+ - Scroll down to the Border panel on the right and try adding a border. Changing CSS is a work in progress, but some controls are pretty functional right now.
+*/
 
 .avatar-change:hover {
     background-color: #eee

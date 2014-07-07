@@ -36,27 +36,12 @@
 
 #pragma mark - Control Changed
 
-- (void)saveColor {
-    NSArray *recentColors = [[NSUserDefaults standardUserDefaults] objectForKey:@"recentColors"];
-    NSMutableArray *newRecentColors = [NSMutableArray array];
-    if (recentColors) {
-        [newRecentColors addObjectsFromArray:recentColors];
-    }
-    [newRecentColors addObject:self.bgColorControl.color.formattedString];
-    if (newRecentColors.count > 5) {
-        [newRecentColors removeObjectAtIndex:0];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:newRecentColors forKey:@"recentColors"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.bgColorTextControl reload];
-}
-
 - (IBAction)controlChanged:(id)sender {
     DOMCSSStyleRule *styleRule = [self.document currentStyleRule];
     
     if (sender == self.bgColorControl) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
-        [self performSelector:@selector(saveColor) withObject:nil afterDelay:5.0];
+        [self.document saveColor:self.bgColorControl.color reloadControl:self.bgColorTextControl];
     }
     if (sender == self.bgColorTextControl) {
         if (self.bgColorTextControl.stringValue.length == 0) {

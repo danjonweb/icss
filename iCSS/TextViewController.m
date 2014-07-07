@@ -33,6 +33,129 @@
 - (IBAction)controlChanged:(id)sender {
     DOMCSSStyleRule *styleRule = [self.document currentStyleRule];
     
+    if (sender == self.textAlignControl) {
+#pragma mark - text align
+        if (self.textAlignControl.selectedSegment == 0) {
+            if ([styleRule.style.textAlign isEqualToString:@"left"]) {
+                [self.document removeProperty:@"text-align" fromStyle:YES];
+                [self.textAlignControl setSelected:NO forSegment:0];
+            } else {
+                [self.document replaceProperty:@"text-align" value:@"left" inStyle:YES];
+                [self.textAlignControl setSelected:YES forSegment:0];
+            }
+        } else if (self.textAlignControl.selectedSegment == 1) {
+            if ([styleRule.style.textAlign isEqualToString:@"center"]) {
+                [self.document removeProperty:@"text-align" fromStyle:YES];
+                [self.textAlignControl setSelected:NO forSegment:1];
+            } else {
+                [self.document replaceProperty:@"text-align" value:@"center" inStyle:YES];
+                [self.textAlignControl setSelected:YES forSegment:1];
+            }
+        } else if (self.textAlignControl.selectedSegment == 2) {
+            if ([styleRule.style.textAlign isEqualToString:@"right"]) {
+                [self.document removeProperty:@"text-align" fromStyle:YES];
+                [self.textAlignControl setSelected:NO forSegment:2];
+            } else {
+                [self.document replaceProperty:@"text-align" value:@"right" inStyle:YES];
+                [self.textAlignControl setSelected:YES forSegment:2];
+            }
+        } else if (self.textAlignControl.selectedSegment == 3) {
+            if ([styleRule.style.textAlign isEqualToString:@"justify"]) {
+                [self.document removeProperty:@"text-align" fromStyle:YES];
+                [self.textAlignControl setSelected:NO forSegment:3];
+            } else {
+                [self.document replaceProperty:@"text-align" value:@"justify" inStyle:YES];
+                [self.textAlignControl setSelected:YES forSegment:3];
+            }
+        }
+    } else if (sender == self.textIndentControl || sender == self.textIndentUnitsControl) {
+#pragma mark text indent
+        NSTextField *textField = self.textIndentControl;
+        NSPopUpButton *popUpButton = self.textIndentUnitsControl;
+        NSString *property = @"text-indent";
+        NSArray *keywords = @[@"initial", @"inherit"];
+        
+        if ([popUpButton.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.document removeProperty:property fromStyle:YES];
+        } else {
+            NSString *value;
+            if ([keywords containsObject:popUpButton.titleOfSelectedItem]) {
+                value = popUpButton.titleOfSelectedItem;
+                textField.stringValue = @"";
+            } else {
+                if (textField.stringValue.length == 0) {
+                    textField.stringValue = @"0";
+                }
+                value = [NSString stringWithFormat:@"%@%@", textField.stringValue, popUpButton.titleOfSelectedItem];
+            }
+            [self.document replaceProperty:property value:value inStyle:YES];
+        }
+    } else if (sender == self.letterSpacingControl || sender == self.letterSpacingUnitsControl) {
+#pragma mark letter spacing
+        NSTextField *textField = self.letterSpacingControl;
+        NSPopUpButton *popUpButton = self.letterSpacingUnitsControl;
+        NSString *property = @"letter-spacing";
+        NSArray *keywords = @[@"initial", @"inherit", @"normal"];
+        
+        if ([popUpButton.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.document removeProperty:property fromStyle:YES];
+        } else {
+            NSString *value;
+            if ([keywords containsObject:popUpButton.titleOfSelectedItem]) {
+                value = popUpButton.titleOfSelectedItem;
+                textField.stringValue = @"";
+            } else {
+                if (textField.stringValue.length == 0) {
+                    textField.stringValue = @"0";
+                }
+                value = [NSString stringWithFormat:@"%@%@", textField.stringValue, popUpButton.titleOfSelectedItem];
+            }
+            [self.document replaceProperty:property value:value inStyle:YES];
+        }
+    } else if (sender == self.wordSpacingControl || sender == self.wordSpacingUnitsControl) {
+#pragma mark word spacing
+        NSTextField *textField = self.wordSpacingControl;
+        NSPopUpButton *popUpButton = self.wordSpacingUnitsControl;
+        NSString *property = @"word-spacing";
+        NSArray *keywords = @[@"initial", @"inherit", @"normal"];
+        
+        if ([popUpButton.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.document removeProperty:property fromStyle:YES];
+        } else {
+            NSString *value;
+            if ([keywords containsObject:popUpButton.titleOfSelectedItem]) {
+                value = popUpButton.titleOfSelectedItem;
+                textField.stringValue = @"";
+            } else {
+                if (textField.stringValue.length == 0) {
+                    textField.stringValue = @"0";
+                }
+                value = [NSString stringWithFormat:@"%@%@", textField.stringValue, popUpButton.titleOfSelectedItem];
+            }
+            [self.document replaceProperty:property value:value inStyle:YES];
+        }
+    } else if (sender == self.whiteSpaceControl) {
+#pragma mark white space
+        NSPopUpButton *popUpButton = self.whiteSpaceControl;
+        NSString *property = @"white-space";
+        NSArray *keywords = @[@"initial", @"inherit", @"normal", @"nowrap", @"pre", @"pre-wrap", @"pre-line"];
+        if ([popUpButton.titleOfSelectedItem isEqualToString:@"unchanged"]) {
+            [self.document removeProperty:property fromStyle:YES];
+        } else {
+            NSString *value;
+            if ([keywords containsObject:popUpButton.titleOfSelectedItem]) {
+                value = popUpButton.titleOfSelectedItem;
+            }
+            [self.document replaceProperty:property value:value inStyle:YES];
+        }
+    } else if (sender == self.textShadowAddAndRemoveButtons) {
+
+    } else if (sender == self.textShadowXControl || sender == self.textShadowXUnitsControl ||
+               sender == self.textShadowYControl || sender == self.textShadowYUnitsControl ||
+               sender == self.textShadowBlurControl || sender == self.textShadowBlurUnitsControl ||
+               sender == self.textShadowColorControl || sender == self.textShadowColorTextControl) {
+
+    }
     
     self.reloadTextShadowSelection = YES;
     [self loadStyleRule:styleRule];
@@ -41,7 +164,49 @@
 - (void)controlTextDidChange:(NSNotification *)notification {
     id sender = [notification object];
     
-    
+    if (sender == self.textIndentControl) {
+        if (self.textIndentUnitsControl.indexOfSelectedItem == 0) {
+            [self.textIndentUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.textIndentControl.stringValue.length == 0) {
+            [self.textIndentUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+    } else if (sender == self.letterSpacingControl) {
+        if (self.letterSpacingUnitsControl.indexOfSelectedItem == 0) {
+            [self.letterSpacingUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.letterSpacingControl.stringValue.length == 0) {
+            [self.letterSpacingUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+    } else if (sender == self.wordSpacingControl) {
+        if (self.wordSpacingUnitsControl.indexOfSelectedItem == 0) {
+            [self.wordSpacingUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.wordSpacingControl.stringValue.length == 0) {
+            [self.wordSpacingUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+    } else if (sender == self.textShadowXControl) {
+        if (self.textShadowXUnitsControl.indexOfSelectedItem == 0) {
+            [self.textShadowXUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.textShadowXControl.stringValue.length == 0) {
+            self.textShadowXControl.stringValue = @"0";
+        }
+    } else if (sender == self.textShadowYControl) {
+        if (self.textShadowYUnitsControl.indexOfSelectedItem == 0) {
+            [self.textShadowYUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.textShadowYControl.stringValue.length == 0) {
+            self.textShadowYControl.stringValue = @"0";
+        }
+    } else if (sender == self.textShadowBlurControl) {
+        if (self.textShadowBlurUnitsControl.indexOfSelectedItem == 0) {
+            [self.textShadowBlurUnitsControl selectItemWithTitle:@"px"];
+        }
+        if (self.textShadowBlurControl.stringValue.length == 0) {
+            [self.textShadowBlurUnitsControl selectItemWithTitle:@"unchanged"];
+        }
+    }
     
     [self controlChanged:sender];
 }
