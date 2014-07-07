@@ -179,6 +179,13 @@ static inline unsigned ToPercentage(CGFloat f)
     
     return NO;*/
     
+    if (self.alphaComponent == 0.0) {
+        *red = 0.0;
+        *green = 0.0;
+        *blue = 0.0;
+        *alpha = 0.0;
+        return YES;
+    }
     NSColor *rgbColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
     if (rgbColor) {
         [self getRed:red green:green blue:blue alpha:alpha];

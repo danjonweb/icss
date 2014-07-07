@@ -15,6 +15,7 @@
 #import "BorderViewController.h"
 #import "SyntaxHighlighter.h"
 #import "CSSParser.h"
+#import "NSColor+ChessboardColor.h"
 #import "TBMInspectorView.h"
 #import "NSColor+HTMLColors.h"
 #import "NSColor+iOS7Colors.h"
@@ -178,7 +179,10 @@
     ImageAndTextCell *imageAndTextCell = (ImageAndTextCell *)cell;
     
     // Reset cell
+    [imageAndTextCell setFont:[NSFont systemFontOfSize:[NSFont systemFontSize]]];
     [imageAndTextCell setTextColor:[NSColor blackColor]];
+    [imageAndTextCell setBackgroundColor:[NSColor whiteColor]];
+    [imageAndTextCell setImage:nil];
     [imageAndTextCell setDrawsBackground:NO];
     
     NSDictionary *ruleDict = (NSDictionary *)item;
@@ -196,13 +200,14 @@
             DOMCSSStyleRule *styleRule = (DOMCSSStyleRule *)rule;
             if (styleRule.style.color.length > 0) {
                 NSColor *color = [NSColor colorWithCSS:styleRule.style.color];
-                [imageAndTextCell setTextColor:color];
-                
-                const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
-                if (componentColors != NULL) {
-                    CGFloat colorBrightness = ((componentColors[0] * 299) + (componentColors[1] * 587) + (componentColors[2] * 114)) / 1000;
-                    if (colorBrightness < 0.8) {
-                        
+                if (color) {
+                    [imageAndTextCell setTextColor:color];
+                    
+                    CGFloat h, s, b;
+                    [color getHue:&h saturation:&s brightness:&b alpha:NULL];
+                    if (b > 0.9) {
+                        [imageAndTextCell setBackgroundColor:[NSColor chessboardColorWithFirstColor:[NSColor darkGrayColor] secondColor:[NSColor grayColor] squareWidth:4.0]];
+                         [imageAndTextCell setDrawsBackground:YES];
                     } else {
                         [imageAndTextCell setBackgroundColor:[NSColor whiteColor]];
                         [imageAndTextCell setDrawsBackground:YES];
@@ -220,10 +225,12 @@
                     [imageAndTextCell setDrawsBackground:YES];
                 }
             }
-        } else if (rule.type == DOM_MEDIA_RULE) {
             
-        } else if (rule.type == DOM_FONT_FACE_RULE) {
-            
+            if (styleRule.style.fontWeight) {
+                if ([styleRule.style.fontWeight isEqualToString:@"bold"] || [styleRule.style.fontWeight isEqualToString:@"bolder"] || [styleRule.style.fontWeight isEqualToString:@"700"] || [styleRule.style.fontWeight isEqualToString:@"800"] || [styleRule.style.fontWeight isEqualToString:@"900"]) {
+                    [imageAndTextCell setFont:[NSFont boldSystemFontOfSize:[NSFont systemFontSize]]];
+                }
+            }
         }
     }
 }

@@ -48,6 +48,8 @@
 #import "ImageAndTextCell.h"
 #import <AppKit/NSCell.h>
 
+#define kTitlePadding 5
+
 @implementation ImageAndTextCell
 
 - (id)init {
@@ -92,14 +94,6 @@
 // We could manually implement expansionFrameWithFrame:inView: and drawWithExpansionFrame:inView: or just properly implement titleRectForBounds to get expansion tooltips to automatically work for us
 - (NSRect)titleRectForBounds:(NSRect)cellFrame {
     NSRect result;
-    /*if (_image != nil) {
-        CGFloat imageWidth = [self _imageSize].width;
-        result = cellFrame;
-        result.origin.x += (3 + imageWidth);
-        result.size.width -= (3 + imageWidth);
-    } else {
-        result = [super titleRectForBounds:cellFrame];
-    }*/
     result = [super titleRectForBounds:cellFrame];
     NSSize titleSize = [[self attributedStringValue] size];
     result.origin.y = result.origin.y - .5 + (result.size.height - titleSize.height) / 2.0;
@@ -125,7 +119,9 @@
     
     NSGraphicsContext* theContext = [NSGraphicsContext currentContext];
     [theContext saveGraphicsState];
-    NSRect newFrame = NSInsetRect(cellFrame, 1, 0);
+    // Adjust to fit selection highlight
+    cellFrame.size.height -= 1.0;
+    NSRect newFrame = NSIntegralRect(cellFrame);
     [[NSBezierPath bezierPathWithRoundedRect:newFrame xRadius:3 yRadius:3] addClip];
     [super drawWithFrame:newFrame inView:controlView];
     [theContext restoreGraphicsState];
@@ -137,7 +133,8 @@
         [[NSBezierPath bezierPathWithRect:cellFrame] fill];
     }
     NSRect titleRect = [self titleRectForBounds:cellFrame];
-    titleRect.origin.x += 5;
+    titleRect.origin.x += kTitlePadding;
+    titleRect.size.width -= kTitlePadding*2;
     [self.textColor set];
     [[self attributedStringValue] drawInRect:titleRect];
 }

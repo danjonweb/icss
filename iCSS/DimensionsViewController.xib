@@ -58,7 +58,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="PEl-kT-nLh"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="EmL-WM-QwP"/>
                         <outlet property="nextKeyView" destination="Edh-Yk-qIm" id="cGm-mV-g9n"/>
                     </connections>
                 </textField>
@@ -81,7 +80,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="7km-bd-Ya6"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="0Jl-4q-Xt3"/>
                         <outlet property="nextKeyView" destination="VE0-xa-aVC" id="uqX-EI-CCW"/>
                     </connections>
                 </textField>
@@ -192,7 +190,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="3Tb-Kd-tjv"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="kvI-Jn-eZx"/>
                         <outlet property="nextKeyView" destination="9Cn-TO-fRM" id="MhM-M7-adw"/>
                     </connections>
                 </textField>
@@ -206,7 +203,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="adc-z1-8sp"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="FXv-80-bzX"/>
                         <outlet property="nextKeyView" destination="81K-wi-tT6" id="4rm-eo-a56"/>
                     </connections>
                 </textField>
@@ -318,7 +314,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="Cdw-gS-gKk"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="5L8-0M-BK4"/>
                         <outlet property="nextKeyView" destination="7RJ-6U-aKa" id="KCz-7F-Rea"/>
                     </connections>
                 </textField>
@@ -332,7 +327,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="suh-Lz-JtF"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="75F-uh-GWw"/>
                         <outlet property="nextKeyView" destination="4ht-Ks-5kW" id="nDn-O2-YzB"/>
                     </connections>
                 </textField>
@@ -444,7 +438,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="zWS-F5-Tx6"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="1XM-Wo-H1E"/>
                         <outlet property="nextKeyView" destination="kHm-sY-UVB" id="CFF-BC-U4e"/>
                     </connections>
                 </textField>
@@ -516,7 +509,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="HMs-li-ekb"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="MaY-09-laT"/>
                         <outlet property="nextKeyView" destination="mo6-Qd-k2c" id="DsB-OM-RKC"/>
                     </connections>
                 </textField>
@@ -530,7 +522,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="8Tp-4s-b14"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="V5s-la-MqI"/>
                         <outlet property="nextKeyView" destination="434-bs-Hyb" id="ObP-6X-5jk"/>
                     </connections>
                 </textField>
@@ -636,7 +627,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="pw7-XL-sEn"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="7WI-dL-LgW"/>
                         <outlet property="nextKeyView" destination="anV-Tg-lj7" id="rgq-ov-0yd"/>
                     </connections>
                 </textField>
@@ -650,7 +640,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="I49-gl-YUw"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="Z4E-Uh-Udc"/>
                         <outlet property="nextKeyView" destination="pC9-de-xTR" id="0DE-q7-J1S"/>
                     </connections>
                 </textField>
@@ -756,7 +745,6 @@
                     </textFieldCell>
                     <connections>
                         <outlet property="delegate" destination="-2" id="6tM-HL-mFM"/>
-                        <outlet property="formatter" destination="fAr-sR-iF6" id="Ehp-wI-2Lt"/>
                         <outlet property="nextKeyView" destination="VuF-mv-yUh" id="frW-DJ-R3S"/>
                     </connections>
                 </textField>
@@ -808,7 +796,6 @@
                 </imageView>
             </subviews>
         </customView>
-        <customObject id="fAr-sR-iF6" customClass="OnlyIntegerValueFormatter"/>
     </objects>
     <resources>
         <image name="marginAll" width="15" height="15"/>

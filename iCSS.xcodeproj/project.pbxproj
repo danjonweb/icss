@@ -126,7 +126,6 @@
 		05DDFE5C19659E5F002F6ADC /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE5A19659E5F002F6ADC /* TextViewController.xib */; };
 		05DDFE611965B01F002F6ADC /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE5F1965B01F002F6ADC /* FontViewController.m */; };
 		05DDFE621965B01F002F6ADC /* FontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDFE601965B01F002F6ADC /* FontViewController.xib */; };
-		05DDFE661966094C002F6ADC /* OnlyIntegerValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */; };
 		05DDFE6E1968F08F002F6ADC /* TBMDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE681968F08F002F6ADC /* TBMDetailView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		05DDFE6F1968F08F002F6ADC /* TBMInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE6B1968F08F002F6ADC /* TBMInspectorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		05DDFE701968F08F002F6ADC /* TBMShowHideButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFE6D1968F08F002F6ADC /* TBMShowHideButton.m */; };
@@ -297,8 +296,6 @@
 		05DDFE5E1965B01F002F6ADC /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
 		05DDFE5F1965B01F002F6ADC /* FontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontViewController.m; sourceTree = "<group>"; };
 		05DDFE601965B01F002F6ADC /* FontViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontViewController.xib; sourceTree = "<group>"; };
-		05DDFE641966094C002F6ADC /* OnlyIntegerValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyIntegerValueFormatter.h; sourceTree = "<group>"; };
-		05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyIntegerValueFormatter.m; sourceTree = "<group>"; };
 		05DDFE671968F08F002F6ADC /* TBMDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDetailView.h; sourceTree = "<group>"; };
 		05DDFE681968F08F002F6ADC /* TBMDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDetailView.m; sourceTree = "<group>"; };
 		05DDFE691968F08F002F6ADC /* TBMInspectorView_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMInspectorView_Internal.h; sourceTree = "<group>"; };
@@ -395,8 +392,6 @@
 				0552C4E3195DF9CF006AE004 /* ColorTextFieldCell.m */,
 				0552C4E4195DF9CF006AE004 /* ColorTextField.h */,
 				0552C4E5195DF9CF006AE004 /* ColorTextField.m */,
-				05DDFE641966094C002F6ADC /* OnlyIntegerValueFormatter.h */,
-				05DDFE651966094C002F6ADC /* OnlyIntegerValueFormatter.m */,
 				0552C4E6195DF9CF006AE004 /* ImageAndTextCell.h */,
 				0552C4E7195DF9CF006AE004 /* ImageAndTextCell.m */,
 				0552C4E8195DF9CF006AE004 /* CustomOutlineView.h */,
@@ -845,7 +840,6 @@
 				0552C4F2195DF9CF006AE004 /* CustomOutlineView.m in Sources */,
 				0552C4EC195DF9CF006AE004 /* CustomTextView.m in Sources */,
 				0552C504195DF9D9006AE004 /* NSBezierPath+StrokeExtensions.m in Sources */,
-				05DDFE661966094C002F6ADC /* OnlyIntegerValueFormatter.m in Sources */,
 				0552C51C195DFA14006AE004 /* NoodleLineNumberMarker.m in Sources */,
 				0552C4EF195DF9CF006AE004 /* ColorTextFieldCell.m in Sources */,
 				0552C448195DF966006AE004 /* BorderViewController.m in Sources */,

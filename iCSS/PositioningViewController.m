@@ -213,7 +213,6 @@
 
 - (void)loadStyleRule:(DOMCSSStyleRule *)styleRule {
     DOMCSSStyleDeclaration *style = styleRule.style;
-    //NSLog(@"!!!!     Load Positioning");
     [self clearControls];
     
     if (style.position.length > 0) {
